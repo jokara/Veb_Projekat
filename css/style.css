@@ -48,11 +48,7 @@ h6 {
 p {
   font-size: 15px; }
 
-.main-block {
-  padding: 90px 0; }
-  @media (max-width: 768px) {
-    .main-block {
-      padding: 45px 0; } }
+
 
 .light-bg {
   background: #f3f4f7; }
@@ -245,54 +241,43 @@ p {
       border-radius: 3px; } }
 
 .search-icon {
-  font-size: 15px;
-  padding-right: 10px; }
+	font-size: 15px;
+	padding-right: 10px; }
 
-.slider-link {
-  color: #BF4848;
-  margin: 45px 0 0;
-  font-size: 19px; }
-  @media (max-width: 480px) {
-    .slider-link {
-      margin: 18px 0 0; }
-      .slider-link a,
-      .slider-link span {
-        display: block; } }
-  .slider-link a {
+.brza_pretraga a:hover {
+     color: #fff; }
+
+.brza_pretraga a {
+    color: #BF4848;
+	font-weight:bold;
+	text-decoration: underline;}	 
+  
+.brza_pretraga {
+	color: #BF4848;
+	margin: 45px 0 0;
+	font-size: 19px; }
+  
+.brza_pretraga a {
     color: #BF4848;
 	font-weight:bold;
     text-decoration: underline;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s; }
-    .slider-link a:hover {
-      color: #fff; }
-  .slider-link span {
+}
+    
+.brza_pretraga span {
     padding: 0 18px; }
 
 /* ==============================================================
    FIND PLACES
    ============================================================== */
-.styled-heading {
+.najbolji_naslov {
   text-align: center;
-  margin: 0 0 50px; }
-  @media (max-width: 768px) {
-    .styled-heading {
-      margin: 0 0 30px; } }
-  .styled-heading h3 {
-    position: relative;
-    padding: 0 0 23px; }
-    .styled-heading h3:after {
-      position: absolute;
-      content: "";
-      width: 60px;
-      height: 3px;
-      background: #ff3a6d;
-      bottom: 0;
-      left: 50%;
-      -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      transform: translateX(-50%); }
+  margin-bottom:50px; 
+  margin-top:50px;
+  }
+  
+ 
+
+  
 
 .find-img-align {
   padding: 0 0 15px; }
@@ -303,29 +288,13 @@ p {
 /* ==============================================================
    FEATURED PLACES
    ============================================================== */
-.featured-place-wrap {
+.najbolje_ocenjeno_wrapper {
   background: #fff;
   margin: 0 0 30px;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  position: relative; }
-  .featured-place-wrap:hover {
-    -webkit-transform: translateY(-2px);
-    -ms-transform: translateY(-2px);
-    transform: translateY(-2px);
-    -webkit-box-shadow: 0px 3px 40px 0 rgba(206, 205, 205, 0.3);
-    box-shadow: 0px 3px 40px 0 rgba(206, 205, 205, 0.3); }
-  .featured-place-wrap a {
-    display: block;
-    text-decoration: none;
-    color: #000; }
-  .featured-place-wrap img {
-    width: 100%; }
+}
+  
 
-.featured-rating,
-.featured-rating-orange,
-.featured-rating-green {
+.kruzic,.kruzic_drugi,.kruzic_prvi {
   position: absolute;
   right: 10px;
   width: 60px;
@@ -333,105 +302,92 @@ p {
   text-align: center;
   margin: -33px 10px 0 0;
   font-size: 23px;
-  background: #ff7474;
+  background: #ffcc99;
   color: #fff;
   padding: 14px;
-  border-radius: 50%; }
+  border-radius: 50%;/*da bude kruzic*/
+}
 
-.featured-rating-orange {
-  background: #ffae00 !important; }
+.kruzic_prvi {
+  background: #003366 !important; }
 
-.featured-rating-green {
-  background: #46cd38 !important; }
-
-.featured-title-box {
+.kruzic_drugi {
+  background: #4c9900 !important; }
+  
+  
+.izgled_najbolje {
   padding: 22px 20px; }
   @media (max-width: 480px) {
-    .featured-title-box {
+    .izgled_najbolje {
       padding: 22px 14px; } }
-  .featured-title-box h6 {
+  .izgled_najbolje h6 {
     overflow: hidden;
     white-space: nowrap;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     margin-bottom: 5px; }
-  .featured-title-box p {
+  .izgled_najbolje p {
     color: #9fa9b9;
     display: inline-block;
     margin: 0; }
     @media (max-width: 320px) {
-      .featured-title-box p {
+      .izgled_najbolje p {
         font-size: 13px; } }
-    .featured-title-box p span {
+    .izgled_najbolje p span {
       color: #ffb006;
       padding: 0; }
-  .featured-title-box span {
+  .izgled_najbolje span {
     color: #9fa9b9;
     padding: 0 10px; }
     @media (max-width: 320px) {
-      .featured-title-box span {
+      .izgled_najbolje span {
         padding: 0 4px; } }
-  .featured-title-box ul {
+  .izgled_najbolje ul {
     padding: 0;
     margin: 10px 0 0; }
-    .featured-title-box ul li {
+    .izgled_najbolje ul li {
       list-style: none;
       color: #737882;
       line-height: 2; }
-      .featured-title-box ul li span {
+      .izgled_najbolje ul li span {
         padding: 7px 8px 0 0; }
         @media (max-width: 1200px) {
-          .featured-title-box ul li span {
+          .izgled_najbolje ul li span {
             padding: 0 4px 0 0; } }
         @media (max-width: 320px) {
-          .featured-title-box ul li span {
+          .izgled_najbolje ul li span {
             font-size: 12px;
             padding: 0 2px 0 0; } }
-      .featured-title-box ul li p {
+      .izgled_najbolje ul li p {
         margin: 0; }
 
-.bottom-icons {
+.oznake {
   padding: 15px 0 0;
   line-height: 1; }
-  .bottom-icons span {
+  .oznake span {
     float: right;
     line-height: 1;
     padding: 0 0 0 12px; }
 
-.closed-now {
+.zatvoreno {
   color: #ff3a6d;
   font-size: 13px;
   display: block;
   font-weight: 400;
   display: inline-block; }
 
-.open-now {
+.otvoreno {
   color: #46cd38;
   font-size: 13px;
   display: block;
   font-weight: 400;
   display: inline-block; }
 
-.featured-btn-wrap {
-  text-align: center; }
-  @media (max-width: 1200px) {
-    .featured-btn-wrap {
-      margin: 3px 0 0; } }
-  .featured-btn-wrap .btn-danger {
-    background: #ff3a6d;
-    padding: 16px 50px;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
-    border: 0; }
-    @media (max-width: 576px) {
-      .featured-btn-wrap .btn-danger {
-        width: 100%; } }
-    .featured-btn-wrap .btn-danger:hover, .featured-btn-wrap .btn-danger:focus {
-      background: #f34e79;
-      outline: none;
-      -webkit-box-shadow: none;
-      box-shadow: none; }
+.dugme_pogledaj_sve {
+  text-align: center; 
+  margin-bottom:10px;
+  }
+  
 
 /* ==============================================================
    CATEGORIES
@@ -499,36 +455,13 @@ p {
     font-weight: 300;
     color: #737882; }
 
-/* ==============================================================
-   FOOTER
-   ============================================================== */
-footer {
-  position: relative; }
 
-.copyright {
-  text-align: center; }
-  .copyright p {
-    font-size: 18px;
-    font-weight: 400;
-    color: #ccc;
-    margin: 0; }
-  .copyright ul {
-    margin: 25px 0 0;
-    padding: 0; }
-    .copyright ul li {
-      list-style: none;
-      display: inline-block; }
-      .copyright ul li a {
-        color: #ccc;
-        font-size: 22px;
-        padding: 0 10px;
-        opacity: 0.6;
-        -webkit-transition: 0.3s;
-        -o-transition: 0.3s;
-        transition: 0.3s; }
-        .copyright ul li a:hover {
-          opacity: 1;
-          text-decoration: none; }
+footer {
+  padding-top:15px;
+  text-align:center;
+  color:white;
+  
+  }
 
 /* ==============================================================
    SUB PAGES
