@@ -854,3 +854,159 @@ footer {
 #map {
   height: 100%;
   width: 100%; }
+ 
+ 
+  /* pozicioniranje dugmeta na baneru */
+.baner {
+  position: relative;
+  width: 100%;
+}
+
+.baner img {
+  width: 100%;
+  height: auto;
+}
+
+.baner .baner5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  -ms-transform: translate(-50%, -0%);
+  background-color: #ff8000;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.baner .baner5:hover {
+  background-color: black;
+} 
+
+.baner .baner2 {
+  position: absolute;
+  top: 82%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #660066;
+  color: white;
+  font-size: 16px;
+  padding: 8px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.baner .baner2:hover {
+  background-color: black;
+} 
+  
+  
+
+.baner .baner4 {
+  position: absolute;
+  top: 12%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #00cccc;
+  color: white;
+  font-size: 16px;
+  padding: 8px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.baner .baner4:hover {
+  background-color: black;
+} 
+  
+  
+  
+
+.baner .baner3 {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  -ms-transform: translate(-50%, -0%);
+  background-color: #663300;
+  color: white;
+  font-size: 16px;
+  padding: 8px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.baner .baner3:hover {
+  background-color: black;
+} 
+  
+  
+/*breadcrumbs*/
+
+
+/** The Magic **/
+.btn-breadcrumb .btn:not(:last-child):after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: 100%;
+  z-index: 3;
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid rgb(173, 173, 173);
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 3;
+}
+
+
+/*breadcrumbs*/
+
+.btn-breadcrumb .btn {
+  padding:6px 12px 6px 24px;
+}
+.btn-breadcrumb .btn:first-child {
+  padding:6px 6px 6px 10px;
+}
+.btn-breadcrumb .btn:last-child {
+  padding:6px 18px 6px 24px;
+}
+
+
+
+.btn-breadcrumb .btn.btn-success:not(:last-child):after {
+  border-left: 10px solid #5cb85c;
+}
+.btn-breadcrumb .btn.btn-success:not(:last-child):before {
+  border-left: 10px solid #4cae4c;
+}
+.btn-breadcrumb .btn.btn-success:hover:not(:last-child):after {
+  border-left: 10px solid #47a447;
+}
+.btn-breadcrumb .btn.btn-success:hover:not(:last-child):before {
+  border-left: 10px solid #398439;
+}
