@@ -1,11 +1,3 @@
-/*------------------------------------------------------------------
-Theme Name: Listing & Directory Website Template
-Version: 1.0
-Author: Surjith S M
--------------------------------------------------------------------*/
-/* ==============================================================
-   GLOBAL STYLES
-   ============================================================== */
 body {
   font-family: 'Roboto', sans-serif; }
 
@@ -56,9 +48,6 @@ p {
 .dark-bg {
   background: #252a33; }
 
-/* ==============================================================
-   HEADER
-   ============================================================== */
 .nav-menu {
   position: absolute;
   z-index: 1;
@@ -152,7 +141,7 @@ p {
   padding: 0 8px 0 0; }
 
 .slider {
-  background: url(../images/hrana1.jpg) no-repeat;
+  background: url(../images/naslovna4.jpeg) no-repeat;
   background-size: cover;
   min-height: 800px; }
   @media (max-width: 992px) {
@@ -180,7 +169,7 @@ p {
   text-align: center; }
 
 .slider-content_wrap h5 {
-  color: #BF4848;
+  color: #000;
   font-weight: 400;
   margin: 24px 0; }
 
@@ -189,7 +178,7 @@ p {
     margin: 0 !important; } }
 
 .btn-group {
-  width: 100%; }
+  width: 78%; }
   @media (max-width: 576px) {
     .btn-group {
       display: block; } }
@@ -227,7 +216,7 @@ p {
   font-size: 18px;
   padding: 17px;
   width: 27%;
-  background: #ff3a6d;
+  background: #336600;
   color: #ffffff;
   border: none;
   border-top-right-radius: 3px;
@@ -248,17 +237,17 @@ p {
      color: #fff; }
 
 .brza_pretraga a {
-    color: #BF4848;
+    color: #ffcc99;
 	font-weight:bold;
 	text-decoration: underline;}	 
   
 .brza_pretraga {
-	color: #BF4848;
+	color: #ffcc99;
 	margin: 45px 0 0;
 	font-size: 19px; }
   
 .brza_pretraga a {
-    color: #BF4848;
+    color: #ffcc99;
 	font-weight:bold;
     text-decoration: underline;
 }
@@ -266,9 +255,6 @@ p {
 .brza_pretraga span {
     padding: 0 18px; }
 
-/* ==============================================================
-   FIND PLACES
-   ============================================================== */
 .najbolji_naslov {
   text-align: center;
   margin-bottom:50px; 
@@ -285,9 +271,6 @@ p {
     .find-img-align {
       padding: 0; } }
 
-/* ==============================================================
-   FEATURED PLACES
-   ============================================================== */
 .najbolje_ocenjeno_wrapper {
   background: #fff;
   margin: 0 0 30px;
@@ -389,9 +372,6 @@ p {
   }
   
 
-/* ==============================================================
-   CATEGORIES
-   ============================================================== */
 @media (max-width: 992px) {
   .category-responsive {
     max-width: 50%;
@@ -442,9 +422,6 @@ p {
   width: 64px;
   height: 64px; }
 
-/* ==============================================================
-   ADD LISTING
-   ============================================================== */
 .add-listing-wrap {
   text-align: center;
   margin: 0 0 36px; }
@@ -463,12 +440,6 @@ footer {
   
   }
 
-/* ==============================================================
-   SUB PAGES
-   ============================================================== */
-/* ==============================================================
-   DETAIL PAGE
-   ============================================================== */
 .detail-filter-wrap {
   padding: 17px 0;
   border-bottom: 1px solid #e7e7e7; }
@@ -549,12 +520,6 @@ footer {
     -ms-flex: 100%;
     flex: 100%; } }
 
-/* 
-   BOOKING PAGE
-   */
-/* ==============================================================
-   RESERVE A SEAT
-   ============================================================== */
 .reserve-block {
   padding: 30px 0; }
   .reserve-block h5 {
@@ -643,9 +608,6 @@ footer {
   .custom-checkbox span {
     padding: 0 10px 0 0; }
 
-/* ==============================================================
-   BOOKING DETAILS
-   ============================================================== */
 .booking-details_wrap {
   padding: 26px 0; }
 
@@ -892,5 +854,3 @@ footer {
 #map {
   height: 100%;
   width: 100%; }
-
-/*# sourceMappingURL=style.css.map */
