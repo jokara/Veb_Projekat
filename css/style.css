@@ -87,7 +87,45 @@ p {
 .navbar-light .navbar-toggler {
   color: #fff;
   border-color: #fff; }
+  
+  
+  
+  
+ /*NAVBAR BLACK*/
+ .navbar-custom {
+  padding: .5rem 0; 
+  background-color:#292b2c;
+  
+  }
+ 
+ 
+ 
+ 
+.navbar-custom .navbar-brand {
+  color: #fff; }
+  .navbar-custom .navbar-brand:hover {
+    color: #fff; }
 
+.navbar-custom .navbar-nav .show > .nav-link {
+  color: #fff; }
+
+.navbar-custom .navbar-nav .active > .nav-link {
+  color: #fff; }
+
+.navbar-custom .navbar-nav .nav-link {
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff; }
+  .navbar-custom .navbar-nav .nav-link:hover, .navbar-custom .navbar-nav .nav-link:focus {
+    color: #fff;
+    outline: none; }
+
+.navbar-custom .navbar-toggler {
+  color: #fff;
+  border-color: #fff; 
+  }
+  
+ /*KRAJ NAVBARA BLACK*/
 @media (max-width: 992px) {
   .navbar-nav {
     padding: 7px 20px; } }
