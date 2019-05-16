@@ -171,7 +171,9 @@ p {
 .slider-content_wrap h5 {
   color: #000;
   font-weight: 400;
-  margin: 24px 0; }
+  margin: 24px 0; 
+  
+  }
 
 @media (max-width: 480px) {
   .form-wrap {
@@ -234,7 +236,7 @@ p {
 	padding-right: 10px; }
 
 .brza_pretraga a:hover {
-     color: #fff; }
+     color: #000; }
 
 .brza_pretraga a {
     color: #4c9900;
