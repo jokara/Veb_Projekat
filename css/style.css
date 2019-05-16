@@ -86,8 +86,9 @@ p {
 
 .navbar-light .navbar-toggler {
   color: #fff;
-  border-color: #fff; }
-  
+  border-color: #fff; 
+  }
+ 
   
   
   
@@ -97,9 +98,6 @@ p {
   background-color:#292b2c;
   
   }
- 
- 
- 
  
 .navbar-custom .navbar-brand {
   color: #fff; }
