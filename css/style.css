@@ -237,17 +237,17 @@ p {
      color: #fff; }
 
 .brza_pretraga a {
-    color: #ffcc99;
+    color: #4c9900;
 	font-weight:bold;
 	text-decoration: underline;}	 
   
 .brza_pretraga {
-	color: #ffcc99;
+	color: #B2FF66;
 	margin: 45px 0 0;
-	font-size: 19px; }
+	font-size: 20px; }
   
 .brza_pretraga a {
-    color: #ffcc99;
+    color: #B2FF66;
 	font-weight:bold;
     text-decoration: underline;
 }
@@ -276,6 +276,20 @@ p {
   margin: 0 0 30px;
 }
   
+
+.slova {
+  position: absolute;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  
+  font-size: 23px;
+  background: #ffcc99;
+  color: #fff;
+  border-radius: 50%;/*da bude kruzic*/
+}  
+
 
 .kruzic,.kruzic_drugi,.kruzic_prvi {
   position: absolute;
@@ -859,7 +873,7 @@ footer {
   /* pozicioniranje dugmeta na baneru */
 .baner {
   position: relative;
-  width: 100%;
+  width: 50%;
 }
 
 .baner img {
@@ -876,7 +890,7 @@ footer {
   background-color: #ff8000;
   color: white;
   font-size: 16px;
-  padding: 12px 24px;
+  
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -895,7 +909,6 @@ footer {
   background-color: #660066;
   color: white;
   font-size: 16px;
-  padding: 8px 20px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -916,7 +929,6 @@ footer {
   background-color: #00cccc;
   color: white;
   font-size: 16px;
-  padding: 8px 20px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -938,7 +950,6 @@ footer {
   background-color: #663300;
   color: white;
   font-size: 16px;
-  padding: 8px 20px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
