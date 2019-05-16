@@ -1,0 +1,68 @@
+#saint{
+	 
+	 
+	 background-image:url(../images/saint_pizza.jpg);
+	 background-size: 100% 100%;
+	 height: 300px;
+	 background-repeat: no-repeat;
+	 border: 3px solid grey;
+	 border-radius: 5px;
+	 
+}
+#good_food{
+	 
+	 
+	 background-image:url(../images/good_food.jpg);
+	 background-size: 100% 100%;
+	 height: 300px;
+	 background-repeat: no-repeat;
+	 border: 3px solid grey;
+	 border-radius: 5px;
+	 
+}
+#grill_51{
+	 
+	 
+	 background-image:url(../images/51_grill.jpg);
+	 background-size: 100% 100%;
+	 height: 300px;
+	 background-repeat: no-repeat;
+	 border: 3px solid grey;
+	 border-radius: 5px;
+	 
+}
+
+
+#slika{
+	border:10px;
+	border-radius: 40%;
+}
+
+#saint img:hover{
+	transform: scale(1.3);
+}
+#good_food img:hover{
+	transform: scale(1.3);
+}
+
+.dole {
+	position: absolute;
+	bottom: 10px;
+}
+
+.desno {
+	position: absolute;
+	bottom: 8px;
+	right: 6px;
+	left:225px;
+	
+}
+
+.opis{
+	border: 2px solid grey;
+	border-radius: 5px;
+	border-style: dotted;
+	padding:10px;
+	background-color: rgb(254, 253, 206);
+}
+
