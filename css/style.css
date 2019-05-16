@@ -1061,3 +1061,48 @@ footer {
 .btn-breadcrumb .btn.btn-success:hover:not(:last-child):before {
   border-left: 10px solid #398439;
 }
+
+
+
+.pretraga{
+	color:white;
+	font-size:45px;
+	font-weight:bold;
+	text-align:center;
+	font-family: 'Roboto', sans-serif;
+	background-color:#4c9900;
+}
+
+
+.pretraga2{
+	color:black;
+	font-size:30px;
+	text-align:center;
+	font-family: 'Roboto', sans-serif;
+	background-color:#ccff99;
+}
+
+.pretraga3{
+	color:black;
+	font-size:20px;
+	text-align:center;
+	font-family: 'Roboto', sans-serif;
+	background-color:#ccff99;
+}
+
+#pretrazi{
+	/*background-color:#99ff99;*/
+	background: url(../images/pozadina_pretraga.jpg) no-repeat;
+	color:#fff;
+	font-size:20px;
+	font-weight:bold;
+	text-align:center;
+}
+
+.slider2 {
+  background: url(../images/naslovna_filter.jpg) no-repeat;
+  background-size: cover;
+  min-height: 800px; }
+  @media (max-width: 992px) {
+    .slider2 {
+      min-height: 700px; } }
