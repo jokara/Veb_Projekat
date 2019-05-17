@@ -1106,3 +1106,14 @@ footer {
   @media (max-width: 992px) {
     .slider2 {
       min-height: 700px; } }
+	  
+.filtriranje{
+	text-align:center;
+	background-color:#ccff99;
+}
+
+.filtriranje2{
+	text-align:center;
+	padding-top:5px;
+	background-color:#4c9900;
+}
