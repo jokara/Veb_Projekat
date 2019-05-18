@@ -178,6 +178,7 @@ p {
   font-size: 14px;
   padding: 0 8px 0 0; }
 
+
 .slider {
   background: url(../images/naslovna4.jpeg) no-repeat;
   background-size: cover;
@@ -194,6 +195,32 @@ p {
     .slider_zvezdara {
       min-height: 700px; } }
 
+.slider_dorcol {
+  background: url(../images/dorcol.jpg) no-repeat;
+  background-size: cover;
+  min-height: 800px; }
+  @media (max-width: 992px) {
+    .slider_dorcol {
+      min-height: 700px; } }
+	  
+
+.slider_vracar {
+  background: url(../images/vracar.jpg) no-repeat;
+  background-size: cover;
+  min-height: 800px; }
+  @media (max-width: 992px) {
+    .slider_vracar {
+      min-height: 700px; } }
+
+	  
+.slider_nbgd {
+  background: url(../images/nbgd.jpg) no-repeat;
+  background-size: cover;
+  min-height: 800px; }
+  @media (max-width: 992px) {
+    .slider_nbgd {
+      min-height: 700px; } }
+  
 .btn-outline-light {
   padding: 10px 16px; }
   @media (max-width: 992px) {
