@@ -185,6 +185,14 @@ p {
   @media (max-width: 992px) {
     .slider {
       min-height: 700px; } }
+	  
+.slider_zvezdara {
+  background: url(../images/zvezdara.jpg) no-repeat;
+  background-size: cover;
+  min-height: 800px; }
+  @media (max-width: 992px) {
+    .slider_zvezdara {
+      min-height: 700px; } }
 
 .btn-outline-light {
   padding: 10px 16px; }
@@ -212,6 +220,7 @@ p {
   margin: 24px 0; 
   
   }
+  
 
 @media (max-width: 480px) {
   .form-wrap {
