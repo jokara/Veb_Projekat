@@ -187,6 +187,31 @@ p {
     .slider {
       min-height: 700px; } }
 	  
+.naslov_korpa{
+	text-align:center;
+	height:150px;
+	margin-top:30px;
+}
+	  
+	  
+.slider_cart {
+  background: url(../images/flash/cart2.jpg) no-repeat;
+  background-size: cover;
+  min-height: 800px; }
+  @media (max-width: 992px) {
+    .slider_cart {
+      min-height: 700px; } }	  
+	  
+	  
+.slider_food {
+  background: url(../images/flash/food.jpg) no-repeat;
+  background-size: cover;
+  min-height: 800px; }
+  @media (max-width: 992px) {
+    .slider_food {
+      min-height: 700px; } }	  	  
+	
+	
 .slider_zvezdara {
   background: url(../images/zvezdara.jpg) no-repeat;
   background-size: cover;
@@ -320,7 +345,9 @@ p {
 .brza_pretraga {
 	color: #B2FF66;
 	margin: 45px 0 0;
-	font-size: 20px; }
+	font-size: 20px; 
+	margin-bottom:0px;
+}
   
 .brza_pretraga a {
     color: #B2FF66;
