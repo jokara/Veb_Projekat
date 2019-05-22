@@ -25,7 +25,8 @@
 		<script>
 		
 			function filter(tip){//sortiranje po prosledjenom tipu(palacinke,brza,kolaci,...)
-				alert(tip);
+				localStorage.setItem("filter",tip);
+				window.open("filtriranje.html");
 			}
 		
 		</script>
@@ -37,9 +38,10 @@
 	
 		<!--Inicijalizacija localStorage-a-->
 		<script>
-		
+			localStorage.clear();
 			var R1 = {
 						"naziv": "Dolce by Tintolino",
+						"link":"Dolce.html",
 						"adresa": "Krunska 84",
 						"opstina": "Dorcol",
 						"vrsta":new Array("Kolaci"),
@@ -53,9 +55,10 @@
 					}
 			var R2 = {
 						"naziv": "Saint pizza",
+						"link":"saint.html",
 						"adresa": "Tršćanska 4",
 						"opstina": "Zvezdara",
-						"vrsta":new Array("Pizza"),
+						"vrsta":new Array("Brza hrana"),
 						"slika":"images/saintPizza.jpg",
 						"jela": new Array(
 							{'naziv':'Capricciosa ','cena':'420'},
@@ -66,6 +69,7 @@
 					}
 			var R3 = {
 						"naziv": "mcDonald's",
+						"link":"mcDonalds.html",
 						"adresa": "Bulevar kralja Aleksandra 62",
 						"opstina": "Zvezdara",
 						"vrsta":new Array("Brza hrana"),
@@ -79,6 +83,7 @@
 					}
 			var R4 = {
 						"naziv": "Poke_Olakino",
+						"link":"Poke_Olakino.html",
 						"adresa": "Omladinskih brigada 86",
 						"opstina": "Novi Beograd",
 						"vrsta":new Array("Kineska hrana"),
@@ -92,6 +97,7 @@
 					}
 			var R5 = {
 						"naziv": "Krilca",
+						"link":"Krilca.html",
 						"adresa": "Sinđelićevo sokače",
 						"opstina": "Vracar",
 						"vrsta":new Array("Rostilj"),
@@ -105,6 +111,7 @@
 					}
 			var R6 = {
 						"naziv": "Marukoshi",
+						"link":"Marukoshi.html",
 						"adresa": " Kapetan-Mišina 37",
 						"opstina": "Dorcol",
 						"vrsta":new Array("Kineska hrana"),
@@ -118,6 +125,7 @@
 					}
 			var R7 = {
 						"naziv": "Grill 51",
+						"link":"Grill51.html",
 						"adresa": "Vojislava Ilića 51",
 						"opstina": "Zvezdara",
 						"vrsta":new Array("Rostilj","Palacinke"),
@@ -131,6 +139,7 @@
 					}
 			var R8 = {
 						"naziv": "Go Sushi",
+						"link":"GoSushi.html",
 						"adresa": "Đorđa Stanojevića 9b",
 						"opstina": "Novi Beograd",
 						"vrsta":new Array("Kineska hrana"),
@@ -144,6 +153,7 @@
 					}
 			var R9 = {
 						"naziv": "Good Food",
+						"link":"GoodFood.html",
 						"adresa": "Gospodara Vučića 204a",
 						"opstina": "Zvezdara",
 						"vrsta":new Array("Rostilj"),
@@ -157,9 +167,10 @@
 					}
 			var R10 = {
 						"naziv": "Caribic pizza",
+						"link":"Caribic.html",
 						"adresa": "Bul Kralja Aleksandra 134",
 						"opstina": "Vracar",
-						"vrsta":new Array("Pizza"),
+						"vrsta":new Array("Brza hrana"),
 						"slika":"images/caribic.jpg",
 						"jela": new Array(
 							{'naziv':'Chicken feta  ','cena':'600'},
@@ -170,6 +181,7 @@
 					}
 			var R11 = {
 						"naziv": "Cake Factory",
+						"link":"CakeFactory.html",
 						"adresa": "Majora Milana Malnarića BB",
 						"opstina": "Novi Beograd",
 						"vrsta":new Array("Kolaci"),
@@ -183,9 +195,10 @@
 					}
 			var R12 = {
 						"naziv": "Bucko",
+						"link":"Bucko.html",
 						"adresa": "Beogradska 56",
 						"opstina": "Vracar",
-						"vrsta":new Array("Pizza"),
+						"vrsta":new Array("Brza hrana"),
 						"slika":"images/bucko.jpg",
 						"jela": new Array(
 							{'naziv':'Capricciosa  ','cena':'540'},
@@ -196,6 +209,7 @@
 					}
 			var R13 = {
 						"naziv": "Baloro",
+						"link":"Baloro.html",
 						"adresa": "Nevesinjska 2",
 						"opstina": "Vracar",
 						"vrsta":new Array("Palacinke"),
@@ -209,6 +223,7 @@
 					}
 			var R14 = {
 						"naziv": "Black White",
+						"link":"BlackWhite.html",
 						"adresa": "Bulevar Zorana Đinđića 12e",
 						"opstina": "Novi Beograd",
 						"vrsta":new Array("Kineska hrana"),
@@ -222,9 +237,10 @@
 					}
 			var R15 = {
 						"naziv": "Bergamo",
+						"link":"Bergamo.html",
 						"adresa": "Kovačeva 11",
 						"opstina": "Dorcol",
-						"vrsta":new Array("Pizza"),
+						"vrsta":new Array("Brza hrana"),
 						"slika":"images/bergamo.jpg",
 						"jela": new Array(
 							{'naziv':'Capricciosa  ','cena':'350'},
@@ -235,6 +251,7 @@
 					}
 			var R16 = {
 						"naziv": "Walter",
+						"link":"Walter.html",
 						"adresa": "Strahinjića Bana 57",
 						"opstina": "Dorcol",
 						"vrsta":new Array("Rostilj","Kolaci"),
@@ -460,7 +477,7 @@
 								<td>
 									<div class="mesta_wrapper">
 							<div class="grid">
-								<a href="javascript:filter('palacinke');">
+								<a href="javascript:filter('Palacinke');">
 									<figure class="effect-ruby">
 										<img src="images/palacinke.jpg" class="img-fluid" alt="img13" />
 										<figcaption>
@@ -475,7 +492,7 @@
 								<td>
 									 <div class="mesta_wrapper">
 									<div class="grid">
-										<a href="javascript:filter('brza');">
+										<a href="javascript:filter('Brza hrana');">
 											<figure class="effect-ruby">
 												<img src="images/brza_hrana.jpg" class="img-fluid" alt="img13" />
 												<figcaption>
@@ -490,7 +507,7 @@
 								<td>
 									<div class="mesta_wrapper">
 									<div class="grid">
-										<a href="javascript:filter('kolaci');">
+										<a href="javascript:filter('Kolaci');">
 											<figure class="effect-ruby">
 												<img src="images/kolaci.jpg" class="img-fluid" alt="img13" />
 												<figcaption>
@@ -507,7 +524,7 @@
 								<td>
 									<div class="mesta_wrapper">
 									<div class="grid">
-										<a href="javascript:filter('kineska');">
+										<a href="javascript:filter('Kineska hrana');">
 											<figure class="effect-ruby">
 												<img src="images/kineska.jpg" class="img-fluid" alt="img14" />
 												<figcaption>
@@ -522,7 +539,7 @@
 								<td>
 								<div class="mesta_wrapper">
 									<div class="grid">
-										<a href="javascript:filter('rostilj');">
+										<a href="javascript:filter('Rostilj');">
 											<figure class="effect-ruby">
 												<img src="images/rostilj.jpg" class="img-fluid" alt="img13" />
 												<figcaption>
@@ -537,7 +554,7 @@
 								<td>
 								<div class="mesta_wrapper">
 									<div class="grid">
-										<a href="javascript:filter('zdrava');">
+										<a href="javascript:filter('Zdrava hrana');">
 											<figure class="effect-ruby">
 												<img src="images/zdrava_hrana.jpg" class="img-fluid" alt="img13" />
 												<figcaption>
@@ -741,7 +758,7 @@
 				<div class="row justify-content-center">
 					<div class="col-sm-4">
 						<div class="dugme_pogledaj_sve">
-							<a href="filtriranje.html" class="btn btn-danger">Pogledaj sve</a>
+							<a href="javascript:filter('sve');"><input type="button" class="btn btn-danger" value='Pogledaj sve'></a>
 						</div>
 					</div>
 				</div>
