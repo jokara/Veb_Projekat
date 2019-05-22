@@ -1,0 +1,28 @@
+<script>
+
+			var Dolce = {
+						"naziv": "Dolce by Tintolino",
+						"adresa": "Krunska 84",
+						"opstina": "Dorcol",
+						"vrsta":new Array("Kolaci"),
+						"slika":"images/dolce_1.jpg",
+						"jela": new Array(
+							{'naziv':'Mafin','cena':'180'},
+							{'naziv':'Macaroon', 'cena':'100'},
+							{'naziv':'Cokoladna torta','cena':'2500'},
+							{'naziv':'Kolacic','cena':'80'}
+						)
+					}
+					
+			var DolceJSON = JSON.stringify(Dolce);
+			
+			localStorage.setItem('Dolce',DolceJSON);
+			
+			//dohvatanje iz js fje neke
+			
+			var DolceIzLS = JSON.parse(localStorage.getItem('Dolce'));
+					
+			alert(DolceIzLS.jela[1].naziv);
+
+		</script>
+	
