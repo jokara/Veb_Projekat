@@ -21,12 +21,297 @@
 		<link rel="stylesheet" href="css/set1.css">
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
+		
+		<script>
+		
+			function filter(tip){//sortiranje po prosledjenom tipu(palacinke,brza,kolaci,...)
+				alert(tip);
+			}
+		
+		</script>
+		
+		
 	</head>
 
 	<body>
 	
 		<!--Inicijalizacija localStorage-a-->
+		<script>
+		
+			var R1 = {
+						"naziv": "Dolce by Tintolino",
+						"adresa": "Krunska 84",
+						"opstina": "Dorcol",
+						"vrsta":new Array("Kolaci"),
+						"slika":"images/dolce_1.jpg",
+						"jela": new Array(
+							{'naziv':'Mafin','cena':'180'},
+							{'naziv':'Macaroon', 'cena':'100'},
+							{'naziv':'Cokoladna torta','cena':'2500'},
+							{'naziv':'Kolacic','cena':'80'}
+						)
+					}
+			var R2 = {
+						"naziv": "Saint pizza",
+						"adresa": "Tršćanska 4",
+						"opstina": "Zvezdara",
+						"vrsta":new Array("Pizza"),
+						"slika":"images/saintPizza.jpg",
+						"jela": new Array(
+							{'naziv':'Capricciosa ','cena':'420'},
+							{'naziv':'Palačinka ', 'cena':'170'},
+							{'naziv':'Hot-dog pizza','cena':'600'},
+							{'naziv':'Sendvič ','cena':'240'}
+						)
+					}
+			var R3 = {
+						"naziv": "mcDonald's",
+						"adresa": "Bulevar kralja Aleksandra 62",
+						"opstina": "Zvezdara",
+						"vrsta":new Array("Brza hrana"),
+						"slika":"images/mcDonalds.jpg",
+						"jela": new Array(
+							{'naziv':'Big Mac','cena':'450'},
+							{'naziv':'Premium Chicken Strips', 'cena':'500'},
+							{'naziv':'Caesar salata – grilovana piletina ','cena':'300'},
+							{'naziv':'Pomfrit ','cena':'200'}
+						)
+					}
+			var R4 = {
+						"naziv": "Poke_Olakino",
+						"adresa": "Omladinskih brigada 86",
+						"opstina": "Novi Beograd",
+						"vrsta":new Array("Kineska hrana"),
+						"slika":"images/pokeolakino.jpg",
+						"jela": new Array(
+							{'naziv':'Losos poke: sashimi ','cena':'650'},
+							{'naziv':'Tuna poke: sashimi', 'cena':'750'},
+							{'naziv':'Miso supa','cena':'630'},
+							{'naziv':'Tofu poke','cena':'900'}
+						)
+					}
+			var R5 = {
+						"naziv": "Krilca",
+						"adresa": "Sinđelićevo sokače",
+						"opstina": "Vracar",
+						"vrsta":new Array("Rostilj"),
+						"slika":"images/krilca.jpg",
+						"jela": new Array(
+							{'naziv':'Dimljeni batak ','cena':'600'},
+							{'naziv':'Grilovani file na žaru', 'cena':'590'},
+							{'naziv':'Krilca','cena':'700'},
+							{'naziv':'Punjeni pohovani file','cena':'680'}
+						)
+					}
+			var R6 = {
+						"naziv": "Marukoshi",
+						"adresa": " Kapetan-Mišina 37",
+						"opstina": "Dorcol",
+						"vrsta":new Array("Kineska hrana"),
+						"slika":"images/marukoshi.jpg",
+						"jela": new Array(
+							{'naziv':'Beef kare rice: sashimi ','cena':'280'},
+							{'naziv':'Beef yuki udon: sashimi', 'cena':'300'},
+							{'naziv':'Edamame ','cena':'350'},
+							{'naziv':'Katsudon ','cena':'350'}
+						)
+					}
+			var R7 = {
+						"naziv": "Grill 51",
+						"adresa": "Vojislava Ilića 51",
+						"opstina": "Zvezdara",
+						"vrsta":new Array("Rostilj","Palacinke"),
+						"slika":"images/51_grill.jpg",
+						"jela": new Array(
+							{'naziv':' Pljeskavica ','cena':'290'},
+							{'naziv':'Mesano meso', 'cena':'360'},
+							{'naziv':'Punjeno belo','cena':'310'},
+							{'naziv':'Snickers ','cena':'340'}
+						)
+					}
+			var R8 = {
+						"naziv": "Go Sushi",
+						"adresa": "Đorđa Stanojevića 9b",
+						"opstina": "Novi Beograd",
+						"vrsta":new Array("Kineska hrana"),
+						"slika":"images/go_sushi.jpg",
+						"jela": new Array(
+							{'naziv':'Goma salata ','cena':'650'},
+							{'naziv':'Edamame', 'cena':'750'},
+							{'naziv':'Šargarepa salata','cena':'630'},
+							{'naziv':'Morski plodovi','cena':'900'}
+						)
+					}
+			var R9 = {
+						"naziv": "Good Food",
+						"adresa": "Gospodara Vučića 204a",
+						"opstina": "Zvezdara",
+						"vrsta":new Array("Rostilj"),
+						"slika":"images/good_food.jpg",
+						"jela": new Array(
+							{'naziv':'Pileći batak ','cena':'300'},
+							{'naziv':'Kobasica ', 'cena':'300'},
+							{'naziv':'Pileći file','cena':'310'},
+							{'naziv':'Pljeskavica ','cena':'280'}
+						)
+					}
+			var R10 = {
+						"naziv": "Caribic pizza",
+						"adresa": "Bul Kralja Aleksandra 134",
+						"opstina": "Vracar",
+						"vrsta":new Array("Pizza"),
+						"slika":"images/caribic.jpg",
+						"jela": new Array(
+							{'naziv':'Chicken feta  ','cena':'600'},
+							{'naziv':'Mexico', 'cena':'590'},
+							{'naziv':'Srce pica','cena':'700'},
+							{'naziv':'Tuna ','cena':'680'}
+						)
+					}
+			var R11 = {
+						"naziv": "Cake Factory",
+						"adresa": "Majora Milana Malnarića BB",
+						"opstina": "Novi Beograd",
+						"vrsta":new Array("Kolaci"),
+						"slika":"images/cakef.jpg",
+						"jela": new Array(
+							{'naziv':'Torta  ','cena':'1500'},
+							{'naziv':'Rođendanska ', 'cena':'1700'},
+							{'naziv':'Čokoladna torta ','cena':'2500'},
+							{'naziv':'Zamak ','cena':'2000'}
+						)
+					}
+			var R12 = {
+						"naziv": "Bucko",
+						"adresa": "Beogradska 56",
+						"opstina": "Vracar",
+						"vrsta":new Array("Pizza"),
+						"slika":"images/bucko.jpg",
+						"jela": new Array(
+							{'naziv':'Capricciosa  ','cena':'540'},
+							{'naziv':'Margarita', 'cena':'500'},
+							{'naziv':'Parče pice','cena':'90'},
+							{'naziv':'Pasta ','cena':'300'}
+						)
+					}
+			var R13 = {
+						"naziv": "Baloro",
+						"adresa": "Nevesinjska 2",
+						"opstina": "Vracar",
+						"vrsta":new Array("Palacinke"),
+						"slika":"images/baloro2.jpg",
+						"jela": new Array(
+							{'naziv':'Kit-Kat  ','cena':'250'},
+							{'naziv':'Čokoladni šejk', 'cena':'200'},
+							{'naziv':'Kinder Bueno','cena':'310'},
+							{'naziv':'Snickers ','cena':'300'}
+						)
+					}
+			var R14 = {
+						"naziv": "Black White",
+						"adresa": "Bulevar Zorana Đinđića 12e",
+						"opstina": "Novi Beograd",
+						"vrsta":new Array("Kineska hrana"),
+						"slika":"images/bw2.jpg",
+						"jela": new Array(
+							{'naziv':'Piletina sa prazilukom ','cena':'350'},
+							{'naziv':'Kraljevska piletina', 'cena':'460'},
+							{'naziv':'Piletina sa indijskim orasimaa','cena':'460'},
+							{'naziv':'Piletina sa kikirikijem i povrćem ','cena':'460'}
+						)
+					}
+			var R15 = {
+						"naziv": "Bergamo",
+						"adresa": "Kovačeva 11",
+						"opstina": "Dorcol",
+						"vrsta":new Array("Pizza"),
+						"slika":"images/bergamo.jpg",
+						"jela": new Array(
+							{'naziv':'Capricciosa  ','cena':'350'},
+							{'naziv':'Cheese pizza', 'cena':'350'},
+							{'naziv':'Ljuta pizza ','cena':'370'},
+							{'naziv':'Vegetarijanska ','cena':'380'}
+						)
+					}
+			var R16 = {
+						"naziv": "Walter",
+						"adresa": "Strahinjića Bana 57",
+						"opstina": "Dorcol",
+						"vrsta":new Array("Rostilj","Kolaci"),
+						"slika":"images/walter.jpg",
+						"jela": new Array(
+							{'naziv':'Baklava  ','cena':'280'},
+							{'naziv':'Cevapi ', 'cena':'300'},
+							{'naziv':'Belo meso','cena':'350'},
+							{'naziv':'Pljeskavica ','cena':'350'}
+						)
+					}
+				
+			var R1JSON = JSON.stringify(R1);
 	
+			localStorage.setItem('R1',R1JSON);
+			
+			var R2JSON = JSON.stringify(R2);
+			
+			localStorage.setItem('R2',R2JSON);
+			
+			var R3JSON = JSON.stringify(R3);
+			
+			localStorage.setItem('R3',R3JSON);
+			
+			var R4JSON = JSON.stringify(R4);
+			
+			localStorage.setItem('R4',R4JSON);
+			
+			var R5JSON = JSON.stringify(R5);
+			
+			localStorage.setItem('R5',R5JSON);
+			
+			var R6JSON = JSON.stringify(R6);
+			
+			localStorage.setItem('R6',R6JSON);
+			
+			var R7JSON = JSON.stringify(R7);
+			
+			localStorage.setItem('R7',R7JSON);
+			
+			var R8JSON = JSON.stringify(R8);
+			
+			localStorage.setItem('R8',R8JSON);
+			
+			var R9JSON = JSON.stringify(R9);
+			
+			localStorage.setItem('R9',R9JSON);
+			
+			var R10JSON = JSON.stringify(R10);
+			
+			localStorage.setItem('R10',R10JSON);
+			
+			var R11JSON = JSON.stringify(R11);
+			
+			localStorage.setItem('R11',R11JSON);
+			
+			var R12JSON = JSON.stringify(R12);
+			
+			localStorage.setItem('R12',R12JSON);
+			
+			var R13JSON = JSON.stringify(R13);
+			
+			localStorage.setItem('R13',R13JSON);
+			
+			var R14JSON = JSON.stringify(R14);
+			
+			localStorage.setItem('R14',R14JSON);
+			
+			var R15JSON = JSON.stringify(R15);
+			
+			localStorage.setItem('R15',R15JSON);
+			
+			var R16JSON = JSON.stringify(R16);
+			
+			localStorage.setItem('R16',R16JSON);
+		
+		</script>
 	
 	
 		<!--Zaglavlje stranice-->
@@ -175,39 +460,45 @@
 								<td>
 									<div class="mesta_wrapper">
 							<div class="grid">
-								<figure class="effect-ruby">
-									<img src="images/palacinke.jpg" class="img-fluid" alt="img13" />
-									<figcaption>
-										<h5> Palačinke</h5>
-										<p>5 Nađeno</p>
-									</figcaption>
-								</figure>
+								<a href="javascript:filter('palacinke');">
+									<figure class="effect-ruby">
+										<img src="images/palacinke.jpg" class="img-fluid" alt="img13" />
+										<figcaption>
+											<h5> Palačinke</h5>
+											<p>5 Nađeno</p>
+										</figcaption>
+									</figure>
+								</a>
 							</div>
 						</div>
 								</td>
 								<td>
 									 <div class="mesta_wrapper">
 									<div class="grid">
-										<figure class="effect-ruby">
-											<img src="images/brza_hrana.jpg" class="img-fluid" alt="img13" />
-											<figcaption>
-												<h5>Brza </h5>
-												<p>20 Nađeno</p>
-											</figcaption>
-										</figure>
+										<a href="javascript:filter('brza');">
+											<figure class="effect-ruby">
+												<img src="images/brza_hrana.jpg" class="img-fluid" alt="img13" />
+												<figcaption>
+													<h5>Brza </h5>
+													<p>20 Nađeno</p>
+												</figcaption>
+											</figure>
+										</a>
 									</div>
 								</div>
 								</td>
 								<td>
 									<div class="mesta_wrapper">
 									<div class="grid">
-										<figure class="effect-ruby">
-											<img src="images/kolaci.jpg" class="img-fluid" alt="img13" />
-											<figcaption>
-												<h5>Kolači </h5>
-												<p>11 Nađeno</p>
-											</figcaption>
-										</figure>
+										<a href="javascript:filter('kolaci');">
+											<figure class="effect-ruby">
+												<img src="images/kolaci.jpg" class="img-fluid" alt="img13" />
+												<figcaption>
+													<h5>Kolači </h5>
+													<p>11 Nađeno</p>
+												</figcaption>
+											</figure>
+										</a>
 									</div>
 								</div>
 								</td>
@@ -216,39 +507,45 @@
 								<td>
 									<div class="mesta_wrapper">
 									<div class="grid">
-										<figure class="effect-ruby">
-											<img src="images/kineska.jpg" class="img-fluid" alt="img14" />
-											<figcaption>
-												<h5>Kineska </h5>
-												<p>3 Nađeno</p>
-											</figcaption>
-										</figure>
+										<a href="javascript:filter('kineska');">
+											<figure class="effect-ruby">
+												<img src="images/kineska.jpg" class="img-fluid" alt="img14" />
+												<figcaption>
+													<h5>Kineska </h5>
+													<p>3 Nađeno</p>
+												</figcaption>
+											</figure>
+										</a>
 									</div>
 								</div>
 								</td>
 								<td>
 								<div class="mesta_wrapper">
 									<div class="grid">
-										<figure class="effect-ruby">
-											<img src="images/rostilj.jpg" class="img-fluid" alt="img13" />
-											<figcaption>
-												<h5>Roštilj </h5>
-												<p>7 Nađeno</p>
-											</figcaption>
-										</figure>
+										<a href="javascript:filter('rostilj');">
+											<figure class="effect-ruby">
+												<img src="images/rostilj.jpg" class="img-fluid" alt="img13" />
+												<figcaption>
+													<h5>Roštilj </h5>
+													<p>7 Nađeno</p>
+												</figcaption>
+											</figure>
+										</a>
 									</div>
 								</div>
 								</td>
 								<td>
 								<div class="mesta_wrapper">
 									<div class="grid">
-										<figure class="effect-ruby">
-											<img src="images/zdrava_hrana.jpg" class="img-fluid" alt="img13" />
-											<figcaption>
-												<h5>Zdrava  </h5>
-												<p>5 Nađeno</p>
-											</figcaption>
-										</figure>
+										<a href="javascript:filter('zdrava');">
+											<figure class="effect-ruby">
+												<img src="images/zdrava_hrana.jpg" class="img-fluid" alt="img13" />
+												<figcaption>
+													<h5>Zdrava  </h5>
+													<p>5 Nađeno</p>
+												</figcaption>
+											</figure>
+										</a>
 									</div>
 								</div>
 								</td>
