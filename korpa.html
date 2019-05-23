@@ -49,6 +49,7 @@
 						var prod_cena=localStorage.getItem(i);
 						prod_cena=prod_cena.split("#");
 						localStorage.setItem("prviRed",prod_cena);
+						localStorage.setItem("flag_korpa",'true');
 						var prod=prod_cena[0];
 						var cena=prod_cena[1];
 						document.getElementById('th1').innerHTML=1;
@@ -61,6 +62,7 @@
 						if (i>4 && i<9) rest="Good Food";
 						if (i>8 && i<13)rest="Grill 51";
 						if (i>12 && i<17)rest="McDonald's";
+						localStorage.setItem("Restoran",rest);
 						document.getElementById('rest').innerHTML="<h2><font color='white'>"+rest+"</font></h2>";
 						localStorage.setItem(i,'false');
 						brojac=brojac+1;
@@ -116,7 +118,68 @@
 			}
 		
 		
-		
+			function start(){
+				var flag=localStorage.getItem('flag_korpa');
+				if (flag=='false') ispisi();
+				else{
+					var prod_cena=localStorage.getItem('prviRed');
+					if (prod_cena!='false'){
+						document.getElementById('rest').innerHTML="<h2><font color='white'>"+localStorage.getItem("Restoran")+"</font></h2>";
+						prod_cena=prod_cena.split(",");
+						var prod=prod_cena[0];
+						var cena=prod_cena[1]; 
+						document.getElementById('th1').innerHTML=1;
+						document.getElementById('r1').innerHTML=prod;
+						document.getElementById('r2').innerHTML='<input type="text" name="kolicina1" size="1">';
+						document.getElementById('r3').innerHTML=cena;
+						document.getElementById('r3').innerHTML+=" RSD";
+						document.korpa_forma.kolicina1.value='1';
+					}
+					var prod_cena1=localStorage.getItem('drugiRed');
+					if (prod_cena1!='false'){
+						prod_cena1=prod_cena1.split(",");
+						var prod1=prod_cena1[0];
+						var cena1=prod_cena1[1];
+						document.getElementById('th2').innerHTML=2;
+						document.getElementById('r4').innerHTML=prod1;
+						document.getElementById('r5').innerHTML='<input type="text" name="kolicina2" size="1">';
+						document.getElementById('r6').innerHTML=cena1;
+						document.getElementById('r6').innerHTML+=" RSD";
+						document.korpa_forma.kolicina2.value='1';
+					}
+					
+					
+					var prod_cena2=localStorage.getItem('treciRed');
+					if (prod_cena2!='false'){
+						prod_cena2=prod_cena2.split(",");
+						var prod2=prod_cena2[0];
+						var cena2=prod_cena2[1];
+						document.getElementById('th3').innerHTML=3;
+						document.getElementById('r7').innerHTML=prod2;
+						document.getElementById('r8').innerHTML='<input type="text" name="kolicina3" size="1">';
+						document.getElementById('r9').innerHTML=cena2;
+						document.getElementById('r9').innerHTML+=" RSD";
+						document.korpa_forma.kolicina3.value='1';
+					}
+					
+					var prod_cena3=localStorage.getItem('cetvrtiRed');
+					if (prod_cena3!='false'){
+						prod_cena3=prod_cena3.split(",");
+						var prod3=prod_cena3[0];
+						var cena3=prod_cena3[1];
+						document.getElementById('th4').innerHTML=4;
+						document.getElementById('r10').innerHTML+=prod3;
+						document.getElementById('r11').innerHTML='<input type="text" name="kolicina4" size="1">';
+						document.getElementById('r12').innerHTML+=cena3;
+						document.getElementById('r12').innerHTML+=" RSD";
+						document.korpa_forma.kolicina4.value='1';
+					}
+				}
+			}
+			
+			function restart(){
+				localStorage.setItem("flag_korpa",'false');
+			}
 		
 		
 		</script>
@@ -124,7 +187,7 @@
 		
 	</head>
 
-	<body onload='ispisi()'>
+	<body onload='start()'>
 	   <form name='korpa_forma'>
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu">
@@ -376,7 +439,7 @@
 				</div>
 				<div class="col naslov_korpa">
 				
-					<button class="btn btn-danger" onclick=""><font color="white">Odustani</font></button>
+					<button class="btn btn-danger" onclick="restart()"><font color="white">Odustani</font></button>
 				
 				</div>
 			
