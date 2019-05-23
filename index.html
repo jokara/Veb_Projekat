@@ -336,6 +336,33 @@
 			localStorage.setItem("treciRed",'false');
 			localStorage.setItem("cetvrtiRed",'false');
 			localStorage.setItem("flag_korpa",'false');
+			
+			//dodato sara
+			
+			var ocene_po_rest = {
+						"ocene": new Array(
+							{'restoran':'Dolce by Tintolino','ocena':'0'},
+							{'restoran':'Saint pizza', 'cena':'0'},
+							{'restoran':"mcDonalds",'cena':'0'},
+							{'restoran':'Poke_Olakino','cena':'0'}
+							{'restoran':'Krilca','ocena':'0'},
+							{'restoran':'Marukoshi','ocena':'0'},
+							{'restoran':'Grill 51','ocena':'0'},
+							{'restoran':'Go Sushi','ocena':'0'},
+							{'restoran':'Good Food','ocena':'0'},
+							{'restoran':'Caribic pizza','ocena':'0'},
+							{'restoran':'Cake Factory','ocena':'0'},
+							{'restoran':'Bucko','ocena':'0'},
+							{'restoran':'Baloro','ocena':'0'},
+							{'restoran':'Black White','ocena':'0'},
+							{'restoran':'Bergamo','ocena':'0'},
+							{'restoran':'Walter','ocena':'0'}
+						)
+					}
+			var ocene_json = JSON.stringify(ocene_po_rest);
+	
+			localStorage.setItem('ocene',ocene_json);
+			
 		</script>
 	
 	

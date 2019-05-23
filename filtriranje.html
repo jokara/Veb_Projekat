@@ -172,7 +172,7 @@
 			}
 			
 			
-			function dohvati_izlistane(){
+			function dohvati_izlistane_ime(){
 				var tip=localStorage.getItem("filter");
 				//alert(tip);
 				
@@ -219,6 +219,53 @@
 				//alert("gotovo");
 			}
 			
+			function dohvati_izlistane_opstina(){
+				var tip=localStorage.getItem("filter");
+				alert("tip: "+tip);
+				
+				var opstina=[];
+					
+				var num=0;
+				if(tip!=null && tip!="sve"){
+					
+					for(var i=1;i<17;i++){
+						var str='R'+i;
+						
+						var RIzLS = JSON.parse(localStorage.getItem(str));
+						for(var j=0;j<RIzLS.vrsta.length;j++){
+							alert("tip: "+tip+" dohvatio: "+RIzLS.vrsta[j]);
+							if(RIzLS.vrsta[j]==tip) {
+								//alert(str);
+								opstina[num]=RIzLS.opstina;
+								num++;
+							}
+						}
+					}
+					alert("dohvacen opstina: "+opstina);
+				
+				}
+				else{
+				
+					if(tip=="sve"){
+						for(var i=1;i<17;i++){
+							var str='R'+i;
+							
+							var RIzLS = JSON.parse(localStorage.getItem(str));
+							
+							opstina[num]=RIzLS.opstina;
+							num++;
+						}
+						
+					}
+				
+				}
+				
+				//localStorage.removeItem("filter");
+				
+				return opstina;
+				//alert("gotovo");
+			}
+			
 			
 			function primeni_filter(){
 				var opstina=0;
@@ -229,22 +276,35 @@
 				if(document.pretraga_forma.ime.checked) ime=1;
 				if(document.pretraga_forma.ocena.checked) ocena=1;
 				
-				var niz=new Array("ccc","aaa","bbb");
-				
-				var niz_s=niz.sort();
-				
-				//alert(niz_s);
-				
-				
-				//alert("kraj");
-				
-				var izlistani=dohvati_izlistane();
+				var izlistani=[];
 				//alert(izlistani);
 				
-				var izlistani_s=izlistani.sort();
+				var izlistani_s=[];
+				
+				//po imenu
+				if(ime==1) {
+					izlistani=dohvati_izlistane_ime();
+					alert(izlistani);
+					izlistani_s=izlistani.sort();
+				
+				}
+				
+				//po opstini
+				else if(opstina==1) {
+				
+					izlistani=dohvati_izlistane_opstina();
+					izlistani_s=izlistani.sort();
+				}
+				
+				//po oceni
+				else if(ocena==1) {
+				
+					izlistani=dohvati_izlistane_ocena();
+					izlistani_s=izlistani.sort();
+				}
 				
 				//alert('reverse');
-				//alert(izlistani_s);
+				alert("sortiran: "+izlistani_s);
 				
 				
 				var json = JSON.stringify(izlistani_s);
@@ -398,7 +458,7 @@
 							<br>
 							<h6>Sortiraj po opstini</h6>
 							<br>
-							<input type="checkbox" id="opstina">
+							<input type="radio" id="opstina" name='kriterijum'>
 							<br>
 						
 						</div>
@@ -408,7 +468,7 @@
 							<br>
 							<h6>Sortiraj po imenu restorana</h6>
 							<br>
-							<input type="checkbox" id="ime">
+							<input type="radio" id="ime" name='kriterijum'>
 							<br>
 						
 						</div>
@@ -418,7 +478,7 @@
 							<br>
 							<h6>Sortiraj po oceni</h6>
 							<br>
-							<input type="checkbox" id="ocena">
+							<input type="radio" id="ocena" name='kriterijum'>
 							<br>
 						
 						</div>
