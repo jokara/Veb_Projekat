@@ -77,6 +77,9 @@
 				var brojac=0;
 				var rest="";
 				for(var i=1;i<18;i++){
+					alert(i);
+					alert(brojac);
+					alert(localStorage.getItem(i));
 					if ((localStorage.getItem(i)!='false')&&(brojac==0)&&(localStorage.getItem(i)!='null')){
 						var prod_cena=localStorage.getItem(i);
 						prod_cena=prod_cena.split("#");
@@ -84,7 +87,7 @@
 						var cena=prod_cena[1];
 						document.getElementById('th1').innerHTML=1;
 						document.getElementById('r1').innerHTML+=prod;
-						document.getElementById('r2').innerHTML='<button class="btn btn-dark" onclick="oduzmi1()"> - </button><input type="text" name="kolicina1" size="1"><button class="btn btn-dark" onclick="saberi1()">+</button>';
+						document.getElementById('r2').innerHTML='<input type="text" name="kolicina1" size="1">';
 						document.getElementById('r3').innerHTML+=cena;
 						document.getElementById('r3').innerHTML+=" RSD";
 						document.korpa_forma.kolicina1.value='1';
@@ -103,7 +106,7 @@
 						var cena=prod_cena[1];
 						document.getElementById('th2').innerHTML=2;
 						document.getElementById('r4').innerHTML+=prod;
-						document.getElementById('r5').innerHTML='<button class="btn btn-dark" onclick="oduzmi2()"> - </button><input type="text" name="kolicina2" size="1"><button class="btn btn-dark" onclick="saberi2()">+</button>';
+						document.getElementById('r5').innerHTML='<input type="text" name="kolicina2" size="1">';
 						document.getElementById('r6').innerHTML+=cena;
 						document.getElementById('r6').innerHTML+=" RSD";
 						document.korpa_forma.kolicina2.value='1';
@@ -117,7 +120,7 @@
 						var cena=prod_cena[1];
 						document.getElementById('th3').innerHTML=3;
 						document.getElementById('r7').innerHTML+=prod;
-						document.getElementById('r8').innerHTML='<button class="btn btn-dark" onclick="oduzmi3()"> - </button><input type="text" name="kolicina3" size="1"><button class="btn btn-dark" onclick="saberi3()">+</button>';
+						document.getElementById('r8').innerHTML='<input type="text" name="kolicina3" size="1">';
 						document.getElementById('r9').innerHTML+=cena;
 						document.getElementById('r9').innerHTML+=" RSD";
 						document.korpa_forma.kolicina3.value='1';
@@ -131,7 +134,7 @@
 						var cena=prod_cena[1];
 						document.getElementById('th4').innerHTML=4;
 						document.getElementById('r10').innerHTML+=prod;
-						document.getElementById('r11').innerHTML='<button class="btn btn-dark" onclick="oduzmi4()"> - </button><input type="text" name="kolicina4" size="1"><button class="btn btn-dark" onclick="saberi4()">+</button>';
+						document.getElementById('r11').innerHTML='<input type="text" name="kolicina4" size="1">';
 						document.getElementById('r12').innerHTML+=cena;
 						document.getElementById('r12').innerHTML+=" RSD";
 						document.korpa_forma.kolicina4.value='1';
@@ -326,7 +329,7 @@
 			<br><br>
 			<form name="podaci" style="text-align:center">
 					
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
@@ -336,7 +339,7 @@
 				
 				</div>
 				<br><br>
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
@@ -345,7 +348,7 @@
 					</div>
 				
 				</div>
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
@@ -355,7 +358,7 @@
 				
 				</div>
 				<br>
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
@@ -364,7 +367,7 @@
 					</div>
 				
 				</div>
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
@@ -374,7 +377,7 @@
 				
 				</div>
 				<br>
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
@@ -384,7 +387,7 @@
 				
 				</div>
 			
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
@@ -395,7 +398,7 @@
 				</div>
 			</form>
 			<br><br>
-			<div class="row">
+			<div class="row" align='center'>
 			
 				<div class="col naslov_korpa">
 				
