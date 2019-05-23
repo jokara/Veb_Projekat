@@ -9,8 +9,6 @@
 		
 		<title>Korpa</title>
 
-
-
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		
@@ -22,9 +20,140 @@
 		<link rel="stylesheet" href="css/set1.css">
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
+		
+		<script>
+			 
+			function saberi1(){
+				var kol=parseInt(document.korpa_forma.kolicina1.value);
+				kol=kol+1;
+				document.korpa_forma.kolicina1.value=kol;
+			}
+			
+			function oduzmi1(){
+				var kol=parseInt(document.korpa_forma.kolicina1.value);
+				if (kol>0) kol=kol-1;
+				document.korpa_forma.kolicina1.value=kol;
+			}
+			
+			function saberi2(){
+				var kol=parseInt(document.korpa_forma.kolicina2.value);
+				kol=kol+1;
+				document.korpa_forma.kolicina2.value=kol;
+			}
+			
+			function oduzmi2(){
+				var kol=parseInt(document.korpa_forma.kolicina2.value);
+				if (kol>0) kol=kol-1;
+				document.korpa_forma.kolicina2.value=kol;
+			}
+			
+			function saberi3(){
+				var kol=parseInt(document.korpa_forma.kolicina3.value);
+				kol=kol+1;
+				document.korpa_forma.kolicina3.value=kol;
+			}
+			
+			function oduzmi3(){
+				var kol=parseInt(document.korpa_forma.kolicina3.value);
+				if (kol>0) kol=kol-1;
+				document.korpa_forma.kolicina3.value=kol;
+			}
+			
+			function saberi4(){
+				var kol=parseInt(document.korpa_forma.kolicina4.value);
+				kol=kol+1;
+				document.korpa_forma.kolicina4.value=kol;
+			}
+			
+			function oduzmi4(){
+				var kol=parseInt(document.korpa_forma.kolicina4.value);
+				if (kol>0) kol=kol-1;
+				document.korpa_forma.kolicina4.value=kol;
+			}
+		
+		
+		
+			function ispisi(){
+				var brojac=0;
+				var rest="";
+				for(var i=1;i<18;i++){
+					if ((localStorage.getItem(i)!='false')&&(brojac==0)&&(localStorage.getItem(i)!='null')){
+						var prod_cena=localStorage.getItem(i);
+						prod_cena=prod_cena.split("#");
+						var prod=prod_cena[0];
+						var cena=prod_cena[1];
+						document.getElementById('th1').innerHTML=1;
+						document.getElementById('r1').innerHTML+=prod;
+						document.getElementById('r2').innerHTML='<button class="btn btn-dark" onclick="oduzmi1()"> - </button><input type="text" name="kolicina1" size="1"><button class="btn btn-dark" onclick="saberi1()">+</button>';
+						document.getElementById('r3').innerHTML+=cena;
+						document.getElementById('r3').innerHTML+=" RSD";
+						document.korpa_forma.kolicina1.value='1';
+						if (i<5) rest="The Saint";
+						if (i>4 && i<9) rest="Good Food";
+						if (i>8 && i<13)rest="Grill 51";
+						if (i>12 && i<17)rest="McDonald's";
+						document.getElementById('rest').innerHTML="<h2><font color='black'>"+rest+"</font></h2>";
+						localStorage.setItem(i,'false');
+						brojac=brojac+1;
+					}
+					if ((localStorage.getItem(i)!='false')&&(brojac==1)&&(localStorage.getItem(i)!='null')){
+						var prod_cena=localStorage.getItem(i);
+						prod_cena=prod_cena.split("#");
+						var prod=prod_cena[0];
+						var cena=prod_cena[1];
+						document.getElementById('th2').innerHTML=2;
+						document.getElementById('r4').innerHTML+=prod;
+						document.getElementById('r5').innerHTML='<button class="btn btn-dark" onclick="oduzmi2()"> - </button><input type="text" name="kolicina2" size="1"><button class="btn btn-dark" onclick="saberi2()">+</button>';
+						document.getElementById('r6').innerHTML+=cena;
+						document.getElementById('r6').innerHTML+=" RSD";
+						document.korpa_forma.kolicina2.value='1';
+						localStorage.setItem(i,'false');
+						brojac=brojac+1;
+					}
+					if ((localStorage.getItem(i)!='false')&&(brojac==2)&&(localStorage.getItem(i)!='null')){
+						var prod_cena=localStorage.getItem(i);
+						prod_cena=prod_cena.split("#");
+						var prod=prod_cena[0];
+						var cena=prod_cena[1];
+						document.getElementById('th3').innerHTML=3;
+						document.getElementById('r7').innerHTML+=prod;
+						document.getElementById('r8').innerHTML='<button class="btn btn-dark" onclick="oduzmi3()"> - </button><input type="text" name="kolicina3" size="1"><button class="btn btn-dark" onclick="saberi3()">+</button>';
+						document.getElementById('r9').innerHTML+=cena;
+						document.getElementById('r9').innerHTML+=" RSD";
+						document.korpa_forma.kolicina3.value='1';
+						localStorage.setItem(i,'false');
+						brojac=brojac+1;
+					}
+					if ((localStorage.getItem(i)!='false')&&(brojac==3)&&(localStorage.getItem(i)!='null')){
+						var prod_cena=localStorage.getItem(i);
+						prod_cena=prod_cena.split("#");
+						var prod=prod_cena[0];
+						var cena=prod_cena[1];
+						document.getElementById('th4').innerHTML=4;
+						document.getElementById('r10').innerHTML+=prod;
+						document.getElementById('r11').innerHTML='<button class="btn btn-dark" onclick="oduzmi4()"> - </button><input type="text" name="kolicina4" size="1"><button class="btn btn-dark" onclick="saberi4()">+</button>';
+						document.getElementById('r12').innerHTML+=cena;
+						document.getElementById('r12').innerHTML+=" RSD";
+						document.korpa_forma.kolicina4.value='1';
+						localStorage.setItem(i,'false');
+						brojac=brojac+1;
+					}
+					
+					if(brojac==4) brojac=0;
+				}
+			}
+		
+		
+		
+		
+		
+		</script>
+		
+		
 	</head>
 
-	<body>
+	<body onload='ispisi()'>
+	   <form name='korpa_forma'>
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu">
 			<div class="bg transition">
@@ -46,10 +175,10 @@
 						<span class="icon-arrow-down"></span>
 					  </a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="#">Vračar</a>
-												<a class="dropdown-item" href="#">Dorćol</a>
-												<a class="dropdown-item" href="#">Novi Beograd</a>
-												<a class="dropdown-item" href="#">Zvezdara</a>
+												<a class="dropdown-item" href="vracar.html">Vračar</a>
+												<a class="dropdown-item" href="dorcol.html">Dorćol</a>
+												<a class="dropdown-item" href="novi_beograd.html">Novi Beograd</a>
+												<a class="dropdown-item" href="zvezdara.html">Zvezdara</a>
 											</div>
 										</li>
 										
@@ -60,10 +189,10 @@
 						 <span class="icon-arrow-down"></span>
 					   </a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="#">Tim autora</a>
-												<a class="dropdown-item" href="#">Nagrade</a>
-												<a class="dropdown-item" href="#">Spoznori</a>
-												<a class="dropdown-item" href="#">Kontakt</a>
+												<a class="dropdown-item" href="tim.html">Tim autora</a>
+												<a class="dropdown-item" href="nagrade.html">Nagrade</a>
+												<a class="dropdown-item" href="sponzori.html">Spoznori</a>
+												<a class="dropdown-item" href="kontakt.html">Kontakt</a>
 											</div>
 										</li>
 										
@@ -142,7 +271,11 @@
 			<div class="row">
 			
 				<div class="col-xs-12 col-sm-12">
-				
+					<table class="table table-hover">
+						<tr align='center'>
+							<td id='rest'></td>
+						</tr>
+					</table>
 					<table class="table table-hover">
 					  <thead>
 						<tr>
@@ -153,49 +286,37 @@
 						</tr>
 					  </thead>
 					  <tbody>
-						<tr id="r0">
-						  <th scope="row">1</th>
-						  <td>Big Mac</td>
-						  <td>
-							<button class="btn btn-dark" onclick=""> - </button>
-							1
-							<button class="btn btn-dark" onclick="">+</button></td>
-						  <td>400 RSD</td>
+						<tr>
+						  <th scope="row" id='th1'>1</th>
+						  <td id='r1'></td>
+						  <td id='r2'></td>
+						  <td id='r3'></td>
 						</tr>
-						<tr id="r1">
-						  <th scope="row">2</th>
-						  <td>Premium Chicken Strips</td>
-						  <td>
-							<button class="btn btn-dark" onclick="">-</button>
-							2
-							<button class="btn btn-dark" onclick="">+</button></td>
-						  </td>
-						  <td>800 RSD</td>
+						<tr>
+						  <th scope="row" id='th2'></th>
+						  <td id='r4'></td>
+						  <td id='r5'></td>
+						  <td id='r6'></td>
 						</tr>
-						<tr id="r2">
-						  
+						<tr>
+						  <th scope="row" id='th3'></th>
+						  <td id='r7'></td>
+						  <td id='r8'></td>
+						  <td id='r9'></td>
 						</tr>
-						<tr id="r3">
-						  
+						<tr>
+						  <th scope="row" id='th4'></th>
+						  <td id='r10'></td>
+						  <td id='r11'></td>
+						  <td id='r12'></td>
 						</tr>
-						<tr id="r4">
-						  
+						<tr>
+						  <th scope="row" id='th5'></th>
+						  <td id='r13'></td>
+						  <td id='r14'></td>
+						  <td id='r15'></td>
 						</tr>
-						<tr id="r5">
-						  
-						</tr>
-						<tr id="r6">
-						  
-						</tr>
-						<tr id="r7">
-						  
-						</tr>
-						<tr id="r8">
-						  
-						</tr>
-						<tr id="r9">
-						  
-						</tr>
+					
 					  </tbody>
 					</table>
 				
@@ -292,7 +413,7 @@
 			
 		</div>
 				
-	   
+	   </form>
 		<!--FOOTER-->
 		<footer class="footer dark-bg">
 			<div class="container">
