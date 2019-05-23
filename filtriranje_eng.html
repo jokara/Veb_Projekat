@@ -23,9 +23,89 @@
 		<link rel="stylesheet" href="css/set1.css">
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
+		
+		
+		<script>
+		
+			function filtriraj(){
+				var tip=localStorage.getItem("filter");
+				//alert(tip);
+					
+					var h=[];
+					var sl=[];
+					var t=[];
+					var op=[];
+					var naziv=[];
+					
+					var num=0;
+				if(tip!=null && tip!="sve"){
+					
+					for(var i=1;i<17;i++){
+						var str='R'+i;
+						
+						var RIzLS = JSON.parse(localStorage.getItem(str));
+						for(var j=0;j<RIzLS.vrsta.length;j++){
+							//alert("tip: "+tip+" dohvatio: "+RIzLS.vrsta[j]);
+							if(RIzLS.vrsta[j]==tip) {
+								//alert(str);
+								naziv[num]=RIzLS.naziv;
+								h[num]=RIzLS.link;
+								op[num]=RIzLS.opstina;
+								t[num]=tip;
+								sl[num]=RIzLS.slika;
+								num++;
+							}
+						}
+					}
+					//alert(naziv);
+				
+				}
+				else{
+				
+					if(tip=="sve"){
+						for(var i=1;i<17;i++){
+							var str='R'+i;
+							
+							var RIzLS = JSON.parse(localStorage.getItem(str));
+							
+							naziv[num]=RIzLS.naziv;
+							h[num]=RIzLS.link;
+							op[num]=RIzLS.opstina;
+							t[num]=tip;
+							sl[num]=RIzLS.slika;
+							num++;
+						}
+						
+					}
+				
+				}
+				
+				localStorage.removeItem("filter");
+				
+				for(var i=0;i<num;i++){
+					var html_fajl=h[i];
+					var ime=naziv[i];
+					var opstina=op[i];
+					var vrsta=t[i];
+					var slika=sl[i];
+					
+					//alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
+					var n=i+1;
+					document.getElementById("r"+n).innerHTML="<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>";
+				}
+				//alert("gotovo");
+			}
+			
+			
+		
+		</script>
+		
+		
+		
+		
 	</head>
 
-	<body>
+	<body onload="filtriraj()">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu">
 			<div class="bg transition">
@@ -246,280 +326,61 @@
 								
 						</div>
 					
-						<div class="col-sm-6 col-xs-6">
-						<a href="Grill51_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/51_grill.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> 51 Grill</h5>
-											<p>Grill - Zvezdara</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
+						<div class="col-sm-6 col-xs-6" id="r1">
+							
 						</div>
-						<div class="col-sm-6 col-xs-6">
-						<a href="saint_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/saintPizza.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Saint pizza</h5>
-											<p>Fast food - Zvezdara</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
+						<div class="col-sm-6 col-xs-6" id="r2">
+							
 						</div>
+						<div class="col-sm-6 col-xs-6" id="r3">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r4">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r5">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r6">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r7">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r8">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r9">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r10">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r11">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r12">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r13">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r14">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r15">
+							
+						</div>
+						<div class="col-sm-6 col-xs-6" id="r16">
+							
+						</div>
+						
 					
 					</div>
 					
-					<div class="row">
 					
-						<div class="col-sm-6 col-xs-6">
-						<a href="mcDonalds_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/mcDonalds.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> McDonalds</h5>
-											<p>Fast food - Zvezdara</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-						<div class="col-sm-6 col-xs-6">
-						<a href="GoodFood_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/good_food.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Good food</h5>
-											<p>Fast food - Zvezdara</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
 					
-					</div>
 					
-					<div class="row">
-					
-						<div class="col-sm-6 col-xs-6">
-						<a href="GoSushi_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/go_sushi.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Go sushi</h5>
-											<p>Chinese - Novi Beograd</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-						<div class="col-sm-6 col-xs-6">
-						<a href="Walter_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/walter.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Walter</h5>
-											<p>Grill - Dorcol</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-					
-					</div>
-					
-					<div class="row">
-					
-						<div class="col-sm-6 col-xs-6">
-						<a href="Marukoshi_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/marukoshi.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Marukoshi</h5>
-											<p>Chinese - Dorcol</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-						<div class="col-xs-6 col-sm-6">
-						<a href="Caribic_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/caribic.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Caribic pizza</h5>
-											<p>Fast food - Vracar</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-					
-					</div>
-					
-					<div class="row">
-					
-						<div class="col-sm-6 col-xs-6">
-						<a href="Bergamo_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/bergamo.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Bergamo</h5>
-											<p>Fast food - Dorcol</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-						<div class="col-sm-6 col-xs-6">
-						<a href="Bucko_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/bucko.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Bucko</h5>
-											<p>Fast food - Vracar</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-					
-					</div>
-					<div class="row">
-					
-						<div class="col-sm-6 col-xs-6">
-						<a href="Baloro_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/baloro2.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Baloro</h5>
-											<p>Cookies - Vracar</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-						<div class="col-sm-6 col-xs-6">
-						<a href="Dolce_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/dolce_1.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Dolce by Tintolino</h5>
-											<p>Cookies - Dorcol</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-					
-					</div>
-					<div class="row">
-					
-						<div class="col-sm-6 col-xs-6">
-						<a href="Poke_Olakino_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/pokeolakino.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Pokeolakino</h5>
-											<p>Healthy - Novi Beograd</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-						<div class="col-sm-6 col-xs-6">
-						<a href="Krilca_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/krilca.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> Krilca</h5>
-											<p>Grill - Vracar</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-					
-					</div>
-					<div class="row">
-					
-						<div class="col-sm-6 col-xs-6">
-						<a href="CakeFactory_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/cakef.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5> CakeFactory</h5>
-											<p>Cookies - Novi Beograd</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-						<div class="col-sm-6 col-xs-6">
-						 <a href="BlackWhite_eng.html">
-							<div class="mesta_wrapper">
-								<div class="grid">
-									<figure class="effect-ruby">
-										<img src="images/bw2.jpg" class="img-fluid"/>
-										<figcaption>
-											<h5>BlackWhite</h5>
-											<p>Chinese food - Novi Beograd</p>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						</a>
-						</div>
-					
-					</div>
 				
 				</div>
 				

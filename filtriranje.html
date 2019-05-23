@@ -28,16 +28,157 @@
 		<script>
 		
 			function filtriraj(){
+				if(localStorage.getItem('primeni')!=1){
+					var tip=localStorage.getItem("filter");
+					//alert(tip);
+						
+						var h=[];
+						var sl=[];
+						var t=[];
+						var op=[];
+						var naziv=[];
+						
+						var num=0;
+					if(tip!=null && tip!="sve"){
+						
+						for(var i=1;i<17;i++){
+							var str='R'+i;
+							
+							var RIzLS = JSON.parse(localStorage.getItem(str));
+							for(var j=0;j<RIzLS.vrsta.length;j++){
+								//alert("tip: "+tip+" dohvatio: "+RIzLS.vrsta[j]);
+								if(RIzLS.vrsta[j]==tip) {
+									//alert(str);
+									naziv[num]=RIzLS.naziv;
+									h[num]=RIzLS.link;
+									op[num]=RIzLS.opstina;
+									t[num]=tip;
+									sl[num]=RIzLS.slika;
+									num++;
+								}
+							}
+						}
+						//alert(naziv);
+					
+					}
+					else{
+					
+						if(tip=="sve"){
+							for(var i=1;i<17;i++){
+								var str='R'+i;
+								
+								var RIzLS = JSON.parse(localStorage.getItem(str));
+								
+								naziv[num]=RIzLS.naziv;
+								h[num]=RIzLS.link;
+								op[num]=RIzLS.opstina;
+								t[num]=tip;
+								sl[num]=RIzLS.slika;
+								num++;
+							}
+							
+						}
+					
+					}
+					
+					//localStorage.removeItem("filter");
+					
+					for(var i=0;i<num;i++){
+						var html_fajl=h[i];
+						var ime=naziv[i];
+						var opstina=op[i];
+						var vrsta=t[i];
+						var slika=sl[i];
+						
+						//alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
+						var n=i+1;
+						document.getElementById("r"+n).innerHTML="<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>";
+					}
+					//alert("gotovo");
+				}
+				else{
+					localStorage.setItem('primeni',0);
+					//alert('zove prikazi');
+					prikazi(JSON.parse(localStorage.getItem('niz_za_prikaz')));
+				
+				}
+			}
+			function prikazi(izlistani_s){
+				
+				var num=0;
+				var num_izlistani_s=0;
+				var h=[];
+				var sl=[];
+				var t=[];
+				var op=[];
+				var ime=[];
+				var prikaz=[];
+				
+				var tip=localStorage.getItem("filter");
+				
+				//alert("ceo niz: "+izlistani_s);
+				//alert("nulti: "+izlistani_s[0]);
+				//alert("while");
+				while(num_izlistani_s!=izlistani_s.length){
+					for(var i=1;i<17;i++){
+						var str='R'+i;
+						//alert("i="+i+", num_izlistani_s="+num_izlistani_s);
+						
+						var RIzLS = JSON.parse(localStorage.getItem(str));
+						
+						//alert("iz niza: "+izlistani_s[num_izlistani_s]);
+						//alert("iz jsona: "+RIzLS.naziv);
+						
+						//alert("tip: "+tip+" dohvatio: "+RIzLS.vrsta[i]);
+						if(RIzLS.naziv==izlistani_s[num_izlistani_s]) {
+							//alert("nasao"+RIzLS.naziv);
+							ime[num_izlistani_s]=RIzLS.naziv;
+							//alert(ime[num_izlistani_s]);
+							h[num_izlistani_s]=RIzLS.link;
+							//alert(h[num_izlistani_s]);
+							op[num_izlistani_s]=RIzLS.opstina;
+							//alert(op[num_izlistani_s]);
+							t[num_izlistani_s]=tip;
+							//alert(t[num_izlistani_s]);
+							sl[num_izlistani_s]=RIzLS.slika;
+							//alert(sl[num_izlistani_s]);
+							num_izlistani_s++;
+							//alert(ime[num_izlistani_s]+", "+h[num_izlistani_s]+", "+op[num_izlistani_s]+", "+t[num_izlistani_s]+", "+sl[num_izlistani_s]+", novi num_izlistani_s: "+num_izlistani_s);
+							//i=20;
+						}
+						//alert("izasao iz if");
+						//alert("dole-i="+i+", num_izlistani_s="+num_izlistani_s);
+					}
+					//alert("num_izlistani_s "+num_izlistani_s);
+				}
+				//alert("gotov while");
+				//alert("num_izlistani_s "+num_izlistani_s);
+				//alert("ime: "+ime);
+				
+				for(var i=0;i<num_izlistani_s;i++){
+					//alert(i);
+					var html_fajl=h[i];
+					var ime_rest=ime[i];
+					var opstina=op[i];
+					var vrsta=t[i];
+					var slika=sl[i];
+					
+					//alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
+					var n=i+1;
+					document.getElementById("r"+n).innerHTML="<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime_rest+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>";
+					
+				}
+				//alert("prikazano");
+			}
+			
+			
+			function dohvati_izlistane(){
 				var tip=localStorage.getItem("filter");
 				//alert(tip);
+				
+				var naziv=[];
 					
-					var h=[];
-					var sl=[];
-					var t=[];
-					var op=[];
-					var naziv=[];
-					
-					var num=0;
+				var num=0;
 				if(tip!=null && tip!="sve"){
 					
 					for(var i=1;i<17;i++){
@@ -49,10 +190,6 @@
 							if(RIzLS.vrsta[j]==tip) {
 								//alert(str);
 								naziv[num]=RIzLS.naziv;
-								h[num]=RIzLS.link;
-								op[num]=RIzLS.opstina;
-								t[num]=tip;
-								sl[num]=RIzLS.slika;
 								num++;
 							}
 						}
@@ -69,10 +206,6 @@
 							var RIzLS = JSON.parse(localStorage.getItem(str));
 							
 							naziv[num]=RIzLS.naziv;
-							h[num]=RIzLS.link;
-							op[num]=RIzLS.opstina;
-							t[num]=tip;
-							sl[num]=RIzLS.slika;
 							num++;
 						}
 						
@@ -80,22 +213,49 @@
 				
 				}
 				
-				localStorage.removeItem("filter");
-				
-				for(var i=0;i<num;i++){
-					var html_fajl=h[i];
-					var ime=naziv[i];
-					var opstina=op[i];
-					var vrsta=t[i];
-					var slika=sl[i];
-					
-					//alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
-					var n=i+1;
-					document.getElementById("r"+n).innerHTML="<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>";
-				}
+				//localStorage.removeItem("filter");
+				//alert(naziv);
+				return naziv;
 				//alert("gotovo");
 			}
 			
+			
+			function primeni_filter(){
+				var opstina=0;
+				var ime=0;
+				var ocena=0;
+				
+				if(document.pretraga_forma.opstina.checked) opstina=1;
+				if(document.pretraga_forma.ime.checked) ime=1;
+				if(document.pretraga_forma.ocena.checked) ocena=1;
+				
+				var niz=new Array("ccc","aaa","bbb");
+				
+				var niz_s=niz.sort();
+				
+				//alert(niz_s);
+				
+				
+				//alert("kraj");
+				
+				var izlistani=dohvati_izlistane();
+				//alert(izlistani);
+				
+				var izlistani_s=izlistani.sort();
+				
+				//alert('reverse');
+				//alert(izlistani_s);
+				
+				
+				var json = JSON.stringify(izlistani_s);
+				//alert("za json: "+json);
+				
+				localStorage.setItem('primeni',1);//treba resetovati nekad
+				localStorage.setItem('niz_za_prikaz',json);
+				//alert("niz za prikaz: "+localStorage.getItem('niz_za_prikaz'));
+				//window.open("filtriranje.html",'_self');
+				//alert('prikazano');
+			}
 			
 		
 		</script>
@@ -231,20 +391,14 @@
 							<b>Filtriraj</b>
 								
 						</div>
+						<form name="pretraga_forma">
 						<div class="col-sm-12 col-xs-12 filtriranje2"></div>
-						
 						<div class="col-sm-12 col-xs-12 filtriranje">
 						
 							<br>
-							<h6>Izaberi opstinu</h6>
+							<h6>Sortiraj po opstini</h6>
 							<br>
-							<select class="form-control form-control">
-							  <option disabled hidden>Opstina</option>
-							  <option >Vračar</option>
-							  <option >Dorćol</option>
-							  <option >Novi Beograd</option>
-							  <option >Zvezdara</option>
-							</select>
+							<input type="checkbox" id="opstina">
 							<br>
 						
 						</div>
@@ -252,17 +406,9 @@
 						<div class="col-sm-12 col-xs-12 filtriranje">
 						
 							<br>
-							<h6>Izaberi tip hrane</h6>
+							<h6>Sortiraj po imenu restorana</h6>
 							<br>
-							<select class="form-control form-control">
-							  <option disabled hidden>Tip hrane</option>
-							  <option >Brza hrana</option>
-							  <option >Zdrava hrana</option>
-							  <option >Kineska hrana</option>
-							  <option >Rostilj</option>
-							  <option >Palacinke</option>
-							  <option >Kolaci</option>
-							</select>
+							<input type="checkbox" id="ime">
 							<br>
 						
 						</div>
@@ -270,50 +416,30 @@
 						<div class="col-sm-12 col-xs-12 filtriranje">
 						
 							<br>
-							<h6>Izaberi minimalnu ocenu</h6>
+							<h6>Sortiraj po oceni</h6>
 							<br>
-							<select class="form-control form-control">
-							  <option disabled hidden>Minimalna ocena</option>
-							  <option>0.5</option>
-							  <option >1.5</option>
-							  <option >2.5</option>
-							  <option >3.5</option>
-							  <option >4.5</option>
-							  <option >5</option>
-							</select>
+							<input type="checkbox" id="ocena">
 							<br>
 						
 						</div>
+						
+						
 						<div class="col-sm-12 col-xs-12 filtriranje2"></div>
 						<div class="col-sm-12 col-xs-12 filtriranje">
 						
 							<br>
-							<form name="pretraga_forma">
-							
-								<font size="3">Samo trenutno otvoreni</font> <br>
-								<input type="checkbox" id="open">
-								
-								
-							
-							</form>
-							<br>
-						
-						</div>
-						<div class="col-sm-12 col-xs-12 filtriranje2"></div>
-						<div class="col-sm-12 col-xs-12 filtriranje">
-						
-							<br>
-							<form name="pretraga_forma">
 							
 								<button class="btn btn-light btn-outline-success" onclick="primeni_filter()">Primeni filter</button>
 								
 								
 							
-							</form>
+							
 							<br>
 						
 						</div>
 						<div class="col-sm-12 col-xs-12 filtriranje2"></div>
+						</form>
+						
 
 					</div>
 				
