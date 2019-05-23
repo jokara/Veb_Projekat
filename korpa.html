@@ -34,55 +34,21 @@
 				if (kol>0) kol=kol-1;
 				document.korpa_forma.kolicina1.value=kol;
 			}
-			
-			function saberi2(){
-				var kol=parseInt(document.korpa_forma.kolicina2.value);
-				kol=kol+1;
-				document.korpa_forma.kolicina2.value=kol;
-			}
-			
-			function oduzmi2(){
-				var kol=parseInt(document.korpa_forma.kolicina2.value);
-				if (kol>0) kol=kol-1;
-				document.korpa_forma.kolicina2.value=kol;
-			}
-			
-			function saberi3(){
-				var kol=parseInt(document.korpa_forma.kolicina3.value);
-				kol=kol+1;
-				document.korpa_forma.kolicina3.value=kol;
-			}
-			
-			function oduzmi3(){
-				var kol=parseInt(document.korpa_forma.kolicina3.value);
-				if (kol>0) kol=kol-1;
-				document.korpa_forma.kolicina3.value=kol;
-			}
-			
-			function saberi4(){
-				var kol=parseInt(document.korpa_forma.kolicina4.value);
-				kol=kol+1;
-				document.korpa_forma.kolicina4.value=kol;
-			}
-			
-			function oduzmi4(){
-				var kol=parseInt(document.korpa_forma.kolicina4.value);
-				if (kol>0) kol=kol-1;
-				document.korpa_forma.kolicina4.value=kol;
-			}
 		
 		
 		
 			function ispisi(){
+				localStorage.setItem("prviRed",'false');
+				localStorage.setItem("drugiRed",'false');
+				localStorage.setItem("treciRed",'false');
+				localStorage.setItem("cetvrtiRed",'false');
 				var brojac=0;
 				var rest="";
 				for(var i=1;i<18;i++){
-					alert(i);
-					alert(brojac);
-					alert(localStorage.getItem(i));
 					if ((localStorage.getItem(i)!='false')&&(brojac==0)&&(localStorage.getItem(i)!='null')){
 						var prod_cena=localStorage.getItem(i);
 						prod_cena=prod_cena.split("#");
+						localStorage.setItem("prviRed",prod_cena);
 						var prod=prod_cena[0];
 						var cena=prod_cena[1];
 						document.getElementById('th1').innerHTML=1;
@@ -95,13 +61,14 @@
 						if (i>4 && i<9) rest="Good Food";
 						if (i>8 && i<13)rest="Grill 51";
 						if (i>12 && i<17)rest="McDonald's";
-						document.getElementById('rest').innerHTML="<h2><font color='black'>"+rest+"</font></h2>";
+						document.getElementById('rest').innerHTML="<h2><font color='white'>"+rest+"</font></h2>";
 						localStorage.setItem(i,'false');
 						brojac=brojac+1;
 					}
 					if ((localStorage.getItem(i)!='false')&&(brojac==1)&&(localStorage.getItem(i)!='null')){
 						var prod_cena=localStorage.getItem(i);
 						prod_cena=prod_cena.split("#");
+						localStorage.setItem("drugiRed",prod_cena);
 						var prod=prod_cena[0];
 						var cena=prod_cena[1];
 						document.getElementById('th2').innerHTML=2;
@@ -116,6 +83,7 @@
 					if ((localStorage.getItem(i)!='false')&&(brojac==2)&&(localStorage.getItem(i)!='null')){
 						var prod_cena=localStorage.getItem(i);
 						prod_cena=prod_cena.split("#");
+						localStorage.setItem("treciRed",prod_cena);
 						var prod=prod_cena[0];
 						var cena=prod_cena[1];
 						document.getElementById('th3').innerHTML=3;
@@ -130,6 +98,7 @@
 					if ((localStorage.getItem(i)!='false')&&(brojac==3)&&(localStorage.getItem(i)!='null')){
 						var prod_cena=localStorage.getItem(i);
 						prod_cena=prod_cena.split("#");
+						localStorage.setItem("cetvrtiRed",prod_cena);
 						var prod=prod_cena[0];
 						var cena=prod_cena[1];
 						document.getElementById('th4').innerHTML=4;
@@ -276,7 +245,7 @@
 				<div class="col-xs-12 col-sm-12">
 					<table class="table table-hover">
 						<tr align='center'>
-							<td id='rest'></td>
+							<td id='rest' style="background-color:red"></td>
 						</tr>
 					</table>
 					<table class="table table-hover">
