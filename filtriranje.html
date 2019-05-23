@@ -130,7 +130,7 @@
 						//alert("iz jsona: "+RIzLS.naziv);
 						
 						//alert("tip: "+tip+" dohvatio: "+RIzLS.vrsta[i]);
-						if(RIzLS.naziv==izlistani_s[num_izlistani_s]) {
+						if((localStorage.getItem("vrsta_sorta")==1 && RIzLS.naziv==izlistani_s[num_izlistani_s])||(localStorage.getItem("vrsta_sorta")==2 && RIzLS.opstina==izlistani_s[num_izlistani_s])) {
 							//alert("nasao"+RIzLS.naziv);
 							ime[num_izlistani_s]=RIzLS.naziv;
 							//alert(ime[num_izlistani_s]);
@@ -174,6 +174,7 @@
 			
 			function dohvati_izlistane_ime(){
 				var tip=localStorage.getItem("filter");
+				localStorage.setItem("vrsta_sorta",1);
 				//alert(tip);
 				
 				var naziv=[];
@@ -221,6 +222,7 @@
 			
 			function dohvati_izlistane_opstina(){
 				var tip=localStorage.getItem("filter");
+				localStorage.setItem("vrsta_sorta",2);
 				alert("tip: "+tip);
 				
 				var opstina=[];
