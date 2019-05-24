@@ -340,6 +340,8 @@
 				var ime=0;
 				var ocena=0;
 				
+				var tip=localStorage.getItem("filter");
+				
 				if(document.pretraga_forma.opstina.checked) opstina=1;
 				if(document.pretraga_forma.ime.checked) ime=1;
 				if(document.pretraga_forma.ocena.checked) ocena=1;
@@ -351,37 +353,42 @@
 				
 				//po imenu
 				if(ime==1) {
-					izlistani=dohvati_izlistane_ime();
-					alert(izlistani);
-					izlistani_s=izlistani.sort();
+					alert(tip);
+					//izlistani=dohvati_izlistane_ime();
+					//alert(izlistani);
+					//izlistani_s=izlistani.sort();
 				
 				}
 				
 				//po opstini
 				else if(opstina==1) {
-					alert('po opstini');
-					izlistani_ime=dohvati_izlistane_ime();
-					izlistani=dohvati_izlistane_opstina();
-					izlistani_s=izlistani.sort();
+					alert(tip);
+					//alert('po opstini');
+					//izlistani_ime=dohvati_izlistane_ime();
+					//alert(izlistani_ime);
+					//izlistani=dohvati_izlistane_opstina();
+					///izlistani_s=izlistani.sort();
 				}
 				
 				//po oceni
 				else if(ocena==1) {
-				
-					izlistani=dohvati_izlistane_ocena();
-					izlistani_s=izlistani.sort();
+					alert(tip);
+					//alert('po imenima');
+					//izlistani=dohvati_izlistane_ocena();
+					//alert(izlistani);
+					//izlistani_s=izlistani.sort();
 				}
 				
 				//alert('reverse');
-				alert("sortiran: "+izlistani_s);
+				//alert("sortiran: "+izlistani_s);
 				
 				
-				var json = JSON.stringify(izlistani_s);
+				//var json = JSON.stringify(izlistani_s);
 				
 				//alert("za json: "+json);
 				
-				localStorage.setItem('primeni',1);//treba resetovati nekad
-				localStorage.setItem('niz_za_prikaz',json);
+				//localStorage.setItem('primeni',1);//treba resetovati nekad
+				//localStorage.setItem('niz_za_prikaz',json);
 				
 				//alert("niz za prikaz: "+localStorage.getItem('niz_za_prikaz'));
 				//window.open("filtriranje.html",'_self');
