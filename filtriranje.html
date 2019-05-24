@@ -207,11 +207,22 @@
 				//po opstini
 				else if(opstina==1) {
 					alert(tip);
-					//alert('po opstini');
-					//izlistani_ime=dohvati_izlistane_ime();
-					//alert(izlistani_ime);
-					//izlistani=dohvati_izlistane_opstina();
-					///izlistani_s=izlistani.sort();
+					switch(tip){
+					
+						case 'Palacinke':izlistani_s=JSON.parse(localStorage.getItem('po')); break;
+						case 'Brza hrana':izlistani_s=JSON.parse(localStorage.getItem('bo')); break;
+						case 'Zdrava hrana':izlistani_s=JSON.parse(localStorage.getItem('zo')); break;
+						case 'Rostilj':izlistani_s=JSON.parse(localStorage.getItem('ro')); break;
+						case 'Kolaci':izlistani_s=JSON.parse(localStorage.getItem('koo')); break;
+						case 'Kineska hrana':izlistani_s=JSON.parse(localStorage.getItem('kio')); break;
+					
+					}
+					
+					alert(izlistani_s);
+					niz_restorana=nadji(izlistani_s);
+					niz_json=JSON.stringify(niz_restorana);
+					localStorage.setItem('niz',niz_json);
+					alert('niz resorana : '+niz_restorana);
 				}
 				
 				//po oceni
