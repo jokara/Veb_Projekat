@@ -28,27 +28,71 @@
 		<script>
 		
 			function filtriraj(){
-				if(localStorage.getItem('primeni')!=1){
+				alert('filtriraj sa filterom:'+localStorage.getItem('filter'));
+				if(localStorage.getItem('flag')!=""){
+					alert('filtriraj');
+					
+					var palacinke_ime = new Array('R13','R7');
+					var brza_ime = new Array('R15','R12','R10','R3','R2');
+					var kineska_ime = new Array('R14','R8','R6','R4');
+					var rostilj_ime = new Array('R9','R7','R5','R16');
+					var kolaci_ime = new Array('R11','R1','R16');
+					var zdrava_ime = new Array('R4');
+					
+					var palacinke_opstina = new Array('R13','R7');
+					var brza_opstina = new Array('R15','R12','R10','R3','R2');
+					var kineska_opstina = new Array('R6','R14','R8','R4');
+					var rostilj_opstina = new Array('R16','R5','R9','R7');
+					var kolaci_opstina = new Array('R1','R16','R11');
+					var zdrava_opstina = new Array('R4');
+						
+					var pi = JSON.stringify(palacinke_ime);
+					var bi = JSON.stringify(brza_ime);
+					var kii = JSON.stringify(kineska_ime);
+					var ri = JSON.stringify(rostilj_ime);
+					var koi = JSON.stringify(kolaci_ime);
+					var zi = JSON.stringify(zdrava_ime);
+					
+					var po = JSON.stringify(palacinke_opstina);
+					var bo = JSON.stringify(brza_opstina);
+					var kio = JSON.stringify(kineska_opstina);
+					var ro= JSON.stringify(rostilj_opstina);
+					var koo = JSON.stringify(kolaci_opstina);
+					var zo = JSON.stringify(zdrava_opstina);
+					
+					localStorage.setItem('pi',pi);
+					localStorage.setItem('po',po);
+					localStorage.setItem('bi',bi);
+					localStorage.setItem('bo',bo);
+					localStorage.setItem('kii',kii);
+					localStorage.setItem('kio',kio);
+					localStorage.setItem('ri',ri);
+					localStorage.setItem('ro',ro);
+					localStorage.setItem('koi',koi);
+					localStorage.setItem('koo',koo);
+					localStorage.setItem('zi',zi);
+					localStorage.setItem('zo',zo);
+					
 					var tip=localStorage.getItem("filter");
-					//alert(tip);
-						
-						var h=[];
-						var sl=[];
-						var t=[];
-						var op=[];
-						var naziv=[];
-						
-						var num=0;
+					alert(tip);
+					localStorage.setItem('flag',"");			
+					var h=[];
+					var sl=[];
+					var t=[];
+					var op=[];
+					var naziv=[];
+								
+					var num=0;
 					if(tip!=null && tip!="sve"){
-						
+							
 						for(var i=1;i<17;i++){
 							var str='R'+i;
-							
+								
 							var RIzLS = JSON.parse(localStorage.getItem(str));
 							for(var j=0;j<RIzLS.vrsta.length;j++){
 								//alert("tip: "+tip+" dohvatio: "+RIzLS.vrsta[j]);
 								if(RIzLS.vrsta[j]==tip) {
-									//alert(str);
+										//alert(str);
 									naziv[num]=RIzLS.naziv;
 									h[num]=RIzLS.link;
 									op[num]=RIzLS.opstina;
@@ -58,17 +102,17 @@
 								}
 							}
 						}
-						//alert(naziv);
-					
+							//alert(naziv);
+						
 					}
 					else{
-					
+						
 						if(tip=="sve"){
 							for(var i=1;i<17;i++){
 								var str='R'+i;
-								
+									
 								var RIzLS = JSON.parse(localStorage.getItem(str));
-								
+									
 								naziv[num]=RIzLS.naziv;
 								h[num]=RIzLS.link;
 								op[num]=RIzLS.opstina;
@@ -76,262 +120,89 @@
 								sl[num]=RIzLS.slika;
 								num++;
 							}
-							
+								
 						}
-					
+						
 					}
-					
+						
 					//localStorage.removeItem("filter");
-					
+						
 					for(var i=0;i<num;i++){
 						var html_fajl=h[i];
 						var ime=naziv[i];
 						var opstina=op[i];
 						var vrsta=t[i];
 						var slika=sl[i];
-						
+							
 						//alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
 						var n=i+1;
 						document.getElementById("r"+n).innerHTML="<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>";
 					}
-					//alert("gotovo");
+						//alert("gotovo");
 				}
 				else{
-					localStorage.setItem('primeni',0);
-					//alert('zove prikazi');
-					prikazi(JSON.parse(localStorage.getItem('niz_za_prikaz')));
-				
+					ispisi(JSON.parse(localStorage.getItem('niz')));
 				}
-			}
-			
-			
-			function pronadji_poziciju(opstine,opstina){
-				
-				var x;
-				
-				for(var i=0;i<opstine.length;i++){
-					if(opstine[i]==opstina) x=i;
-				}
-			
-				return x;
 			
 			}
 			
 			
-			function prilagodi(imena_json,opstine){
-				var num=0;
-				var novi=new Array();
-				var imena=[];
-				imena=JSON.parse(localStorage.getItem('niz_sa_imenima'));
-				alert("duzina: "+ Object.keys(imena).length);
-				for(var i=0;i<imena.length;i++){
-					novi.push(i);
-				}
-				alert("imena: "+imena+" - novi: "+novi+" - opstine: "+opstine);
-				for(var i=0;i<imena.length;i++){
-					
-					for(var j=1;j<17;j++){
-						
-						var str='R'+j;
-								
-						var RIzLS = JSON.parse(localStorage.getItem(str));
-						if(RIzLS.naziv==imena[i]){
-							opstina=RIzLS.opstina;
-							alert("nasao opstinu "+opstina+" za restoran "+RIzLS.naziv);
-						}
-					}
-					
-					//u opstina imamo koja je opstina restoran imena[i]
-					
-					num=pronadji_poziciju(opstine,opstina);
-					
-					opstine[num]="*";
-					
-					novi[num]=imena[i];
-					
-					alert("imena: "+imena+" - novi: "+novi+" - opstine: "+opstine);
-					
-				}
-				return novi;
-					
-			}
 			
-			
-			function prikazi(izlistani_s){
-				//var izlistani_imena=JSON.parse(localStorage.getItem('niz_sa_imenima'));//ta imena prilagoditi opstinama
-				var pomocni_opstine=izlistani_s.slice();
-				var izlistani_imena=prilagodi(localStorage.getItem('niz_sa_imenima'),pomocni_opstine);
-				alert("niz sa imenima: "+izlistani_imena+" - niz sa opstina: "+izlistani_s);
-				var num=0;
-				var num_izlistani_s=0;
+			function ispisi(niz){
 				var h=[];
 				var sl=[];
 				var t=[];
 				var op=[];
-				var ime=[];
-				var prikaz=[];
+				var naziv=[]; //var RIzLS = JSON.parse(localStorage.getItem(str));
+							
+				var num=0;
 				
-				var tip=localStorage.getItem("filter");
-				
-				
-				//alert("ceo niz: "+izlistani_s);
-				//alert("nulti: "+izlistani_s[0]);
-				//alert("while");
-				while(num_izlistani_s!=izlistani_s.length){
-					for(var i=1;i<17;i++){
-						var str='R'+i;
-						//alert("i="+i+", num_izlistani_s="+num_izlistani_s);
-						
-						var RIzLS = JSON.parse(localStorage.getItem(str));
-						
-						//alert("iz niza: "+izlistani_s[num_izlistani_s]);
-						//alert("iz jsona: "+RIzLS.naziv);
-						
-						//alert("tip: "+tip+" dohvatio: "+RIzLS.vrsta[i]);
-						//alert('poredjenje opstina: '+RIzLS.opstina+","+izlistani_s[num_izlistani_s]+' - poredjenje naziva: '+RIzLS.naziv+","+izlistani_imena[num_izlistani_s]);
-						if((localStorage.getItem("vrsta_sorta")==1 && RIzLS.naziv==izlistani_s[num_izlistani_s])||(localStorage.getItem("vrsta_sorta")==2 && RIzLS.opstina==izlistani_s[num_izlistani_s] &&  RIzLS.naziv==izlistani_imena[num_izlistani_s])) {
-							//alert("nasao"+RIzLS.naziv);
-							ime[num_izlistani_s]=RIzLS.naziv;
-							//alert(ime[num_izlistani_s]);
-							h[num_izlistani_s]=RIzLS.link;
-							//alert(h[num_izlistani_s]);
-							op[num_izlistani_s]=RIzLS.opstina;
-							//alert(op[num_izlistani_s]);
-							t[num_izlistani_s]=tip;
-							//alert(t[num_izlistani_s]);
-							sl[num_izlistani_s]=RIzLS.slika;
-							//alert(sl[num_izlistani_s]);
-							num_izlistani_s++;
-							//alert(ime[num_izlistani_s]+", "+h[num_izlistani_s]+", "+op[num_izlistani_s]+", "+t[num_izlistani_s]+", "+sl[num_izlistani_s]+", novi num_izlistani_s: "+num_izlistani_s);
-							//i=20;
+				for(var i=0;i<niz.length;i++){
+					
+					for(var j=1;j<17;j++){
+						//alert('iz jsona: '+JSON.parse(localStorage.getItem('R'+j)).naziv+' iz niza'+niz[i] );
+						if(JSON.parse(localStorage.getItem('R'+j)).naziv==niz[i]){
+							//alert('nasao '+niz[i]);
+							h[i]=JSON.parse(localStorage.getItem('R'+j)).link;
+							sl[i]=JSON.parse(localStorage.getItem('R'+j)).slika;
+							op[i]=JSON.parse(localStorage.getItem('R'+j)).opstina;
+							t[i]=localStorage.getItem('filter');
+							naziv[i]=niz[i];
+							
 						}
-						//alert("izasao iz if");
-						//alert("dole-i="+i+", num_izlistani_s="+num_izlistani_s);
 					}
-					//alert("num_izlistani_s "+num_izlistani_s);
+					
 				}
-				//alert("gotov while");
-				//alert("num_izlistani_s "+num_izlistani_s);
-				//alert("ime: "+ime);
-				
-				for(var i=0;i<num_izlistani_s;i++){
+				alert('ispis');
+				//ispis
+				for(var i=0;i<niz.length;i++){
 					//alert(i);
 					var html_fajl=h[i];
-					var ime_rest=ime[i];
+					var ime_rest=naziv[i];
 					var opstina=op[i];
 					var vrsta=t[i];
 					var slika=sl[i];
 					
-					//alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
+					alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
 					var n=i+1;
 					document.getElementById("r"+n).innerHTML="<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime_rest+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>";
 					
 				}
-				//alert("prikazano");
+			
 			}
 			
 			
-			function dohvati_izlistane_ime(){
-				var tip=localStorage.getItem("filter");
-				localStorage.setItem("vrsta_sorta",1);
-				//alert(tip);
+			function nadji(niz){
+				var r=[];
 				
-				var naziv=[];
+				
+				for(var i=0;i<niz.length;i++){
 					
-				var num=0;
-				if(tip!=null && tip!="sve"){
-					
-					for(var i=1;i<17;i++){
-						var str='R'+i;
-						
-						var RIzLS = JSON.parse(localStorage.getItem(str));
-						for(var j=0;j<RIzLS.vrsta.length;j++){
-							//alert("tip: "+tip+" dohvatio: "+RIzLS.vrsta[j]);
-							if(RIzLS.vrsta[j]==tip) {
-								//alert(str);
-								naziv[num]=RIzLS.naziv;
-								num++;
-							}
-						}
-					}
-					//alert(naziv);
-				
-				}
-				else{
-				
-					if(tip=="sve"){
-						for(var i=1;i<17;i++){
-							var str='R'+i;
-							
-							var RIzLS = JSON.parse(localStorage.getItem(str));
-							
-							naziv[num]=RIzLS.naziv;
-							num++;
-						}
-						
-					}
+					r[i]=JSON.parse(localStorage.getItem(niz[i])).naziv;
 				
 				}
 				
-				//localStorage.removeItem("filter");
-				//alert(naziv);
-				return naziv;
-				//alert("gotovo");
-			}
-			
-			function dohvati_izlistane_opstina(){
-				var tip=localStorage.getItem("filter");
-				localStorage.setItem("vrsta_sorta",2);
-				//alert("tip: "+tip);
-				
-				var opstina=[];
-				var naziv=[];
-					
-				var num=0;
-				if(tip!=null && tip!="sve"){
-					
-					for(var i=1;i<17;i++){
-						var str='R'+i;
-						
-						var RIzLS = JSON.parse(localStorage.getItem(str));
-						for(var j=0;j<RIzLS.vrsta.length;j++){
-							//alert("tip: "+tip+" dohvatio: "+RIzLS.vrsta[j]);
-							if(RIzLS.vrsta[j]==tip) {
-								//alert(str);
-								opstina[num]=RIzLS.opstina;
-								naziv[num]=RIzLS.naziv;
-								num++;
-							}
-						}
-					}
-					//alert("dohvacen opstina: "+opstina);
-				
-				}
-				else{
-				
-					if(tip=="sve"){
-						for(var i=1;i<17;i++){
-							var str='R'+i;
-							
-							var RIzLS = JSON.parse(localStorage.getItem(str));
-							
-							opstina[num]=RIzLS.opstina;
-							num++;
-						}
-						
-					}
-				
-				}
-				
-				//localStorage.removeItem("filter");
-				
-				//stavljanje naziva u ls
-				
-				var json_imena = JSON.stringify(naziv);
-				localStorage.setItem('niz_sa_imenima',json_imena);
-				
-				return opstina;
-				//alert("gotovo");
+				return r;
 			}
 			
 			
@@ -347,17 +218,30 @@
 				if(document.pretraga_forma.ocena.checked) ocena=1;
 				
 				var izlistani=[];
-				//alert(izlistani);
+				alert('opstina:'+opstina+' ime: '+ime+' ocena:'+ocena);
 				
 				var izlistani_s=[];
 				
 				//po imenu
 				if(ime==1) {
 					alert(tip);
-					//izlistani=dohvati_izlistane_ime();
-					//alert(izlistani);
-					//izlistani_s=izlistani.sort();
-				
+					switch(tip){
+					
+						case 'Palacinke':izlistani_s=JSON.parse(localStorage.getItem('pi')); break;
+						case 'Brza hrana':izlistani_s=JSON.parse(localStorage.getItem('bi')); break;
+						case 'Zdrava hrana':izlistani_s=JSON.parse(localStorage.getItem('zi')); break;
+						case 'Rostilj':izlistani_s=JSON.parse(localStorage.getItem('ri')); break;
+						case 'Kolaci':izlistani_s=JSON.parse(localStorage.getItem('koi')); break;
+						case 'Kineska hrana':izlistani_s=JSON.parse(localStorage.getItem('kii')); break;
+					
+					}
+					
+					alert(izlistani_s);
+					niz_restorana=nadji(izlistani_s);
+					niz_json=JSON.stringify(niz_restorana);
+					localStorage.setItem('niz',niz_json);
+					alert('niz resorana : '+niz_restorana);
+					
 				}
 				
 				//po opstini
