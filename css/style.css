@@ -187,6 +187,31 @@ p {
     .slider {
       min-height: 700px; } }
 	  
+.slider_awards {
+  background: url(../images/awards.png) no-repeat;
+  background-size: cover;
+  min-height: 500px; }
+  @media (max-width: 992px) {
+    .slider_awards {
+      min-height: 700px; } }
+	  
+.slider_dev {
+  background: url(../images/developers.png) no-repeat;
+  background-size: cover;
+  min-height: 500px; }
+  @media (max-width: 992px) {
+    .slider_dev {
+      min-height: 700px; } }
+	
+	
+.slider_about_us {
+  background: url(../images/o_nama.jpg) no-repeat;
+  background-size: cover;
+  min-height: 800px; }
+  @media (max-width: 992px) {
+    .slider_about_us {
+      min-height: 700px; } }
+	  
 .naslov_korpa{
 	text-align:center;
 	height:150px;
