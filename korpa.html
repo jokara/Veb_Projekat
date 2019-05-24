@@ -52,9 +52,10 @@
 						localStorage.setItem("flag_korpa",'true');
 						var prod=prod_cena[0];
 						var cena=prod_cena[1];
+						localStorage.setItem("cena1",cena);
 						document.getElementById('th1').innerHTML=1;
 						document.getElementById('r1').innerHTML+=prod;
-						document.getElementById('r2').innerHTML='<input type="text" name="kolicina1" size="1">';
+						document.getElementById('r2').innerHTML='<input type="text" name="kolicina1" id="kolicina1" size="1">';
 						document.getElementById('r3').innerHTML+=cena;
 						document.getElementById('r3').innerHTML+=" RSD";
 						document.korpa_forma.kolicina1.value='1';
@@ -73,9 +74,10 @@
 						localStorage.setItem("drugiRed",prod_cena);
 						var prod=prod_cena[0];
 						var cena=prod_cena[1];
+						localStorage.setItem("cena2",cena);
 						document.getElementById('th2').innerHTML=2;
 						document.getElementById('r4').innerHTML+=prod;
-						document.getElementById('r5').innerHTML='<input type="text" name="kolicina2" size="1">';
+						document.getElementById('r5').innerHTML='<input type="text" name="kolicina2" id="kolicina2" size="1">';
 						document.getElementById('r6').innerHTML+=cena;
 						document.getElementById('r6').innerHTML+=" RSD";
 						document.korpa_forma.kolicina2.value='1';
@@ -88,9 +90,10 @@
 						localStorage.setItem("treciRed",prod_cena);
 						var prod=prod_cena[0];
 						var cena=prod_cena[1];
+						localStorage.setItem("cena3",cena);
 						document.getElementById('th3').innerHTML=3;
 						document.getElementById('r7').innerHTML+=prod;
-						document.getElementById('r8').innerHTML='<input type="text" name="kolicina3" size="1">';
+						document.getElementById('r8').innerHTML='<input type="text" name="kolicina3" id="kolicina3" size="1">';
 						document.getElementById('r9').innerHTML+=cena;
 						document.getElementById('r9').innerHTML+=" RSD";
 						document.korpa_forma.kolicina3.value='1';
@@ -103,9 +106,10 @@
 						localStorage.setItem("cetvrtiRed",prod_cena);
 						var prod=prod_cena[0];
 						var cena=prod_cena[1];
+						localStorage.setItem("cena4",cena);
 						document.getElementById('th4').innerHTML=4;
 						document.getElementById('r10').innerHTML+=prod;
-						document.getElementById('r11').innerHTML='<input type="text" name="kolicina4" size="1">';
+						document.getElementById('r11').innerHTML='<input type="text" name="kolicina4" id="kolicina4" size="1">';
 						document.getElementById('r12').innerHTML+=cena;
 						document.getElementById('r12').innerHTML+=" RSD";
 						document.korpa_forma.kolicina4.value='1';
@@ -127,10 +131,10 @@
 						document.getElementById('rest').innerHTML="<h2><font color='white'>"+localStorage.getItem("Restoran")+"</font></h2>";
 						prod_cena=prod_cena.split(",");
 						var prod=prod_cena[0];
-						var cena=prod_cena[1]; 
+						var cena=prod_cena[1];
 						document.getElementById('th1').innerHTML=1;
 						document.getElementById('r1').innerHTML=prod;
-						document.getElementById('r2').innerHTML='<input type="text" name="kolicina1" size="1">';
+						document.getElementById('r2').innerHTML='<input type="text" name="kolicina1" id="kolicina1" size="1">';
 						document.getElementById('r3').innerHTML=cena;
 						document.getElementById('r3').innerHTML+=" RSD";
 						document.korpa_forma.kolicina1.value='1';
@@ -142,7 +146,7 @@
 						var cena1=prod_cena1[1];
 						document.getElementById('th2').innerHTML=2;
 						document.getElementById('r4').innerHTML=prod1;
-						document.getElementById('r5').innerHTML='<input type="text" name="kolicina2" size="1">';
+						document.getElementById('r5').innerHTML='<input type="text" name="kolicina2" id="kolicina2" size="1">';
 						document.getElementById('r6').innerHTML=cena1;
 						document.getElementById('r6').innerHTML+=" RSD";
 						document.korpa_forma.kolicina2.value='1';
@@ -156,7 +160,7 @@
 						var cena2=prod_cena2[1];
 						document.getElementById('th3').innerHTML=3;
 						document.getElementById('r7').innerHTML=prod2;
-						document.getElementById('r8').innerHTML='<input type="text" name="kolicina3" size="1">';
+						document.getElementById('r8').innerHTML='<input type="text" name="kolicina3" id="kolicina3" size="1">';
 						document.getElementById('r9').innerHTML=cena2;
 						document.getElementById('r9').innerHTML+=" RSD";
 						document.korpa_forma.kolicina3.value='1';
@@ -169,10 +173,15 @@
 						var cena3=prod_cena3[1];
 						document.getElementById('th4').innerHTML=4;
 						document.getElementById('r10').innerHTML+=prod3;
-						document.getElementById('r11').innerHTML='<input type="text" name="kolicina4" size="1">';
+						document.getElementById('r11').innerHTML='<input type="text" name="kolicina4" id="kolicina4" size="1">';
 						document.getElementById('r12').innerHTML+=cena3;
 						document.getElementById('r12').innerHTML+=" RSD";
 						document.korpa_forma.kolicina4.value='1';
+						
+					}
+					if(localStorage.getItem('racunUkupan')=='false') document.korpa_forma.racun.value=0;
+					else{
+						document.korpa_forma.racun.value=localStorage.getItem('racunUkupan');
 					}
 				}
 			}
@@ -180,8 +189,69 @@
 			function restart(){
 				localStorage.setItem("flag_korpa",'false');
 			}
-		
-		
+			
+			
+			
+			function formiraj_racun(){
+				var racun=0;
+				var x1=document.getElementById('kolicina1');
+				if (x1!=null && x1!="") {
+					x1=x1.value;
+					x1=parseInt(x1);
+					var cena1=localStorage.getItem("cena1");
+					if (cena1!='false') {
+					cena1=parseInt(cena1);
+					racun+=cena1*x1;
+					}
+				}
+				
+				var x2=document.getElementById('kolicina2');
+				if (x2!=null && x2!="") {
+					x2=x2.value;
+					x2=parseInt(x2);
+					var cena2=localStorage.getItem("cena2");
+					if (cena2!='false') {
+					cena2=parseInt(cena2);
+					racun+=cena2*x2;
+					}
+				}
+				
+				var x3=document.getElementById('kolicina3');
+				if (x3!=null && x3!="") {
+					x3=x3.value;
+					x3=parseInt(x3);
+					var cena3=localStorage.getItem("cena3");
+					if (cena3!='false') {
+					cena3=parseInt(cena3);
+					racun+=cena3*x3;
+					}
+				}
+				
+				var x4=document.getElementById('kolicina4');
+				if (x4!=null && x4!="") {
+					x4=x4.value;
+					x4=parseInt(x4);
+					var cena4=localStorage.getItem("cena4");
+					if (cena4!='false') {
+					cena4=parseInt(cena4);
+					racun+=cena4*x4;
+					}
+				}
+				
+				racun=racun+" RSD";
+				localStorage.setItem("racunUkupan",racun);
+				
+				
+				var cena2=localStorage.getItem("cena2");
+				var cena3=localStorage.getItem("cena3");
+				var cena4=localStorage.getItem("cena4");
+				
+				if (cena2!='false') cena2=parseInt(cena2);
+				if (cena3!='false') cena3=parseInt(cena3);
+				if (cena4!='false') cena4=parseInt(cena4);
+				
+			}
+			
 		</script>
 		
 		
@@ -293,6 +363,7 @@
 		</section>
 		<br>
 		<div class="container">
+		
 			<div class="row">
 			
 				<div class="col naslov_korpa">
@@ -359,8 +430,21 @@
 			
 			</div>
 			<br><br>
-			<form name="podaci" style="text-align:center">
-					
+			<div class='row' align='center'>
+				<div class='col-sm-12'>
+					<button class="btn btn-lg" onclick="formiraj_racun()">Formiraj racun</button>
+				</div>
+				
+			</div>
+			<br>
+			
+				
+			<div class='row'align='center'>
+				<div class='col-sm-12'>
+					<input type="text" name='racun'>
+				</div>
+			</div>				
+				<br><br>
 				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
@@ -428,7 +512,6 @@
 					</div>
 				
 				</div>
-			</form>
 			<br><br>
 			<div class="row" align='center'>
 			
