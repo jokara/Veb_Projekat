@@ -22,10 +22,72 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
-		
+		<script>
+			function stavi_u_korpu(){
+				if(document.bw_form.bw1.checked){
+					localStorage.setItem(61,"Piletina sa prazilukom#350");
+				}
+				else{
+					localStorage.setItem(61,"false");
+				}
+				
+				if(document.bw_form.bw2.checked){
+					localStorage.setItem(62,"Kraljevska piletina#460");
+				}
+				else{
+					localStorage.setItem(62,"false");
+				}
+				
+				if(document.bw_form.bw3.checked){
+					localStorage.setItem(63,"Piletina sa indijskim orasima#460");
+				}
+				else{
+					localStorage.setItem(63,"false");
+				}
+				
+				if(document.bw_form.bw4.checked){
+					localStorage.setItem(64,"Piletina sa kikirikijem i povrćem#460");
+				}
+				else{
+					localStorage.setItem(64,"false");
+				}
+				
+				
+			
+				if(document.bw_form.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.bw_form.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.bw_form.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.bw_form.Kupus.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name="bw_form">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -48,10 +110,10 @@
 						<span class="icon-arrow-down"></span>
 					  </a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="#">Vračar</a>
-												<a class="dropdown-item" href="#">Dorćol</a>
-												<a class="dropdown-item" href="#">Novi Beograd</a>
-												<a class="dropdown-item" href="#">Zvezdara</a>
+													<a class="dropdown-item" href="vracar.html">Vračar</a>
+													<a class="dropdown-item" href="dorcol.html">Dorćol</a>
+													<a class="dropdown-item" href="novi_beograd.html">Novi Beograd</a>
+													<a class="dropdown-item" href="zvezdara.html">Zvezdara</a>
 											</div>
 										</li>
 										
@@ -62,10 +124,10 @@
 						 <span class="icon-arrow-down"></span>
 					   </a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="#">Tim autora</a>
-												<a class="dropdown-item" href="#">Nagrade</a>
-												<a class="dropdown-item" href="#">Spoznori</a>
-												<a class="dropdown-item" href="#">Kontakt</a>
+													<a class="dropdown-item" href="tim.html">Tim autora</a>
+													<a class="dropdown-item" href="nagrade.html">Nagrade</a>
+													<a class="dropdown-item" href="sponzori.html">Spoznori</a>
+													<a class="dropdown-item" href="kontakt.html">Kontakt</a>
 											</div>
 										</li>
 										
@@ -159,7 +221,7 @@
 					<br>
 					<input type="checkbox" name="bw3">
 					<br>
-					<font face="geoslab" style="font-size:25"><i>Piletina sa indijskim orasimaa<br><br> 460 din.</i></font>
+					<font face="geoslab" style="font-size:25"><i>Piletina sa indijskim orasima<br><br> 460 din.</i></font>
 				</div>
 				<div class='col-sm-3'>
 					<img class='img img-fluid' src="images\BlackWhite\BlackWhite_prod\bw4.jpg" width="100%" height="100%">
@@ -257,7 +319,7 @@
 			</div>			
 			
 		</div>			
-						
+		</form>			
 	
 		
 		

@@ -44,7 +44,7 @@
 				localStorage.setItem("cetvrtiRed",'false');
 				var brojac=0;
 				var rest="";
-				for(var i=1;i<18;i++){
+				for(var i=1;i<65;i++){
 					if ((localStorage.getItem(i)!='false')&&(brojac==0)&&(localStorage.getItem(i)!='null')){
 						var prod_cena=localStorage.getItem(i);
 						prod_cena=prod_cena.split("#");
@@ -63,6 +63,18 @@
 						if (i>4 && i<9) rest="Good Food";
 						if (i>8 && i<13)rest="Grill 51";
 						if (i>12 && i<17)rest="McDonald's";
+						if (i>16 && i<21)rest="Baloro";
+						if (i>20 && i<25)rest="Bucko";
+						if (i>24 && i<29)rest="Caribic";
+						if (i>28 && i<33)rest="Krilca";
+						if (i>32 && i<37)rest="Dolce";
+						if (i>36 && i<41)rest="Walter";
+						if (i>40 && i<45)rest="Marukoshi";
+						if (i>44 && i<49)rest="Bergamo";
+						if (i>48 && i<53)rest="Pokeolakino";
+						if (i>52 && i<57)rest="Go sushi";
+						if (i>56 && i<61)rest="Cake factory";
+						if (i>60 && i<65)rest="Black White";
 						localStorage.setItem("Restoran",rest);
 						document.getElementById('rest').innerHTML="<h2><font color='white'>"+rest+"</font></h2>";
 						localStorage.setItem(i,'false');

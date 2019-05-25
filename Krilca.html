@@ -23,9 +23,73 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
 		
+		<script>
+			function stavi_u_korpu(){
+				if(document.krilca_form.dimbat.checked){
+					localStorage.setItem(29,"Dimljeni batak#600");
+				}
+				else{
+					localStorage.setItem(29,"false");
+				}
+				
+				if(document.krilca_form.zar.checked){
+					localStorage.setItem(30,"Grilovani file na žaru#590");
+				}
+				else{
+					localStorage.setItem(30,"false");
+				}
+				
+				if(document.krilca_form.krilca.checked){
+					localStorage.setItem(31,"Krilca#700");
+				}
+				else{
+					localStorage.setItem(31,"false");
+				}
+				
+				if(document.krilca_form.file.checked){
+					localStorage.setItem(32,"Punjeni pohovani file#680");
+				}
+				else{
+					localStorage.setItem(32,"false");
+				}
+				
+				
+			
+				if(document.krilca_form.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.krilca_form.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.krilca_form.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.krilca_form.Kupus.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa.html");
+			}
+		</script>
+		
 	</head>
 	<body>
-		<body>
+		<form name="krilca_form">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -48,10 +112,10 @@
 						<span class="icon-arrow-down"></span>
 					  </a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="#">Vračar</a>
-												<a class="dropdown-item" href="#">Dorćol</a>
-												<a class="dropdown-item" href="#">Novi Beograd</a>
-												<a class="dropdown-item" href="#">Zvezdara</a>
+													<a class="dropdown-item" href="vracar.html">Vračar</a>
+													<a class="dropdown-item" href="dorcol.html">Dorćol</a>
+													<a class="dropdown-item" href="novi_beograd.html">Novi Beograd</a>
+													<a class="dropdown-item" href="zvezdara.html">Zvezdara</a>
 											</div>
 										</li>
 										
@@ -62,10 +126,10 @@
 						 <span class="icon-arrow-down"></span>
 					   </a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="#">Tim autora</a>
-												<a class="dropdown-item" href="#">Nagrade</a>
-												<a class="dropdown-item" href="#">Spoznori</a>
-												<a class="dropdown-item" href="#">Kontakt</a>
+													<a class="dropdown-item" href="tim.html">Tim autora</a>
+													<a class="dropdown-item" href="nagrade.html">Nagrade</a>
+													<a class="dropdown-item" href="sponzori.html">Spoznori</a>
+													<a class="dropdown-item" href="kontakt.html">Kontakt</a>
 											</div>
 										</li>
 										
@@ -257,7 +321,7 @@
 			</div>			
 			
 		</div>			
-						
+		</form>			
 	
 		
 		

@@ -22,10 +22,72 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
-		
+		<script>
+			function stavi_u_korpu(){
+				if(document.go_form.goma.checked){
+					localStorage.setItem(53,"Goma salata#650");
+				}
+				else{
+					localStorage.setItem(53,"false");
+				}
+				
+				if(document.go_form.edamame.checked){
+					localStorage.setItem(54,"Edamame#750");
+				}
+				else{
+					localStorage.setItem(54,"false");
+				}
+				
+				if(document.go_form.salata.checked){
+					localStorage.setItem(55,"Šargarepa salata#630");
+				}
+				else{
+					localStorage.setItem(55,"false");
+				}
+				
+				if(document.go_form.salmon.checked){
+					localStorage.setItem(56,"Morski plodovi#900");
+				}
+				else{
+					localStorage.setItem(56,"false");
+				}
+				
+				
+			
+				if(document.go_form.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.go_form.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.go_form.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.go_form.Kupus.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name="go_form">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -48,10 +110,10 @@
 						<span class="icon-arrow-down"></span>
 					  </a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="#">Vračar</a>
-												<a class="dropdown-item" href="#">Dorćol</a>
-												<a class="dropdown-item" href="#">Novi Beograd</a>
-												<a class="dropdown-item" href="#">Zvezdara</a>
+													<a class="dropdown-item" href="vracar.html">Vračar</a>
+													<a class="dropdown-item" href="dorcol.html">Dorćol</a>
+													<a class="dropdown-item" href="novi_beograd.html">Novi Beograd</a>
+													<a class="dropdown-item" href="zvezdara.html">Zvezdara</a>
 											</div>
 										</li>
 										
@@ -62,10 +124,10 @@
 						 <span class="icon-arrow-down"></span>
 					   </a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="#">Tim autora</a>
-												<a class="dropdown-item" href="#">Nagrade</a>
-												<a class="dropdown-item" href="#">Spoznori</a>
-												<a class="dropdown-item" href="#">Kontakt</a>
+													<a class="dropdown-item" href="tim.html">Tim autora</a>
+													<a class="dropdown-item" href="nagrade.html">Nagrade</a>
+													<a class="dropdown-item" href="sponzori.html">Spoznori</a>
+													<a class="dropdown-item" href="kontakt.html">Kontakt</a>
 											</div>
 										</li>
 										
@@ -257,7 +319,7 @@
 			</div>			
 			
 		</div>			
-						
+		</form>				
 	
 		
 		
