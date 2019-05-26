@@ -20,10 +20,72 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
-		
+		<script>
+			function stavi_u_korpu(){
+				if(document.good_forma.batak.checked){
+					localStorage.setItem(5,"Chicken drumstic#300");
+				}
+				else{
+					localStorage.setItem(5,"false");
+				}
+				
+				if(document.good_forma.kobasica.checked){
+					localStorage.setItem(6,"Sausage#300");
+				}
+				else{
+					localStorage.setItem(6,"false");
+				}
+				
+				if(document.good_forma.piletina.checked){
+					localStorage.setItem(7,"Chicken file#310");
+				}
+				else{
+					localStorage.setItem(7,"false");
+				}
+				
+				if(document.good_forma.pljeskavica.checked){
+					localStorage.setItem(8,"Pljeskavica#280");
+				}
+				else{
+					localStorage.setItem(8,"false");
+				}
+				
+				
+			
+				if(document.good_forma.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.good_forma.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.good_forma.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.good_forma.Pomfrit.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name='good_forma'>
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -254,7 +316,7 @@
 			</div>			
 			
 		</div>			
-						
+		</form>				
 	
 		
 		

@@ -22,10 +22,72 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
-		
+		<script>
+			function stavi_u_korpu(){
+				if(document.bw_form.bw1.checked){
+					localStorage.setItem(61,"Chicken#350");
+				}
+				else{
+					localStorage.setItem(61,"false");
+				}
+				
+				if(document.bw_form.bw2.checked){
+					localStorage.setItem(62,"Kings chicken#460");
+				}
+				else{
+					localStorage.setItem(62,"false");
+				}
+				
+				if(document.bw_form.bw3.checked){
+					localStorage.setItem(63,"Chicken with cashews#460");
+				}
+				else{
+					localStorage.setItem(63,"false");
+				}
+				
+				if(document.bw_form.bw4.checked){
+					localStorage.setItem(64,"Chicken with peanuts#460");
+				}
+				else{
+					localStorage.setItem(64,"false");
+				}
+				
+				
+			
+				if(document.bw_form.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.bw_form.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.bw_form.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.bw_form.Kupus.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name="bw_form">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -257,7 +319,7 @@
 			</div>			
 			
 		</div>			
-						
+		</form>				
 	
 		
 		

@@ -22,10 +22,72 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
-		
+		<script>
+			function stavi_u_korpu(){
+				if(document.caribic_form.feta.checked){
+					localStorage.setItem(25,"Chicken feta#600");
+				}
+				else{
+					localStorage.setItem(25,"false");
+				}
+				
+				if(document.caribic_form.mexico.checked){
+					localStorage.setItem(26,"Mexico#500");
+				}
+				else{
+					localStorage.setItem(26,"false");
+				}
+				
+				if(document.caribic_form.srce.checked){
+					localStorage.setItem(27,"Heart pizza#700");
+				}
+				else{
+					localStorage.setItem(27,"false");
+				}
+				
+				if(document.caribic_form.tuna.checked){
+					localStorage.setItem(28,"Tuna#680");
+				}
+				else{
+					localStorage.setItem(28,"false");
+				}
+				
+				
+			
+				if(document.caribic_form.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.caribic_form.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.caribic_form.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.caribic_form.Pomfrit.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name="caribic_form">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -257,7 +319,7 @@
 			</div>			
 			
 		</div>			
-						
+		</form>				
 	
 		
 		

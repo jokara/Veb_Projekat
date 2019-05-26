@@ -23,6 +23,44 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
 		
+		
+		<script>
+			function stavi_u_korpu(){
+				if(document.baloro_form.kit_kat.checked){
+					localStorage.setItem(17,"Kit-Kat#250");
+				}
+				else{
+					localStorage.setItem(17,"false");
+				}
+				
+				if(document.baloro_form.mesano.checked){
+					localStorage.setItem(18,"Chocolate seed#200");
+				}
+				else{
+					localStorage.setItem(18,"false");
+				}
+				
+				if(document.baloro_form.belo.checked){
+					localStorage.setItem(19,"Kinder Bueno#310");
+				}
+				else{
+					localStorage.setItem(19,"false");
+				}
+				
+				if(document.baloro_form.snickers.checked){
+					localStorage.setItem(20,"Snickers#300");
+				}
+				else{
+					localStorage.setItem(20,"false");
+				}
+				
+				
+				window.open("korpa.html");
+			}
+			
+			
+		</script>
+			
 		<script>
 			
 			function oceni(){

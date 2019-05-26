@@ -22,10 +22,72 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
-		
+		<script>
+			function stavi_u_korpu(){
+				if(document.bucko_forma.capricosa.checked){
+					localStorage.setItem(21,"Capricciosa#540");
+				}
+				else{
+					localStorage.setItem(21,"false");
+				}
+				
+				if(document.bucko_forma.margarita.checked){
+					localStorage.setItem(22,"Margarita#500");
+				}
+				else{
+					localStorage.setItem(22,"false");
+				}
+				
+				if(document.bucko_forma.parce.checked){
+					localStorage.setItem(23,"Pizza pie#90");
+				}
+				else{
+					localStorage.setItem(23,"false");
+				}
+				
+				if(document.bucko_forma.pasta.checked){
+					localStorage.setItem(24,"Pasta#340");
+				}
+				else{
+					localStorage.setItem(24,"false");
+				}
+				
+				
+			
+				if(document.bucko_forma.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.bucko_forma.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.bucko_forma.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.bucko_forma.Pomfrit.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name="bucko_forma">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -257,7 +319,7 @@
 			</div>			
 			
 		</div>			
-						
+		</form>			
 	
 		
 		

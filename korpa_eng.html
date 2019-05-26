@@ -7,9 +7,7 @@
 		<meta name="description" content="#">
 		<meta name="keywords" content="#">
 		
-		<title>Basket</title>
-
-
+		<title>Korpa</title>
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -22,9 +20,315 @@
 		<link rel="stylesheet" href="css/set1.css">
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+		<script>
+			 
+			function saberi1(){
+				var kol=parseInt(document.korpa_forma.kolicina1.value);
+				kol=kol+1;
+				document.korpa_forma.kolicina1.value=kol;
+			}
+			
+			function oduzmi1(){
+				var kol=parseInt(document.korpa_forma.kolicina1.value);
+				if (kol>0) kol=kol-1;
+				document.korpa_forma.kolicina1.value=kol;
+			}
+		
+		
+		
+			function ispisi(){
+				localStorage.setItem("prviRed",'false');
+				localStorage.setItem("drugiRed",'false');
+				localStorage.setItem("treciRed",'false');
+				localStorage.setItem("cetvrtiRed",'false');
+				var brojac=0;
+				var rest="";
+				for(var i=1;i<65;i++){
+					if ((localStorage.getItem(i)!='false')&&(brojac==0)&&(localStorage.getItem(i)!='null')){
+						var prod_cena=localStorage.getItem(i);
+						prod_cena=prod_cena.split("#");
+						localStorage.setItem("prviRed",prod_cena);
+						localStorage.setItem("flag_korpa",'true');
+						var prod=prod_cena[0];
+						var cena=prod_cena[1];
+						localStorage.setItem("cena1",cena);
+						document.getElementById('th1').innerHTML=1;
+						document.getElementById('r1').innerHTML+=prod;
+						document.getElementById('r2').innerHTML='<input type="text" name="kolicina1" id="kolicina1" size="1">';
+						document.getElementById('r3').innerHTML+=cena;
+						document.getElementById('r3').innerHTML+=" RSD";
+						document.korpa_forma.kolicina1.value='1';
+						if (i<5) rest="The Saint";
+						if (i>4 && i<9) rest="Good Food";
+						if (i>8 && i<13)rest="Grill 51";
+						if (i>12 && i<17)rest="McDonald's";
+						if (i>16 && i<21)rest="Baloro";
+						if (i>20 && i<25)rest="Bucko";
+						if (i>24 && i<29)rest="Caribic";
+						if (i>28 && i<33)rest="Krilca";
+						if (i>32 && i<37)rest="Dolce";
+						if (i>36 && i<41)rest="Walter";
+						if (i>40 && i<45)rest="Marukoshi";
+						if (i>44 && i<49)rest="Bergamo";
+						if (i>48 && i<53)rest="Pokeolakino";
+						if (i>52 && i<57)rest="Go sushi";
+						if (i>56 && i<61)rest="Cake factory";
+						if (i>60 && i<65)rest="Black White";
+						localStorage.setItem("Restoran",rest);
+						document.getElementById('rest').innerHTML="<h2><font color='white'>"+rest+"</font></h2>";
+						localStorage.setItem(i,'false');
+						brojac=brojac+1;
+					}
+					if ((localStorage.getItem(i)!='false')&&(brojac==1)&&(localStorage.getItem(i)!='null')){
+						var prod_cena=localStorage.getItem(i);
+						prod_cena=prod_cena.split("#");
+						localStorage.setItem("drugiRed",prod_cena);
+						var prod=prod_cena[0];
+						var cena=prod_cena[1];
+						localStorage.setItem("cena2",cena);
+						document.getElementById('th2').innerHTML=2;
+						document.getElementById('r4').innerHTML+=prod;
+						document.getElementById('r5').innerHTML='<input type="text" name="kolicina2" id="kolicina2" size="1">';
+						document.getElementById('r6').innerHTML+=cena;
+						document.getElementById('r6').innerHTML+=" RSD";
+						document.korpa_forma.kolicina2.value='1';
+						localStorage.setItem(i,'false');
+						brojac=brojac+1;
+					}
+					if ((localStorage.getItem(i)!='false')&&(brojac==2)&&(localStorage.getItem(i)!='null')){
+						var prod_cena=localStorage.getItem(i);
+						prod_cena=prod_cena.split("#");
+						localStorage.setItem("treciRed",prod_cena);
+						var prod=prod_cena[0];
+						var cena=prod_cena[1];
+						localStorage.setItem("cena3",cena);
+						document.getElementById('th3').innerHTML=3;
+						document.getElementById('r7').innerHTML+=prod;
+						document.getElementById('r8').innerHTML='<input type="text" name="kolicina3" id="kolicina3" size="1">';
+						document.getElementById('r9').innerHTML+=cena;
+						document.getElementById('r9').innerHTML+=" RSD";
+						document.korpa_forma.kolicina3.value='1';
+						localStorage.setItem(i,'false');
+						brojac=brojac+1;
+					}
+					if ((localStorage.getItem(i)!='false')&&(brojac==3)&&(localStorage.getItem(i)!='null')){
+						var prod_cena=localStorage.getItem(i);
+						prod_cena=prod_cena.split("#");
+						localStorage.setItem("cetvrtiRed",prod_cena);
+						var prod=prod_cena[0];
+						var cena=prod_cena[1];
+						localStorage.setItem("cena4",cena);
+						document.getElementById('th4').innerHTML=4;
+						document.getElementById('r10').innerHTML+=prod;
+						document.getElementById('r11').innerHTML='<input type="text" name="kolicina4" id="kolicina4" size="1">';
+						document.getElementById('r12').innerHTML+=cena;
+						document.getElementById('r12').innerHTML+=" RSD";
+						document.korpa_forma.kolicina4.value='1';
+						localStorage.setItem(i,'false');
+						brojac=brojac+1;
+					}
+					
+					if(brojac==4) brojac=0;
+				}
+			}
+		
+		
+			function start(){
+				var flag=localStorage.getItem('flag_korpa');
+				if (flag=='false') ispisi();
+				else{
+					var prod_cena=localStorage.getItem('prviRed');
+					if (prod_cena!='false'){
+						document.getElementById('rest').innerHTML="<h2><font color='white'>"+localStorage.getItem("Restoran")+"</font></h2>";
+						prod_cena=prod_cena.split(",");
+						var prod=prod_cena[0];
+						var cena=prod_cena[1];
+						document.getElementById('th1').innerHTML=1;
+						document.getElementById('r1').innerHTML=prod;
+						document.getElementById('r2').innerHTML='<input type="text" name="kolicina1" id="kolicina1" size="1">';
+						document.getElementById('r3').innerHTML=cena;
+						document.getElementById('r3').innerHTML+=" RSD";
+						document.korpa_forma.kolicina1.value='1';
+					}
+					var prod_cena1=localStorage.getItem('drugiRed');
+					if (prod_cena1!='false'){
+						prod_cena1=prod_cena1.split(",");
+						var prod1=prod_cena1[0];
+						var cena1=prod_cena1[1];
+						document.getElementById('th2').innerHTML=2;
+						document.getElementById('r4').innerHTML=prod1;
+						document.getElementById('r5').innerHTML='<input type="text" name="kolicina2" id="kolicina2" size="1">';
+						document.getElementById('r6').innerHTML=cena1;
+						document.getElementById('r6').innerHTML+=" RSD";
+						document.korpa_forma.kolicina2.value='1';
+					}
+					
+					
+					var prod_cena2=localStorage.getItem('treciRed');
+					if (prod_cena2!='false'){
+						prod_cena2=prod_cena2.split(",");
+						var prod2=prod_cena2[0];
+						var cena2=prod_cena2[1];
+						document.getElementById('th3').innerHTML=3;
+						document.getElementById('r7').innerHTML=prod2;
+						document.getElementById('r8').innerHTML='<input type="text" name="kolicina3" id="kolicina3" size="1">';
+						document.getElementById('r9').innerHTML=cena2;
+						document.getElementById('r9').innerHTML+=" RSD";
+						document.korpa_forma.kolicina3.value='1';
+					}
+					
+					var prod_cena3=localStorage.getItem('cetvrtiRed');
+					if (prod_cena3!='false'){
+						prod_cena3=prod_cena3.split(",");
+						var prod3=prod_cena3[0];
+						var cena3=prod_cena3[1];
+						document.getElementById('th4').innerHTML=4;
+						document.getElementById('r10').innerHTML+=prod3;
+						document.getElementById('r11').innerHTML='<input type="text" name="kolicina4" id="kolicina4" size="1">';
+						document.getElementById('r12').innerHTML+=cena3;
+						document.getElementById('r12').innerHTML+=" RSD";
+						document.korpa_forma.kolicina4.value='1';
+						
+					}
+					if(localStorage.getItem('racunUkupan')=='false') document.korpa_forma.racun.value=0;
+					else{
+						document.korpa_forma.racun.value=localStorage.getItem('racunUkupan');
+					}
+				}
+			}
+			
+			function restart(){
+				localStorage.setItem("flag_korpa",'false');
+			}
+			
+
+			function formiraj_racun(){
+				var racun=0;
+				var x1=document.getElementById('kolicina1');
+				if (x1!=null && x1!="") {
+					x1=x1.value;
+					x1=parseInt(x1);
+					localStorage.setItem("kol1",x1);
+					var cena1=localStorage.getItem("cena1");
+					if (cena1!='false') {
+					cena1=parseInt(cena1);
+					racun+=cena1*x1;
+					}
+				}
+				
+				var x2=document.getElementById('kolicina2');
+				if (x2!=null && x2!="") {
+					
+					x2=x2.value;
+					x2=parseInt(x2);
+					//**************
+					localStorage.setItem("kol2",x2);
+					//**************
+					var cena2=localStorage.getItem("cena2");
+					if (cena2!='false') {
+					cena2=parseInt(cena2);
+					racun+=cena2*x2;
+					}
+				}
+				
+				var x3=document.getElementById('kolicina3');
+				if (x3!=null && x3!="") {
+					x3=x3.value;
+					x3=parseInt(x3);
+					//**************
+					localStorage.setItem("kol3",x3);
+					//**************
+					var cena3=localStorage.getItem("cena3");
+					if (cena3!='false') {
+					cena3=parseInt(cena3);
+					racun+=cena3*x3;
+					}
+				}
+				
+				var x4=document.getElementById('kolicina4');
+				if (x4!=null && x4!="") {
+					x4=x4.value;
+					x4=parseInt(x4);
+					//**************
+					localStorage.setItem("kol4",x4);
+					//**************
+					var cena4=localStorage.getItem("cena4");
+					if (cena4!='false') {
+					cena4=parseInt(cena4);
+					racun+=cena4*x4;
+					}
+				}
+				
+				racun=racun+" RSD";
+				localStorage.setItem("racunUkupan",racun);
+				
+				
+				var cena2=localStorage.getItem("cena2");
+				var cena3=localStorage.getItem("cena3");
+				var cena4=localStorage.getItem("cena4");
+				
+				if (cena2!='false') cena2=parseInt(cena2);
+				if (cena3!='false') cena3=parseInt(cena3);
+				if (cena4!='false') cena4=parseInt(cena4);
+				
+			}
+			
+			
+			
+			function potvrdiKupovinu(){
+				var ime="";
+				var adresa="";
+				var telefon="";
+				var flag='true';
+				//regexi
+				var imeRegex=/^[a-zA-Z\s,'-]{3,25}$/;
+				var telefonRegex=/^[\d]{6,15}$/;
+				var adresaRegex=/^[a-zA-Z0-9\s,'-]{3,50}$/;
+				//ime regex
+				if (imeRegex.test(document.korpa_forma.Ime.value)){
+					ime=document.korpa_forma.Ime.value;
+				}
+				else{
+					alert("Ime nije dobro!");
+					flag='false';
+				}
+				//telefon regex
+				if (telefonRegex.test(document.korpa_forma.Telefon.value)){
+					telefon=document.korpa_forma.Telefon.value;
+				}
+				else{
+					alert("Telefon nije dobar!");
+					flag='false';
+				}
+				//adresa regex
+				if (adresaRegex.test(document.korpa_forma.Adresa.value)){
+					adresa=document.korpa_forma.Adresa.value;
+				}
+				else{
+					alert("Adresa nije dobra!");
+					flag='false';
+				}
+				
+				if (flag=='true'){
+					localStorage.setItem("kupac",ime);
+					localStorage.setItem("adresaKupca",adresa);
+					localStorage.setItem("telefonKupca",telefon);
+					localStorage.setItem("flag_korpa",'false');
+					window.open("potvrda_kupovine.html");
+				}
+			}
+			
+		</script>
+		
+		
+		
+		
+		
 	</head>
 
-	<body>
+	<body onload='start()'>
+	   <form name='korpa_forma'>
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu">
 			<div class="bg transition">
@@ -32,7 +336,7 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<nav class="navbar navbar-expand-lg navbar-light">
-								<a class="navbar-brand" href="index_eng.html"><img src='images/flash_food.png' height='70' ></a>
+								<a class="navbar-brand" href="index.html"><img src='images/flash_food.png' height='70' ></a>
 								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icon-menu"></span>
 				  </button>
@@ -42,33 +346,33 @@
 									   
 										<li class="nav-item dropdown">
 											<a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Municipality
+						Opstine
 						<span class="icon-arrow-down"></span>
 					  </a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="#">Vračar</a>
-												<a class="dropdown-item" href="#">Dorćol</a>
-												<a class="dropdown-item" href="#">Novi Beograd</a>
-												<a class="dropdown-item" href="#">Zvezdara</a>
+												<a class="dropdown-item" href="vracar.html">Vračar</a>
+												<a class="dropdown-item" href="dorcol.html">Dorćol</a>
+												<a class="dropdown-item" href="novi_beograd.html">Novi Beograd</a>
+												<a class="dropdown-item" href="zvezdara.html">Zvezdara</a>
 											</div>
 										</li>
 										
 										
 										<li class="nav-item dropdown">
 											<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						 About us
+						 O nama
 						 <span class="icon-arrow-down"></span>
 					   </a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="#">Authors</a>
-												<a class="dropdown-item" href="#">Awards</a>
-												<a class="dropdown-item" href="#">Sponsors</a>
-												<a class="dropdown-item" href="#">Contact</a>
+												<a class="dropdown-item" href="tim.html">Tim autora</a>
+												<a class="dropdown-item" href="nagrade.html">Nagrade</a>
+												<a class="dropdown-item" href="sponzori.html">Spoznori</a>
+												<a class="dropdown-item" href="kontakt.html">Kontakt</a>
 											</div>
 										</li>
 										
 										<li class="nav-item active">
-											<a class="nav-link" href="#">Delivery</a> 
+											<a class="nav-link" href="#">Dostava</a> 
 										</li>
 										
 										<li class="nav-item active">
@@ -94,10 +398,10 @@
 							<div class="row">
 								<div class="col-sm-12 col-xs-12" style="padding-top:90px;">
 									<br>
-										<h1><b><font color="black">The best place to find your favorite food delivery site</font></b></h1>
+										<h1><b><font color="black">Najbolji izbor sajtova za poručivanje hrane</font></b></h1>
 								</div>
 								<div class="col-sm-12 com-xs-12">
-									<h5><b>Find the most popular restaurants right in your area</b></h5>
+									<h5><b>Pronađite najpopularnije restorane baš u vašoj blizini</b></h5>
 								</div>
 							</div>
 							
@@ -128,74 +432,67 @@
 			</div>
 		</section>
 		<br>
-		<div class="container">
+		<div class="container" >
+		
 			<div class="row">
 			
 				<div class="col naslov_korpa">
 				
-					<h3><u>Your order</u></h3>
+					<h3><u>Vaša porudžbina</u></h3>
 				
 				</div>
 			
 			</div>
 		
-			<div class="row">
+			<div class="row" id="HTMLtoPDF">
 			
 				<div class="col-xs-12 col-sm-12">
-				
+					<table class="table table-hover">
+						<tr align='center'>
+							<td id='rest' style="background-color:red"></td>
+						</tr>
+					</table>
 					<table class="table table-hover">
 					  <thead>
 						<tr>
-						  <th scope="col">Num</th>
-						  <th scope="col">Item</th>
-						  <th scope="col">Quantity</th>
-						  <th scope="col">Price</th>
+						  <th scope="col">Br</th>
+						  <th scope="col">Stavka</th>
+						  <th scope="col">Kolicina</th>
+						  <th scope="col">Cena</th>
 						</tr>
 					  </thead>
 					  <tbody>
-						<tr id="r0">
-						  <th scope="row">1</th>
-						  <td>Big Mac</td>
-						  <td>
-							<button class="btn btn-dark" onclick=""> - </button>
-							1
-							<button class="btn btn-dark" onclick="">+</button></td>
-						  <td>400 RSD</td>
+						<tr>
+						  <th scope="row" id='th1'>1</th>
+						  <td id='r1'></td>
+						  <td id='r2'></td>
+						  <td id='r3'></td>
 						</tr>
-						<tr id="r1">
-						  <th scope="row">2</th>
-						  <td>Premium Chicken Strips</td>
-						  <td>
-							<button class="btn btn-dark" onclick="">-</button>
-							2
-							<button class="btn btn-dark" onclick="">+</button></td>
-						  </td>
-						  <td>800 RSD</td>
+						<tr>
+						  <th scope="row" id='th2'></th>
+						  <td id='r4'></td>
+						  <td id='r5'></td>
+						  <td id='r6'></td>
 						</tr>
-						<tr id="r2">
-						  
+						<tr>
+						  <th scope="row" id='th3'></th>
+						  <td id='r7'></td>
+						  <td id='r8'></td>
+						  <td id='r9'></td>
 						</tr>
-						<tr id="r3">
-						  
+						<tr>
+						  <th scope="row" id='th4'></th>
+						  <td id='r10'></td>
+						  <td id='r11'></td>
+						  <td id='r12'></td>
 						</tr>
-						<tr id="r4">
-						  
+						<tr>
+						  <th scope="row" id='th5'></th>
+						  <td id='r13'></td>
+						  <td id='r14'></td>
+						  <td id='r15'></td>
 						</tr>
-						<tr id="r5">
-						  
-						</tr>
-						<tr id="r6">
-						  
-						</tr>
-						<tr id="r7">
-						  
-						</tr>
-						<tr id="r8">
-						  
-						</tr>
-						<tr id="r9">
-						  
-						</tr>
+					
 					  </tbody>
 					</table>
 				
@@ -203,28 +500,41 @@
 			
 			</div>
 			<br><br>
-			<form name="podaci" style="text-align:center">
-					
-				<div class="row">
+			<div class='row' align='center'>
+				<div class='col-sm-12'>
+					<button class="btn btn-lg" onclick="formiraj_racun()">Formiraj racun</button>
+				</div>
+				
+			</div>
+			<br>
+			
+				
+			<div class='row'align='center'>
+				<div class='col-sm-12'>
+					<input type="text" name='racun'>
+				</div>
+			</div>				
+				<br><br>
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
-						<h3><u>Please enter informations about you :</u></h3>
+						<h3><u>Molimo Vas da unesete vaše podatke:</u></h3>
 						
 					</div>
 				
 				</div>
 				<br><br>
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
-						Name:
+						Ime:
 						
 					</div>
 				
 				</div>
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
@@ -234,36 +544,36 @@
 				
 				</div>
 				<br>
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
-						Tel:
+						Telefon:
 						
 					</div>
 				
 				</div>
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
-						<input type="text" name="Telefon" placeholder="+381 6x xxxx xxx">
+						<input type="text" name="Telefon" placeholder="06x xxxx xxx">
 						
 					</div>
 				
 				</div>
 				<br>
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
-						Address:
+						Adresa:
 						
 					</div>
 				
 				</div>
 			
-				<div class="row">
+				<div class="row" align='center'>
 				
 					<div class="col-sm-12 col-xs-12">
 					
@@ -272,18 +582,17 @@
 					</div>
 				
 				</div>
-			</form>
 			<br><br>
-			<div class="row">
+			<div class="row" align='center'>
 			
 				<div class="col naslov_korpa">
 				
-					<button class="btn btn-success" onclick="potvrda_kupovine()">Confirm</button>
+					<button class="btn btn-success" onclick="potvrdiKupovinu()">Potvrdi</button>
 				
 				</div>
 				<div class="col naslov_korpa">
 				
-					<button class="btn btn-danger" onclick="otkazivanje_kupovine()"><font color="white">Cancel</font></button>
+					<button class="btn btn-danger" onclick="restart()"><font color="white">Odustani</font></button>
 				
 				</div>
 			
@@ -292,7 +601,7 @@
 			
 		</div>
 				
-	   
+	   </form>
 		<!--FOOTER-->
 		<footer class="footer dark-bg">
 			<div class="container">
@@ -327,7 +636,8 @@
 				};
 			});
 		</script>
-		
-	
+		<script src="js/jspdf.js"></script>
+		<script src="js/jquery-2.1.3.js"></script>
+		<script src="js/pdfFromHTML.js"></script>
 
 </html>

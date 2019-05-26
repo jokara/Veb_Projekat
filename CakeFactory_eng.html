@@ -20,10 +20,43 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
-		
+		<script>
+			function stavi_u_korpu(){
+				if(document.cake_form.torta1.checked){
+					localStorage.setItem(57,"Cake#1500");
+				}
+				else{
+					localStorage.setItem(57,"false");
+				}
+				
+				if(document.cake_form.torta2.checked){
+					localStorage.setItem(58,"Birthday cake#1700");
+				}
+				else{
+					localStorage.setItem(58,"false");
+				}
+				
+				if(document.cake_form.torta3.checked){
+					localStorage.setItem(59,"Chocolate cake#2500");
+				}
+				else{
+					localStorage.setItem(59,"false");
+				}
+				
+				if(document.cake_form.torta4.checked){
+					localStorage.setItem(60,"Castle#2000");
+				}
+				else{
+					localStorage.setItem(60,"false");
+				}
+				
+				
+				window.open("korpa.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name="cake_form">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -255,7 +288,7 @@
 
 			
 		</div>
-		
+		</form>
 		
 	<!--FOOTER-->
 		<footer class="footer dark-bg">

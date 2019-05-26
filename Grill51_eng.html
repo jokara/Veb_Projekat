@@ -21,9 +21,73 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
 		
+		
+		<script>
+			function stavi_u_korpu(){
+				if(document.grill51_form.pljeskavica.checked){
+					localStorage.setItem(9,"Pljeskavica#290");
+				}
+				else{
+					localStorage.setItem(9,"false");
+				}
+				
+				if(document.grill51_form.mesano.checked){
+					localStorage.setItem(10,"Mixed meat#360");
+				}
+				else{
+					localStorage.setItem(10,"false");
+				}
+				
+				if(document.grill51_form.belo.checked){
+					localStorage.setItem(11,"Filled white meat#310");
+				}
+				else{
+					localStorage.setItem(11,"false");
+				}
+				
+				if(document.grill51_form.snickers.checked){
+					localStorage.setItem(12,"Snickers#340");
+				}
+				else{
+					localStorage.setItem(12,"false");
+				}
+				
+				
+			
+				if(document.grill51_form.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.grill51_form.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.grill51_form.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.grill51_form.Pomfrit.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name="grill51_form">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -254,7 +318,7 @@
 			</div>			
 			
 		</div>			
-						
+		</form>				
 	
 		
 		
