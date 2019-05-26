@@ -30,6 +30,27 @@
 				localStorage.setItem("filter",tip);
 				window.open("filtriranje_eng.html");
 			}
+			
+			function pretrazi(){
+				var grad=document.getElementById('grad').value;
+				var vrsta=document.getElementById('vrsta').value;
+				
+				if(grad=='Belgrade'){
+					
+					if(vrsta=='Fast food' || vrsta=='Pancakes' || vrsta=='Chinese food' || vrsta=='Grill' || vrsta=='Cookies' || vrsta=='Healthy food'){
+						localStorage.setItem("filter",vrsta);
+						localStorage.setItem("flag","set");
+						window.open("filtriranje_eng.html");
+					}
+					else{
+						alert('Food type not found');
+					}
+					
+				}
+				else{
+					alert('City not found');
+				}
+			}
 		
 		</script>
 	</head>
@@ -352,10 +373,10 @@
 						<span class="icon-arrow-down"></span>
 					  </a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-												<a class="dropdown-item" href="#">Vračar</a>
-												<a class="dropdown-item" href="#">Dorćol</a>
-												<a class="dropdown-item" href="#">Novi Beograd</a>
-												<a class="dropdown-item" href="#">Zvezdara</a>
+												<a class="dropdown-item" href="vracar_eng.html">Vračar</a>
+												<a class="dropdown-item" href="dorcol_eng.html">Dorćol</a>
+												<a class="dropdown-item" href="novi_beograd_eng.html">Novi Beograd</a>
+												<a class="dropdown-item" href="zvezdara_eng.html">Zvezdara</a>
 											</div>
 										</li>
 										
@@ -408,23 +429,23 @@
 							</div>
 							<div class="row d-flex justify-content-center">
 								<div class="col-sm-10 col-xs-10">
-									<form class="form-wrap mt-4">
+									<form class="form_wrap mt-4">
 										<div class="row">
 											<div class="col-xs-5 col-sm-5">
-												<input type="text" id="form1" class="form-control" placeholder="Fast food" style="height:50px">
+												<input type="text" id="vrsta" class="form-control" placeholder="Fast food" style="height:50px">
 											</div>
 											<div class="col-xs-5 col-sm-5">
-												<input type="text" id="form1" class="form-control" placeholder="Belgrade" style="height:50px">
+												<input type="text" id="grad" class="form-control" placeholder="Belgrade" style="height:50px">
 											</div>
 											<div class="col-xs-2 col-sm-2" >
-												<button class="btn btn-success" style="height:50px">Search</button>
+												<input type='button' class="btn btn-success" style="height:50px" value='Search' onclick='pretrazi()'>
 											</div>
 										</div>
 										<br>
 										
 									</form>
 									<div class="brza_pretraga">
-										<a href="#">Most popular</a><span>ili</span> <a href="#">Most recent</a>
+										<a href="vracar_eng.html">Most popular</a>
 									</div>
 								</div>
 							</div>
