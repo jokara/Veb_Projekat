@@ -209,6 +209,7 @@
 				if (x1!=null && x1!="") {
 					x1=x1.value;
 					x1=parseInt(x1);
+					localStorage.setItem("kol1",x1);
 					var cena1=localStorage.getItem("cena1");
 					if (cena1!='false') {
 					cena1=parseInt(cena1);
@@ -218,8 +219,12 @@
 				
 				var x2=document.getElementById('kolicina2');
 				if (x2!=null && x2!="") {
+					
 					x2=x2.value;
 					x2=parseInt(x2);
+					//**************
+					localStorage.setItem("kol2",x2);
+					//**************
 					var cena2=localStorage.getItem("cena2");
 					if (cena2!='false') {
 					cena2=parseInt(cena2);
@@ -231,6 +236,9 @@
 				if (x3!=null && x3!="") {
 					x3=x3.value;
 					x3=parseInt(x3);
+					//**************
+					localStorage.setItem("kol3",x3);
+					//**************
 					var cena3=localStorage.getItem("cena3");
 					if (cena3!='false') {
 					cena3=parseInt(cena3);
@@ -242,6 +250,9 @@
 				if (x4!=null && x4!="") {
 					x4=x4.value;
 					x4=parseInt(x4);
+					//**************
+					localStorage.setItem("kol4",x4);
+					//**************
 					var cena4=localStorage.getItem("cena4");
 					if (cena4!='false') {
 					cena4=parseInt(cena4);
@@ -300,7 +311,11 @@
 				}
 				
 				if (flag=='true'){
-					HTMLtoPDF();
+					localStorage.setItem("kupac",ime);
+					localStorage.setItem("adresaKupca",adresa);
+					localStorage.setItem("telefonKupca",telefon);
+					localStorage.setItem("flag_korpa",'false');
+					window.open("potvrda_kupovine.html");
 				}
 			}
 			
