@@ -20,7 +20,7 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
-		
+		<script src="js/Ocene.js"></script>
 		
 		<script>
 			function stavi_u_korpu(){
@@ -90,7 +90,7 @@
 		
 		
 	</head>
-	<body>
+	<body onload="racunaj('Saint');">
 		<form name='saint_forma'>
 			<!--Zaglavlje stranice-->
 			<div class="nav-menu" style="background-color:#252a33">
@@ -293,7 +293,51 @@
 					<div class='col-sm-12'>
 						<h1><font color='black'>O nama:</font></h1>
 					</div>
+				</div>	
+				<br>
+				<br>
+				<div class="row" align="center">
+				
+					<div class="col-sm-6">
+						
+						
+						<font color='black' size='6'>Prosecna ocena kupaca:</font>
+						<br>
+						<p id='prosecna'></p>
+					
+					</div>
+				
+				
+					<div class="col-sm-6">
+						
+						<div class='row'>
+						
+							<div class='col-sm-6'>
+								<font color='black' size='6'>Oceni restoran:</font><br><br>
+
+										1:<input type='radio' name='ocena' value='1'>
+										
+										2:<input type='radio' name='ocena' value='2'>
+										
+										3:<input type='radio' name='ocena' value='3'>
+										
+										4:<input type='radio' name='ocena' value='4'>
+										
+										5:<input type='radio' name='ocena' value='5'>
+									
+							</div>
+							<div class='col-sm-6'>
+								<br><br>
+								<input type="button" class='btn btn-success' value='Oceni' onclick="oceni('Saint')">
+							
+							</div>
+						
+						</div>
+					
+					</div>
+				
 				</div>
+			<br><br>
 				<!--MAPA I JUMBOTRON-->
 				<br><br>			
 							
