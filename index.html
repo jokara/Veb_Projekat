@@ -30,6 +30,28 @@
 				window.open("filtriranje.html");
 			}
 		
+			function pretrazi(){
+				var grad=document.getElementById('grad').value;
+				var vrsta=document.getElementById('vrsta').value;
+				
+				if(grad=='Beograd'){
+					
+					if(vrsta=='Brza hrana' || vrsta=='Palacinke' || vrsta=='Kineska hrana' || vrsta=='Rostilj' || vrsta=='Kolaci' || vrsta=='Zdrava hrana'){
+						localStorage.setItem("filter",vrsta);
+						localStorage.setItem("flag","set");
+						window.open("filtriranje.html");
+					}
+					else{
+						alert('Nismo pronasli vrstu koju ste trazili');
+					}
+					
+				}
+				else{
+					alert('Nismo pronasli grad koji ste trazili');
+				}
+			}
+			
+			
 		</script>
 		
 		
@@ -47,7 +69,7 @@
 			
 					var prosek=4;
 					localStorage.setItem('prosecna',prosek);
-					alert('prosek postavljen na '+localStorage.getItem('prosecna'));
+					//alert('prosek postavljen na '+localStorage.getItem('prosecna'));
 			
 					var palacinke_ime = new Array('R13','R7');
 					var brza_ime = new Array('R15','R12','R10','R3','R2');
@@ -319,7 +341,7 @@
 	
 			localStorage.setItem('R1',R1JSON);
 			
-			alert(localStorage.getItem('R1'));
+			//alert(localStorage.getItem('R1'));
 			
 			var R2JSON = JSON.stringify(R2);
 			
@@ -501,16 +523,16 @@
 							</div>
 							<div class="row d-flex justify-content-center">
 								<div class="col-sm-10 col-xs-10">
-									<form class="form-wrap mt-4">
+									<form class="form_wrap mt-4">
 										<div class="row">
 											<div class="col-xs-5 col-sm-5">
-												<input type="text" id="form1" class="form-control" placeholder="Brza hrana" style="height:50px">
+												<input type="text" id='vrsta' class="form-control" placeholder="Brza hrana" style="height:50px">
 											</div>
 											<div class="col-xs-5 col-sm-5">
-												<input type="text" id="form1" class="form-control" placeholder="Beograda" style="height:50px">
+												<input type="text" id='grad' class="form-control" placeholder="Beograd" style="height:50px">
 											</div>
 											<div class="col-xs-2 col-sm-2" >
-												<button class="btn btn-success" style="height:50px">Pretraga</button>
+												<input type='button' class="btn btn-success" style="height:50px" onclick='pretrazi()' value='Pretraga'>
 											</div>
 										</div>
 										<br>
