@@ -28,6 +28,9 @@
 		<script>
 		
 			function filtriraj(){
+				
+				
+				
 				alert('filtriraj sa filterom:'+localStorage.getItem('filter'));
 				if(localStorage.getItem('flag')!=""){
 					alert('filtriraj');
@@ -101,6 +104,7 @@
 						//alert("gotovo");
 				}
 				else{
+					alert('u else: '+JSON.parse(localStorage.getItem('niz')));
 					ispisi(JSON.parse(localStorage.getItem('niz')));
 				}
 			
@@ -163,6 +167,58 @@
 				}
 				
 				return r;
+			}
+			
+			function napravi_niz(niz,niz2){
+				alert('napravi_niz1: '+niz2);
+			
+				var ret=new Array();
+				
+				for(var i=0;i<niz.length;i++){
+					//alert('napravi_niz2');
+					var naziv=niz[i];
+					
+					for(var j=1;j<17;j++){
+						//alert('napravi_niz3');
+						//alert('iz jsona: '+JSON.parse(localStorage.getItem('R'+j)).naziv+' naziv: '+naziv);
+						if(JSON.parse(localStorage.getItem('R'+j)).naziv==naziv){
+							
+							alert('stavio u niz: '+JSON.parse(localStorage.getItem(niz2[i])).naziv);
+							ret.push(JSON.parse(localStorage.getItem(niz2[i])));
+						
+						}
+					
+					}
+				
+				}
+				alert('napravi_niz4: '+ret);
+				return ret;
+			
+			}
+			
+			function prevodi(niz){
+				var ret=new Array();
+				
+				for(var i=0;i<niz.length;i++){
+					//alert('napravi_niz2');
+					var naziv=niz[i].naziv;
+					
+					for(var j=1;j<17;j++){
+						//alert('napravi_niz3');
+						//alert('iz jsona: '+JSON.parse(localStorage.getItem('R'+j)).naziv+' naziv: '+naziv);
+						if(JSON.parse(localStorage.getItem('R'+j)).naziv==naziv){
+							
+							var str='R'+j;
+							ret.push(str);
+							alert('stavio: '+str);
+						}
+					
+					}
+				
+				}
+				alert('pretvoren: '+ret);
+				return ret;
+			
 			}
 			
 			
@@ -228,26 +284,54 @@
 				//po oceni
 				else if(ocena==1) {
 					alert(tip);
-					//alert('po imenima');
-					//izlistani=dohvati_izlistane_ocena();
-					//alert(izlistani);
-					//izlistani_s=izlistani.sort();
+					switch(tip){
+					
+						case 'Palacinke':izlistani_s=JSON.parse(localStorage.getItem('pi')); break;
+						case 'Brza hrana':izlistani_s=JSON.parse(localStorage.getItem('bi')); break;
+						case 'Zdrava hrana':izlistani_s=JSON.parse(localStorage.getItem('zi')); break;
+						case 'Rostilj':izlistani_s=JSON.parse(localStorage.getItem('ri')); break;
+						case 'Kolaci':izlistani_s=JSON.parse(localStorage.getItem('koi')); break;
+						case 'Kineska hrana':izlistani_s=JSON.parse(localStorage.getItem('kii')); break;
+					
+					}
+					
+					alert('izlistani_s: '+izlistani_s);
+					
+					izlistani_s2=new Array();
+					
+					for(var i=0;i<izlistani_s.length;i++){
+					
+						izlistani_s2.push(JSON.parse(localStorage.getItem(izlistani_s[i])).naziv);
+					
+					}
+					alert('izlistani_s2: '+izlistani_s2);
+					items=napravi_niz(izlistani_s2,izlistani_s);
+					
+					for(var i=0;i<items.length;i++){
+					
+						alert('item'+i+' : '+items[i].naziv);
+					
+					}
+					
+					var items_sort=items.sort(function (a, b) {
+					  return a.prosecna - b.prosecna;
+					});
+					alert('pre fora');
+					for(var i=0;i<items_sort.length;i++){
+					
+						alert(items_sort[i].naziv);
+					
+					}
+					
+					var items_sort2=prevodi(items_sort);
+					
+					niz_restorana=nadji(items_sort2);
+					alert('niz_restorana: '+niz_restorana);
+					niz_json=JSON.stringify(niz_restorana);
+					localStorage.setItem('niz',niz_json);
+					alert('niz resorana : '+niz_restorana);
+					
 				}
-				
-				//alert('reverse');
-				//alert("sortiran: "+izlistani_s);
-				
-				
-				//var json = JSON.stringify(izlistani_s);
-				
-				//alert("za json: "+json);
-				
-				//localStorage.setItem('primeni',1);//treba resetovati nekad
-				//localStorage.setItem('niz_za_prikaz',json);
-				
-				//alert("niz za prikaz: "+localStorage.getItem('niz_za_prikaz'));
-				//window.open("filtriranje.html",'_self');
-				//alert('prikazano');
 			}
 			
 		
