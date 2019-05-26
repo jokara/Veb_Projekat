@@ -40,7 +40,14 @@
 		<!--Inicijalizacija localStorage-a-->
 		<script>
 			localStorage.clear();
+					
+					var ocene=new Array('5','4','3');
+					var oceneJSON=JSON.stringify(ocene);
+					localStorage.setItem('ocene',oceneJSON);
 			
+					var prosek=4;
+					localStorage.setItem('prosecna',prosek);
+					alert('prosek postavljen na '+localStorage.getItem('prosecna'));
 			
 					var palacinke_ime = new Array('R13','R7');
 					var brza_ime = new Array('R15','R12','R10','R3','R2');
@@ -311,6 +318,8 @@
 			var R1JSON = JSON.stringify(R1);
 	
 			localStorage.setItem('R1',R1JSON);
+			
+			alert(localStorage.getItem('R1'));
 			
 			var R2JSON = JSON.stringify(R2);
 			

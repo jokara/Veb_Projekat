@@ -61,9 +61,59 @@
 				
 				window.open("korpa.html");
 			}
+			
+			function oceni(){
+				
+				var ocena=parseInt(document.baloro_form.ocena.value);
+				alert('dao ocenu: '+ocena);
+				localStorage.setItem('ocenaBaloro',ocena);
+				racunaj();
+			
+			}
+			
+			function racunaj(){
+				
+				if(localStorage.getItem('ocenaBaloro')!=null){
+					var prosek=12+parseInt(localStorage.getItem('ocenaBaloro'));
+					var prosek=prosek/4;
+					alert('prosek: '+prosek);
+					localStorage.setItem('prosecna',prosek);
+					
+					var star="";
+					
+					for(var i=1;i<=prosek;i++){
+						
+						star+="<img class='img img-fluid' src='star.png' >";
+						
+					}
+					star+="<font size='5'> : "+prosek+"</font>";
+					document.getElementById('prosecna').innerHTML=star;
+				}
+				else{
+					var prosek=parseInt(localStorage.getItem('prosecna'));
+				
+					var star="";
+					
+					for(var i=1;i<=prosek;i++){
+						
+						star+="<img class='img img-fluid' src='star.png' >";
+						
+					}
+					star+="<font size='5'> : "+prosek+"</font>";
+					alert('star: '+star);
+					document.getElementById('prosecna').innerHTML=star;
+				}
+				
+			}
+			
 		</script>
 	</head>
-	<body>
+	<body onload='racunaj();'>
+		<script>
+			
+			alert(localStorage.getItem('ocene'));
+		
+		</script>
 		<form name="baloro_form">
 			<!--Zaglavlje stranice-->
 			<div class="nav-menu" style="background-color:#252a33">
@@ -263,7 +313,50 @@
 					<div class='col-sm-12'>
 						<h1><font color='black'>O nama:</font></h1>
 					</div>
-				</div>			
+				</div>	
+				<br>
+				<br>
+				<div class="row" align="center">
+				
+					<div class="col-sm-6">
+						
+						
+						<font color='black'>Prosecna ocena kupaca:</font>
+						
+						<p id='prosecna'></p>
+					
+					</div>
+				
+				
+					<div class="col-sm-6">
+						
+						<div class='row'>
+						
+							<div class='col-sm-6'>
+								<font color='black'>Oceni restoran:</font><br><br>
+
+										1:<input type='radio' name='ocena' value='1'>
+										
+										2:<input type='radio' name='ocena' value='2'>
+										
+										3:<input type='radio' name='ocena' value='3'>
+										
+										4:<input type='radio' name='ocena' value='4'>
+										
+										5:<input type='radio' name='ocena' value='5'>
+									
+							</div>
+							<div class='col-sm-6'>
+							
+								<input type="button" class='btn btn-success' value='Oceni' onclick='oceni()'>
+							
+							</div>
+						
+						</div>
+					
+					</div>
+				
+				</div>
 						
 				<!--MAPA I JUMBOTRON-->
 				<br><br>			
