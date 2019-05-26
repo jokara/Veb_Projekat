@@ -86,7 +86,7 @@
 						star+="<img class='img img-fluid' src='star.png' >";
 						
 					}
-					star+="<font size='5'> : "+prosek+"</font>";
+					star+="<font size='5'> <br> "+prosek+"</font>";
 					document.getElementById('prosecna').innerHTML=star;
 				}
 				else{
@@ -99,7 +99,7 @@
 						star+="<img class='img img-fluid' src='star.png' >";
 						
 					}
-					star+="<font size='5'> : "+prosek+"</font>";
+					star+="<font size='5'> <br> "+prosek+"</font>";
 					alert('star: '+star);
 					document.getElementById('prosecna').innerHTML=star;
 				}
@@ -321,8 +321,8 @@
 					<div class="col-sm-6">
 						
 						
-						<font color='black'>Prosecna ocena kupaca:</font>
-						
+						<font color='black' size='6'>Prosecna ocena kupaca:</font>
+						<br>
 						<p id='prosecna'></p>
 					
 					</div>
@@ -333,7 +333,7 @@
 						<div class='row'>
 						
 							<div class='col-sm-6'>
-								<font color='black'>Oceni restoran:</font><br><br>
+								<font color='black' size='6'>Oceni restoran:</font><br><br>
 
 										1:<input type='radio' name='ocena' value='1'>
 										
@@ -347,7 +347,7 @@
 									
 							</div>
 							<div class='col-sm-6'>
-							
+								<br><br>
 								<input type="button" class='btn btn-success' value='Oceni' onclick='oceni()'>
 							
 							</div>
