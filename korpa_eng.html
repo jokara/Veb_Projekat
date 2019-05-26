@@ -290,7 +290,7 @@
 					ime=document.korpa_forma.Ime.value;
 				}
 				else{
-					alert("Ime nije dobro!");
+					alert("Name isnt fine!");
 					flag='false';
 				}
 				//telefon regex
@@ -298,7 +298,7 @@
 					telefon=document.korpa_forma.Telefon.value;
 				}
 				else{
-					alert("Telefon nije dobar!");
+					alert("Phone isnt fine!");
 					flag='false';
 				}
 				//adresa regex
@@ -306,7 +306,7 @@
 					adresa=document.korpa_forma.Adresa.value;
 				}
 				else{
-					alert("Adresa nije dobra!");
+					alert("Adress isnt fine!");
 					flag='false';
 				}
 				
@@ -315,7 +315,7 @@
 					localStorage.setItem("adresaKupca",adresa);
 					localStorage.setItem("telefonKupca",telefon);
 					localStorage.setItem("flag_korpa",'false');
-					window.open("potvrda_kupovine.html");
+					window.open("potvrda_kupovine_eng.html");
 				}
 			}
 			
