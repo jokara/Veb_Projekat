@@ -23,9 +23,73 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
 		
+		
+		<script>
+			function stavi_u_korpu(){
+				if(document.poke_form.losos.checked){
+					localStorage.setItem(49,"Losos poke: sashimi#650");
+				}
+				else{
+					localStorage.setItem(49,"false");
+				}
+				
+				if(document.poke_form.tuna.checked){
+					localStorage.setItem(50,"Tuna poke: sashimi#750");
+				}
+				else{
+					localStorage.setItem(50,"false");
+				}
+				
+				if(document.poke_form.miso.checked){
+					localStorage.setItem(51,"Miso supa#630");
+				}
+				else{
+					localStorage.setItem(51,"false");
+				}
+				
+				if(document.poke_form.tofu.checked){
+					localStorage.setItem(52,"Tofu poke#900");
+				}
+				else{
+					localStorage.setItem(52,"false");
+				}
+				
+				
+			
+				if(document.poke_form.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.poke_form.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.poke_form.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.poke_form.Kupus.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa_eng.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name="poke_form">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -257,7 +321,7 @@
 			</div>			
 			
 		</div>			
-						
+		</form>				
 	
 		
 		

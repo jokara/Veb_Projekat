@@ -22,9 +22,73 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
 		
+		
+		<script>
+			function stavi_u_korpu(){
+				if(document.mc_form.BigMac.checked){
+					localStorage.setItem(13,"BigMac#450");
+				}
+				else{
+					localStorage.setItem(13,"false");
+				}
+				
+				if(document.mc_form.Chicken.checked){
+					localStorage.setItem(14,"Premium Chicken Strips#500");
+				}
+				else{
+					localStorage.setItem(14,"false");
+				}
+				
+				if(document.mc_form.Caesar.checked){
+					localStorage.setItem(15,"Caesar salata – grilovana piletina#310");
+				}
+				else{
+					localStorage.setItem(15,"false");
+				}
+				
+				if(document.mc_form.pomfrit.checked){
+					localStorage.setItem(16,"Pomfrit#340");
+				}
+				else{
+					localStorage.setItem(16,"false");
+				}
+				
+				
+			
+				if(document.mc_form.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.mc_form.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.mc_form.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.mc_form.Pomfrit.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa_eng.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name="mc_form">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -258,7 +322,7 @@
 
 			
 		</div>
-		
+		</form>
 		
 	<!--FOOTER-->
 		<footer class="footer dark-bg">

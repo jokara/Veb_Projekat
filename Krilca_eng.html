@@ -23,9 +23,73 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
 		
+		
+		<script>
+			function stavi_u_korpu(){
+				if(document.krilca_form.dimbat.checked){
+					localStorage.setItem(29,"Smoked meat#600");
+				}
+				else{
+					localStorage.setItem(29,"false");
+				}
+				
+				if(document.krilca_form.zar.checked){
+					localStorage.setItem(30,"Grilled file#590");
+				}
+				else{
+					localStorage.setItem(30,"false");
+				}
+				
+				if(document.krilca_form.krilca.checked){
+					localStorage.setItem(31,"Chicken wings#700");
+				}
+				else{
+					localStorage.setItem(31,"false");
+				}
+				
+				if(document.krilca_form.file.checked){
+					localStorage.setItem(32,"Filled breaded file#680");
+				}
+				else{
+					localStorage.setItem(32,"false");
+				}
+				
+				
+			
+				if(document.krilca_form.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.krilca_form.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.krilca_form.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.krilca_form.Kupus.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa_eng.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name="krilca_form">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -257,7 +321,7 @@
 			</div>			
 			
 		</div>			
-						
+		</form>				
 	
 		
 		

@@ -21,9 +21,73 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
 		
+		
+		<script>
+			function stavi_u_korpu(){
+				if(document.walter_form.BigMac.checked){
+					localStorage.setItem(37,"Baklava#280");
+				}
+				else{
+					localStorage.setItem(37,"false");
+				}
+				
+				if(document.walter_form.Chicken.checked){
+					localStorage.setItem(38,"Cevapi#300");
+				}
+				else{
+					localStorage.setItem(38,"false");
+				}
+				
+				if(document.walter_form.Caesar.checked){
+					localStorage.setItem(39,"White meat#350");
+				}
+				else{
+					localStorage.setItem(39,"false");
+				}
+				
+				if(document.walter_form.Pomfrit1.checked){
+					localStorage.setItem(40,"Pljeskavica#350");
+				}
+				else{
+					localStorage.setItem(40,"false");
+				}
+				
+				
+			
+				if(document.walter_form.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.walter_form.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.walter_form.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.walter_form.Pomfrit.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa_eng.html");
+			}
+		</script>
 	</head>
 	<body>
-		<body>
+		<form name="walter_form">
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -252,7 +316,7 @@
 
 			
 		</div>
-		
+		</form>
 		
 	<!--FOOTER-->
 		<footer class="footer dark-bg">

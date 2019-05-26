@@ -21,9 +21,74 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
 		
+		
+		<script>
+			function stavi_u_korpu(){
+				if(document.saint_forma.Capricciosa.checked){
+					localStorage.setItem(1,"Capricciosa#420");
+				}
+				else{
+					localStorage.setItem(1,"false");
+				}
+				
+				if(document.saint_forma.Palacinka.checked){
+					localStorage.setItem(2,"Pancake#170");
+				}
+				else{
+					localStorage.setItem(2,"false");
+				}
+				
+				if(document.saint_forma.hotDog.checked){
+					localStorage.setItem(3,"HotDog_Pizza#600");
+				}
+				else{
+					localStorage.setItem(3,"false");
+				}
+				
+				if(document.saint_forma.Sendvic.checked){
+					localStorage.setItem(4,"Sandwich#240");
+				}
+				else{
+					localStorage.setItem(4,"false");
+				}
+				
+				
+			
+				if(document.saint_forma.Kecap.checked){
+					localStorage.setItem("Kecap","true");
+				}
+				else{
+					localStorage.setItem("Kecap","false");
+				}
+				
+				if(document.saint_forma.Pavlaka.checked){
+					localStorage.setItem("Pavlaka","true");
+				}
+				else{
+					localStorage.setItem("Pavlaka","false");
+				}
+			
+				if(document.saint_forma.Rostilj.checked){
+					localStorage.setItem("Rostilj","true");
+				}
+				else{
+					localStorage.setItem("Rostilj","false");
+				}
+			
+				if(document.saint_forma.Pomfrit.checked){
+					localStorage.setItem("Kupus","true");
+				}
+				else{
+					localStorage.setItem("Kupus","false");
+				}
+				
+				window.open("korpa_eng.html");
+			}
+		</script>
+		
 	</head>
 	<body>
-		<body>
+		<form name='saint_forma'>
 		<!--Zaglavlje stranice-->
 		<div class="nav-menu" style="background-color:#252a33">
 			<div class="bg transition">
@@ -253,7 +318,7 @@
 			</div>			
 			
 		</div>
-		
+		</form>
 		
 	<!--FOOTER-->
 		<footer class="footer dark-bg">
