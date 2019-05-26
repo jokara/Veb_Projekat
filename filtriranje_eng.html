@@ -28,26 +28,51 @@
 		<script>
 		
 			function filtriraj(){
-				var tip=localStorage.getItem("filter");
-				//alert(tip);
+				alert('filtriraj sa filterom:'+localStorage.getItem('filter'));
+				if(localStorage.getItem('flag')!=""){
+					alert('filtriraj');
 					
+					
+					var tip=localStorage.getItem("filter");
+					alert(tip);
+					localStorage.setItem('flag',"");			
 					var h=[];
 					var sl=[];
 					var t=[];
 					var op=[];
 					var naziv=[];
-					
+								
 					var num=0;
-				if(tip!=null && tip!="sve"){
-					
-					for(var i=1;i<17;i++){
-						var str='R'+i;
+					if(tip!=null && tip!="sve"){
+							
+						for(var i=1;i<17;i++){
+							var str='R'+i+'_eng';
+							//alert(str);	
+							var RIzLS = JSON.parse(localStorage.getItem(str));
+							for(var j=0;j<RIzLS.vrsta.length;j++){
+								//alert("tip: "+tip+" dohvatio: "+RIzLS.vrsta[j]);
+								if(RIzLS.vrsta[j]==tip) {
+										//alert(str);
+									naziv[num]=RIzLS.naziv;
+									h[num]=RIzLS.link;
+									op[num]=RIzLS.opstina;
+									t[num]=tip;
+									sl[num]=RIzLS.slika;
+									num++;
+								}
+							}
+						}
+							//alert(naziv);
 						
-						var RIzLS = JSON.parse(localStorage.getItem(str));
-						for(var j=0;j<RIzLS.vrsta.length;j++){
-							//alert("tip: "+tip+" dohvatio: "+RIzLS.vrsta[j]);
-							if(RIzLS.vrsta[j]==tip) {
-								//alert(str);
+					}
+					else{
+						
+						if(tip=="sve"){
+							for(var i=1;i<17;i++){
+								var str='R'+i+'_eng';
+									
+								var RIzLS = JSON.parse(localStorage.getItem(str));
+									
 								naziv[num]=RIzLS.naziv;
 								h[num]=RIzLS.link;
 								op[num]=RIzLS.opstina;
@@ -55,47 +80,175 @@
 								sl[num]=RIzLS.slika;
 								num++;
 							}
-						}
-					}
-					//alert(naziv);
-				
-				}
-				else{
-				
-					if(tip=="sve"){
-						for(var i=1;i<17;i++){
-							var str='R'+i;
-							
-							var RIzLS = JSON.parse(localStorage.getItem(str));
-							
-							naziv[num]=RIzLS.naziv;
-							h[num]=RIzLS.link;
-							op[num]=RIzLS.opstina;
-							t[num]=tip;
-							sl[num]=RIzLS.slika;
-							num++;
+								
 						}
 						
 					}
-				
+						
+					//localStorage.removeItem("filter");
+						
+					for(var i=0;i<num;i++){
+						var html_fajl=h[i];
+						var ime=naziv[i];
+						var opstina=op[i];
+						var vrsta=t[i];
+						var slika=sl[i];
+							
+						//alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
+						var n=i+1;
+						document.getElementById("r"+n).innerHTML="<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>";
+					}
+						//alert("gotovo");
 				}
+				else{
+					ispisi(JSON.parse(localStorage.getItem('niz')));
+				}
+			
+			}
+			
+			
+			
+			function ispisi(niz){
+				var h=[];
+				var sl=[];
+				var t=[];
+				var op=[];
+				var naziv=[]; //var RIzLS = JSON.parse(localStorage.getItem(str));
+							
+				var num=0;
 				
-				localStorage.removeItem("filter");
-				
-				for(var i=0;i<num;i++){
+				for(var i=0;i<niz.length;i++){
+					
+					for(var j=1;j<17;j++){
+						//alert('iz jsona: '+JSON.parse(localStorage.getItem('R'+j)).naziv+' iz niza'+niz[i] );
+						if(JSON.parse(localStorage.getItem('R'+j+'_eng')).naziv==niz[i]){
+							//alert('nasao '+niz[i]);
+							h[i]=JSON.parse(localStorage.getItem('R'+j+'_eng')).link;
+							sl[i]=JSON.parse(localStorage.getItem('R'+j+'_eng')).slika;
+							op[i]=JSON.parse(localStorage.getItem('R'+j+'_eng')).opstina;
+							t[i]=localStorage.getItem('filter');
+							naziv[i]=niz[i];
+							
+						}
+					}
+					
+				}
+				alert('ispis');
+				//ispis
+				for(var i=0;i<niz.length;i++){
+					//alert(i);
 					var html_fajl=h[i];
-					var ime=naziv[i];
+					var ime_rest=naziv[i];
 					var opstina=op[i];
 					var vrsta=t[i];
 					var slika=sl[i];
 					
-					//alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
+					alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
 					var n=i+1;
-					document.getElementById("r"+n).innerHTML="<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>";
+					document.getElementById("r"+n).innerHTML="<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime_rest+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>";
+					
 				}
-				//alert("gotovo");
+			
 			}
 			
+			
+			function nadji(niz){
+				var r=[];
+				
+				
+				for(var i=0;i<niz.length;i++){
+					
+					r[i]=JSON.parse(localStorage.getItem(niz[i])).naziv;
+				
+				}
+				
+				return r;
+			}
+			
+			
+			function primeni_filter(){
+				var opstina=0;
+				var ime=0;
+				var ocena=0;
+				
+				var tip=localStorage.getItem("filter");
+				
+				if(document.pretraga_forma.opstina.checked) opstina=1;
+				if(document.pretraga_forma.ime.checked) ime=1;
+				if(document.pretraga_forma.ocena.checked) ocena=1;
+				
+				var izlistani=[];
+				alert('opstina:'+opstina+' ime: '+ime+' ocena:'+ocena);
+				
+				var izlistani_s=[];
+				
+				//po imenu
+				if(ime==1) {
+					alert(tip);
+					switch(tip){
+					
+						case 'Pancakes':izlistani_s=JSON.parse(localStorage.getItem('pi')); break;
+						case 'Fast food':izlistani_s=JSON.parse(localStorage.getItem('bi')); break;
+						case 'Healthy food':izlistani_s=JSON.parse(localStorage.getItem('zi')); break;
+						case 'Grill':izlistani_s=JSON.parse(localStorage.getItem('ri')); break;
+						case 'Cookies':izlistani_s=JSON.parse(localStorage.getItem('koi')); break;
+						case 'Chinese food':izlistani_s=JSON.parse(localStorage.getItem('kii')); break;
+					
+					}
+					
+					alert(izlistani_s);
+					niz_restorana=nadji(izlistani_s);
+					niz_json=JSON.stringify(niz_restorana);
+					localStorage.setItem('niz',niz_json);
+					alert('niz resorana : '+niz_restorana);
+					
+				}
+				
+				//po opstini
+				else if(opstina==1) {
+					alert(tip);
+					switch(tip){
+					
+						case 'Pancakes':izlistani_s=JSON.parse(localStorage.getItem('po')); break;
+						case 'Fast food':izlistani_s=JSON.parse(localStorage.getItem('bo')); break;
+						case 'Healthy food':izlistani_s=JSON.parse(localStorage.getItem('zo')); break;
+						case 'Grill':izlistani_s=JSON.parse(localStorage.getItem('ro')); break;
+						case 'Cookies':izlistani_s=JSON.parse(localStorage.getItem('koo')); break;
+						case 'Chinese food':izlistani_s=JSON.parse(localStorage.getItem('kio')); break;
+					
+					}
+					
+					alert(izlistani_s);
+					niz_restorana=nadji(izlistani_s);
+					niz_json=JSON.stringify(niz_restorana);
+					localStorage.setItem('niz',niz_json);
+					alert('niz resorana : '+niz_restorana);
+				}
+				
+				//po oceni
+				else if(ocena==1) {
+					alert(tip);
+					//alert('po imenima');
+					//izlistani=dohvati_izlistane_ocena();
+					//alert(izlistani);
+					//izlistani_s=izlistani.sort();
+				}
+				
+				//alert('reverse');
+				//alert("sortiran: "+izlistani_s);
+				
+				
+				//var json = JSON.stringify(izlistani_s);
+				
+				//alert("za json: "+json);
+				
+				//localStorage.setItem('primeni',1);//treba resetovati nekad
+				//localStorage.setItem('niz_za_prikaz',json);
+				
+				//alert("niz za prikaz: "+localStorage.getItem('niz_za_prikaz'));
+				//window.open("filtriranje.html",'_self');
+				//alert('prikazano');
+			}
 			
 		
 		</script>
@@ -228,23 +381,17 @@
 					<div class="row">
 					
 						<div class="col-sm-12 col-xs-12 pretraga2" style="text-align:center">
-							<b>Filter</b>
+							<b>Sort</b>
 								
 						</div>
+						<form name="pretraga_forma">
 						<div class="col-sm-12 col-xs-12 filtriranje2"></div>
-						
 						<div class="col-sm-12 col-xs-12 filtriranje">
 						
 							<br>
-							<h6>Choose a municipality</h6>
+							<h6>Sort by municipality</h6>
 							<br>
-							<select class="form-control form-control">
-							  <option disabled hidden>Municipality</option>
-							  <option >Vračar</option>
-							  <option >Dorćol</option>
-							  <option >Novi Beograd</option>
-							  <option >Zvezdara</option>
-							</select>
+							<input type="radio" id="opstina" name='kriterijum'>
 							<br>
 						
 						</div>
@@ -252,17 +399,9 @@
 						<div class="col-sm-12 col-xs-12 filtriranje">
 						
 							<br>
-							<h6>Choose a food type</h6>
+							<h6>Sort by restaurant name</h6>
 							<br>
-							<select class="form-control form-control">
-							  <option disabled hidden>Food type</option>
-							  <option >Fast food</option>
-							  <option >Healthy food</option>
-							  <option >Chinese food</option>
-							  <option >Grill</option>
-							  <option >Pancakes</option>
-							  <option >Cookies</option>
-							</select>
+							<input type="radio" id="ime" name='kriterijum'>
 							<br>
 						
 						</div>
@@ -270,50 +409,30 @@
 						<div class="col-sm-12 col-xs-12 filtriranje">
 						
 							<br>
-							<h6>Choose a min rating</h6>
+							<h6>Sort by restaurant rate</h6>
 							<br>
-							<select class="form-control form-control">
-							  <option disabled hidden>Min rating</option>
-							  <option>0.5</option>
-							  <option >1.5</option>
-							  <option >2.5</option>
-							  <option >3.5</option>
-							  <option >4.5</option>
-							  <option >5</option>
-							</select>
+							<input type="radio" id="ocena" name='kriterijum'>
 							<br>
 						
 						</div>
+						
+						
 						<div class="col-sm-12 col-xs-12 filtriranje2"></div>
 						<div class="col-sm-12 col-xs-12 filtriranje">
 						
 							<br>
-							<form name="pretraga_forma">
 							
-								<font size="3">Currently open</font> <br>
-								<input type="checkbox" id="open">
+								<button class="btn btn-light btn-outline-success" onclick="primeni_filter()">Sort</button>
 								
 								
 							
-							</form>
+							
 							<br>
 						
 						</div>
 						<div class="col-sm-12 col-xs-12 filtriranje2"></div>
-						<div class="col-sm-12 col-xs-12 filtriranje">
+						</form>
 						
-							<br>
-							<form name="pretraga_forma">
-							
-								<button class="btn btn-light btn-outline-success" onclick="primeni_filter()">Apply</button>
-								
-								
-							
-							</form>
-							<br>
-						
-						</div>
-						<div class="col-sm-12 col-xs-12 filtriranje2"></div>
 
 					</div>
 				

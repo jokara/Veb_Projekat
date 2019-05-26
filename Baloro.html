@@ -22,7 +22,7 @@
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/zvezdara.css">
-		
+		<script src="js/Ocene.js"></script>
 		
 		
 		<script>
@@ -62,53 +62,10 @@
 				window.open("korpa.html");
 			}
 			
-			function oceni(){
-				
-				var ocena=parseInt(document.baloro_form.ocena.value);
-				alert('dao ocenu: '+ocena);
-				localStorage.setItem('ocenaBaloro',ocena);
-				racunaj();
-			
-			}
-			
-			function racunaj(){
-				
-				if(localStorage.getItem('ocenaBaloro')!=null){
-					var prosek=12+parseInt(localStorage.getItem('ocenaBaloro'));
-					var prosek=prosek/4;
-					alert('prosek: '+prosek);
-					localStorage.setItem('prosecna',prosek);
-					
-					var star="";
-					
-					for(var i=1;i<=prosek;i++){
-						
-						star+="<img class='img img-fluid' src='star.png' >";
-						
-					}
-					star+="<font size='5'> <br> "+prosek+"</font>";
-					document.getElementById('prosecna').innerHTML=star;
-				}
-				else{
-					var prosek=parseInt(localStorage.getItem('prosecna'));
-				
-					var star="";
-					
-					for(var i=1;i<=prosek;i++){
-						
-						star+="<img class='img img-fluid' src='star.png' >";
-						
-					}
-					star+="<font size='5'> <br> "+prosek+"</font>";
-					alert('star: '+star);
-					document.getElementById('prosecna').innerHTML=star;
-				}
-				
-			}
 			
 		</script>
 	</head>
-	<body onload='racunaj();'>
+	<body onload="racunaj('Baloro');">
 		<script>
 			
 			alert(localStorage.getItem('ocene'));
@@ -163,7 +120,7 @@
 											</li>
 											
 											<li class="nav-item active">
-												<a class="nav-link" href="Baloro.html"><img src="images/srb.png" class="img-fluid" style="height: 35px;" /></a> 
+												<a class="nav-link" href="Baloro_eng.html"><img src="images/eng.png" class="img-fluid" style="height: 35px;" /></a> 
 											</li>
 											
 											
@@ -348,7 +305,7 @@
 							</div>
 							<div class='col-sm-6'>
 								<br><br>
-								<input type="button" class='btn btn-success' value='Oceni' onclick='oceni()'>
+								<input type="button" class='btn btn-success' value='Oceni' onclick="oceni('Baloro')">
 							
 							</div>
 						

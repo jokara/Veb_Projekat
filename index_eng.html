@@ -28,6 +28,8 @@
 		
 			function filter(tip){//sortiranje po prosledjenom tipu(palacinke,brza,kolaci,...)
 				localStorage.setItem("filter",tip);
+				alert(tip);
+				localStorage.setItem("flag","set");
 				window.open("filtriranje_eng.html");
 			}
 			
@@ -60,9 +62,78 @@
 		<!--Inicijalizacija localStorage-a-->
 		<script>
 			localStorage.clear();
+			
+			var ocene=new Array('5','4','3');
+					var oceneJSON=JSON.stringify(ocene);
+					localStorage.setItem('ocene',oceneJSON);
+			
+					var prosek=4;
+					localStorage.setItem('prosecna_Baloro',prosek);
+					localStorage.setItem('prosecna_Bergamo',prosek);
+					localStorage.setItem('prosecna_Bw',prosek);
+					localStorage.setItem('prosecna_Bucko',prosek);
+					
+					localStorage.setItem('prosecna_Cake',prosek);
+					localStorage.setItem('prosecna_Caribic',prosek);
+					localStorage.setItem('prosecna_Dolce',prosek);
+					localStorage.setItem('prosecna_Good',prosek);
+					
+					localStorage.setItem('prosecna_Go',prosek);
+					localStorage.setItem('prosecna_Grill',prosek);
+					localStorage.setItem('prosecna_Krilca',prosek);
+					localStorage.setItem('prosecna_Marukoshi',prosek);
+					
+					localStorage.setItem('prosecna_Mc',prosek);
+					localStorage.setItem('prosecna_Poke',prosek);
+					localStorage.setItem('prosecna_Saint',prosek);
+					localStorage.setItem('prosecna_Walter',prosek);
+					//alert('prosek postavljen na '+localStorage.getItem('prosecna'));
+			
+					var palacinke_ime = new Array('R13','R7');
+					var brza_ime = new Array('R15','R12','R10','R3','R2');
+					var kineska_ime = new Array('R14','R8','R6','R4');
+					var rostilj_ime = new Array('R9','R7','R5','R16');
+					var kolaci_ime = new Array('R11','R1','R16');
+					var zdrava_ime = new Array('R4');
+					
+					var palacinke_opstina = new Array('R13','R7');
+					var brza_opstina = new Array('R15','R12','R10','R3','R2');
+					var kineska_opstina = new Array('R6','R14','R8','R4');
+					var rostilj_opstina = new Array('R16','R5','R9','R7');
+					var kolaci_opstina = new Array('R1','R16','R11');
+					var zdrava_opstina = new Array('R4');
+						
+					var pi = JSON.stringify(palacinke_ime);
+					var bi = JSON.stringify(brza_ime);
+					var kii = JSON.stringify(kineska_ime);
+					var ri = JSON.stringify(rostilj_ime);
+					var koi = JSON.stringify(kolaci_ime);
+					var zi = JSON.stringify(zdrava_ime);
+					
+					var po = JSON.stringify(palacinke_opstina);
+					var bo = JSON.stringify(brza_opstina);
+					var kio = JSON.stringify(kineska_opstina);
+					var ro= JSON.stringify(rostilj_opstina);
+					var koo = JSON.stringify(kolaci_opstina);
+					var zo = JSON.stringify(zdrava_opstina);
+					
+					localStorage.setItem('pi',pi);
+					localStorage.setItem('po',po);
+					localStorage.setItem('bi',bi);
+					localStorage.setItem('bo',bo);
+					localStorage.setItem('kii',kii);
+					localStorage.setItem('kio',kio);
+					localStorage.setItem('ri',ri);
+					localStorage.setItem('ro',ro);
+					localStorage.setItem('koi',koi);
+					localStorage.setItem('koo',koo);
+					localStorage.setItem('zi',zi);
+					localStorage.setItem('zo',zo);
+			
+			
 			var R1 = {
 						"naziv": "Dolce by Tintolino",
-						"link":"Dolce.html",
+						"link":"Dolce_eng.html",
 						"adresa": "Krunska 84",
 						"opstina": "Dorcol",
 						"vrsta":new Array("Cookies"),
@@ -76,7 +147,7 @@
 					}
 			var R2 = {
 						"naziv": "Saint pizza",
-						"link":"saint.html",
+						"link":"saint_eng.html",
 						"adresa": "Tršćanska 4",
 						"opstina": "Zvezdara",
 						"vrsta":new Array("Fast food"),
@@ -90,7 +161,7 @@
 					}
 			var R3 = {
 						"naziv": "mcDonald's",
-						"link":"mcDonalds.html",
+						"link":"mcDonalds_eng.html",
 						"adresa": "Bulevar kralja Aleksandra 62",
 						"opstina": "Zvezdara",
 						"vrsta":new Array("Fast food"),
@@ -104,10 +175,10 @@
 					}
 			var R4 = {
 						"naziv": "Poke_Olakino",
-						"link":"Poke_Olakino.html",
+						"link":"Poke_Olakino_eng.html",
 						"adresa": "Omladinskih brigada 86",
 						"opstina": "Novi Beograd",
-						"vrsta":new Array("Chinese food"),
+						"vrsta":new Array("Chinese food","Healthy food"),
 						"slika":"images/pokeolakino.jpg",
 						"jela": new Array(
 							{'naziv':'Losos poke: sashimi ','cena':'650'},
@@ -118,7 +189,7 @@
 					}
 			var R5 = {
 						"naziv": "Krilca",
-						"link":"Krilca.html",
+						"link":"Krilca_eng.html",
 						"adresa": "Sinđelićevo sokače",
 						"opstina": "Vracar",
 						"vrsta":new Array("Grill"),
@@ -132,7 +203,7 @@
 					}
 			var R6 = {
 						"naziv": "Marukoshi",
-						"link":"Marukoshi.html",
+						"link":"Marukoshi_eng.html",
 						"adresa": " Kapetan-Mišina 37",
 						"opstina": "Dorcol",
 						"vrsta":new Array("Chinese food"),
@@ -146,7 +217,7 @@
 					}
 			var R7 = {
 						"naziv": "Grill 51",
-						"link":"Grill51.html",
+						"link":"Grill51_eng.html",
 						"adresa": "Vojislava Ilića 51",
 						"opstina": "Zvezdara",
 						"vrsta":new Array("Grill","Pancakes"),
@@ -160,7 +231,7 @@
 					}
 			var R8 = {
 						"naziv": "Go Sushi",
-						"link":"GoSushi.html",
+						"link":"GoSushi_eng.html",
 						"adresa": "Đorđa Stanojevića 9b",
 						"opstina": "Novi Beograd",
 						"vrsta":new Array("Chinese food"),
@@ -174,7 +245,7 @@
 					}
 			var R9 = {
 						"naziv": "Good Food",
-						"link":"GoodFood.html",
+						"link":"GoodFood_eng.html",
 						"adresa": "Gospodara Vučića 204a",
 						"opstina": "Zvezdara",
 						"vrsta":new Array("Grill"),
@@ -188,7 +259,7 @@
 					}
 			var R10 = {
 						"naziv": "Caribic pizza",
-						"link":"Caribic.html",
+						"link":"Caribic_eng.html",
 						"adresa": "Bul Kralja Aleksandra 134",
 						"opstina": "Vracar",
 						"vrsta":new Array("Fast food"),
@@ -202,7 +273,7 @@
 					}
 			var R11 = {
 						"naziv": "Cake Factory",
-						"link":"CakeFactory.html",
+						"link":"CakeFactory_eng.html",
 						"adresa": "Majora Milana Malnarića BB",
 						"opstina": "Novi Beograd",
 						"vrsta":new Array("Cookies"),
@@ -216,7 +287,7 @@
 					}
 			var R12 = {
 						"naziv": "Bucko",
-						"link":"Bucko.html",
+						"link":"Bucko_eng.html",
 						"adresa": "Beogradska 56",
 						"opstina": "Vracar",
 						"vrsta":new Array("Fast food"),
@@ -230,7 +301,7 @@
 					}
 			var R13 = {
 						"naziv": "Baloro",
-						"link":"Baloro.html",
+						"link":"Baloro_eng.html",
 						"adresa": "Nevesinjska 2",
 						"opstina": "Vracar",
 						"vrsta":new Array("Pancakes"),
@@ -244,7 +315,7 @@
 					}
 			var R14 = {
 						"naziv": "Black White",
-						"link":"BlackWhite.html",
+						"link":"BlackWhite_eng.html",
 						"adresa": "Bulevar Zorana Đinđića 12e",
 						"opstina": "Novi Beograd",
 						"vrsta":new Array("Chinese food"),
@@ -258,7 +329,7 @@
 					}
 			var R15 = {
 						"naziv": "Bergamo",
-						"link":"Bergamo.html",
+						"link":"Bergamo_eng.html",
 						"adresa": "Kovačeva 11",
 						"opstina": "Dorcol",
 						"vrsta":new Array("Fast food"),
@@ -272,7 +343,7 @@
 					}
 			var R16 = {
 						"naziv": "Walter",
-						"link":"Walter.html",
+						"link":"Walter_eng.html",
 						"adresa": "Strahinjića Bana 57",
 						"opstina": "Dorcol",
 						"vrsta":new Array("Grill","Cookies"),
@@ -287,67 +358,67 @@
 				
 			var R1JSON = JSON.stringify(R1);
 	
-			localStorage.setItem('R1',R1JSON);
+			localStorage.setItem('R1_eng',R1JSON);
 			
 			var R2JSON = JSON.stringify(R2);
 			
-			localStorage.setItem('R2',R2JSON);
+			localStorage.setItem('R2_eng',R2JSON);
 			
 			var R3JSON = JSON.stringify(R3);
 			
-			localStorage.setItem('R3',R3JSON);
+			localStorage.setItem('R3_eng',R3JSON);
 			
 			var R4JSON = JSON.stringify(R4);
 			
-			localStorage.setItem('R4',R4JSON);
+			localStorage.setItem('R4_eng',R4JSON);
 			
 			var R5JSON = JSON.stringify(R5);
 			
-			localStorage.setItem('R5',R5JSON);
+			localStorage.setItem('R5_eng',R5JSON);
 			
 			var R6JSON = JSON.stringify(R6);
 			
-			localStorage.setItem('R6',R6JSON);
+			localStorage.setItem('R6_eng',R6JSON);
 			
 			var R7JSON = JSON.stringify(R7);
 			
-			localStorage.setItem('R7',R7JSON);
+			localStorage.setItem('R7_eng',R7JSON);
 			
 			var R8JSON = JSON.stringify(R8);
 			
-			localStorage.setItem('R8',R8JSON);
+			localStorage.setItem('R8_eng',R8JSON);
 			
 			var R9JSON = JSON.stringify(R9);
 			
-			localStorage.setItem('R9',R9JSON);
+			localStorage.setItem('R9_eng',R9JSON);
 			
 			var R10JSON = JSON.stringify(R10);
 			
-			localStorage.setItem('R10',R10JSON);
+			localStorage.setItem('R10_eng',R10JSON);
 			
 			var R11JSON = JSON.stringify(R11);
 			
-			localStorage.setItem('R11',R11JSON);
+			localStorage.setItem('R11_eng',R11JSON);
 			
 			var R12JSON = JSON.stringify(R12);
 			
-			localStorage.setItem('R12',R12JSON);
+			localStorage.setItem('R12_eng',R12JSON);
 			
 			var R13JSON = JSON.stringify(R13);
 			
-			localStorage.setItem('R13',R13JSON);
+			localStorage.setItem('R13_eng',R13JSON);
 			
 			var R14JSON = JSON.stringify(R14);
 			
-			localStorage.setItem('R14',R14JSON);
+			localStorage.setItem('R14_eng',R14JSON);
 			
 			var R15JSON = JSON.stringify(R15);
 			
-			localStorage.setItem('R15',R15JSON);
+			localStorage.setItem('R15_eng',R15JSON);
 			
 			var R16JSON = JSON.stringify(R16);
 			
-			localStorage.setItem('R16',R16JSON);
+			localStorage.setItem('R16_eng',R16JSON);
 		
 		</script>
 	
@@ -570,7 +641,7 @@
 								<td>
 								<div class="mesta_wrapper">
 									<div class="grid">
-									<a href="javascript:filter('Healty food');">
+									<a href="javascript:filter('Healthy food');">
 										<figure class="effect-ruby">
 											<img src="images/zdrava_hrana.jpg" class="img-fluid" alt="img13" />
 											<figcaption>
