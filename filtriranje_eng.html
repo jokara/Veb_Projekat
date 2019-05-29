@@ -28,13 +28,16 @@
 		<script>
 		
 			function filtriraj(){
-				alert('filtriraj sa filterom:'+localStorage.getItem('filter'));
+				
+				
+				
+				//alert('filtriraj sa filterom:'+localStorage.getItem('filter'));
 				if(localStorage.getItem('flag')!=""){
-					alert('filtriraj');
+					//alert('filtriraj');
 					
 					
 					var tip=localStorage.getItem("filter");
-					alert(tip);
+					//alert(tip);
 					localStorage.setItem('flag',"");			
 					var h=[];
 					var sl=[];
@@ -101,6 +104,7 @@
 						//alert("gotovo");
 				}
 				else{
+					//alert('u else: '+JSON.parse(localStorage.getItem('niz')));
 					ispisi(JSON.parse(localStorage.getItem('niz')));
 				}
 			
@@ -133,7 +137,7 @@
 					}
 					
 				}
-				alert('ispis');
+				//alert('ispis');
 				//ispis
 				for(var i=0;i<niz.length;i++){
 					//alert(i);
@@ -143,7 +147,7 @@
 					var vrsta=t[i];
 					var slika=sl[i];
 					
-					alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
+					//alert("<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>");
 					var n=i+1;
 					document.getElementById("r"+n).innerHTML="<a href='"+html_fajl+"'><div class='mesta_wrapper'><div class='grid'><figure class='effect-ruby'><img src='"+slika+"' class='img-fluid'><figcaption><h5>"+ime_rest+"</h5><p>"+vrsta+" - "+opstina+"</p></figcaption></figure></div></div></a>";
 					
@@ -165,6 +169,85 @@
 				return r;
 			}
 			
+			function napravi_niz(niz,niz2){
+				//alert('napravi_niz1: '+niz2);
+			
+				var ret=new Array();
+				
+				for(var i=0;i<niz.length;i++){
+					//alert('napravi_niz2');
+					var naziv=niz[i];
+					
+					for(var j=1;j<17;j++){
+						//alert('napravi_niz3');
+						//alert('iz jsona: '+JSON.parse(localStorage.getItem('R'+j)).naziv+' naziv: '+naziv);
+						if(JSON.parse(localStorage.getItem('R'+j)).naziv==naziv){
+							
+							//alert('stavio u niz: '+JSON.parse(localStorage.getItem(niz2[i])).naziv);
+							ret.push(JSON.parse(localStorage.getItem(niz2[i])));
+						
+						}
+					
+					}
+				
+				}
+				//alert('napravi_niz4: '+ret);
+				return ret;
+			
+			}
+			
+			function napravi_niz_eng(niz,niz2){
+				//alert('napravi_niz1: '+niz2);
+			
+				var ret=new Array();
+				
+				for(var i=0;i<niz.length;i++){
+					//alert('napravi_niz2');
+					var naziv=niz[i];
+					
+					for(var j=1;j<17;j++){
+						//alert('napravi_niz3');
+						//alert('iz jsona: '+JSON.parse(localStorage.getItem('R'+j+'_eng')).naziv+' naziv: '+naziv);
+						if(JSON.parse(localStorage.getItem('R'+j+'_eng')).naziv==naziv){
+							
+							//alert('stavio u niz: '+JSON.parse(localStorage.getItem(niz2[i]+'_eng')).naziv);
+							ret.push(JSON.parse(localStorage.getItem(niz2[i]+'_eng')));
+						
+						}
+					
+					}
+				
+				}
+				//alert('napravi_niz4: '+ret);
+				return ret;
+			
+			}
+			
+			function prevodi(niz){
+				var ret=new Array();
+				
+				for(var i=0;i<niz.length;i++){
+					//alert('napravi_niz2');
+					var naziv=niz[i].naziv;
+					
+					for(var j=1;j<17;j++){
+						//alert('napravi_niz3');
+						//alert('iz jsona: '+JSON.parse(localStorage.getItem('R'+j)).naziv+' naziv: '+naziv);
+						if(JSON.parse(localStorage.getItem('R'+j+'_eng')).naziv==naziv){
+							
+							var str='R'+j+'_eng';
+							ret.push(str);
+							//alert('stavio: '+str);
+						}
+					
+					}
+				
+				}
+				//alert('pretvoren: '+ret);
+				return ret;
+			
+			}
+			
 			
 			function primeni_filter(){
 				var opstina=0;
@@ -178,13 +261,13 @@
 				if(document.pretraga_forma.ocena.checked) ocena=1;
 				
 				var izlistani=[];
-				alert('opstina:'+opstina+' ime: '+ime+' ocena:'+ocena);
+				//alert('opstina:'+opstina+' ime: '+ime+' ocena:'+ocena);
 				
 				var izlistani_s=[];
 				
 				//po imenu
 				if(ime==1) {
-					alert(tip);
+					//alert(tip);
 					switch(tip){
 					
 						case 'Pancakes':izlistani_s=JSON.parse(localStorage.getItem('pi')); break;
@@ -196,17 +279,17 @@
 					
 					}
 					
-					alert(izlistani_s);
+					//alert(izlistani_s);
 					niz_restorana=nadji(izlistani_s);
 					niz_json=JSON.stringify(niz_restorana);
 					localStorage.setItem('niz',niz_json);
-					alert('niz resorana : '+niz_restorana);
+					//alert('niz resorana : '+niz_restorana);
 					
 				}
 				
 				//po opstini
 				else if(opstina==1) {
-					alert(tip);
+					//alert(tip);
 					switch(tip){
 					
 						case 'Pancakes':izlistani_s=JSON.parse(localStorage.getItem('po')); break;
@@ -218,36 +301,78 @@
 					
 					}
 					
-					alert(izlistani_s);
+					//alert(izlistani_s);
 					niz_restorana=nadji(izlistani_s);
 					niz_json=JSON.stringify(niz_restorana);
 					localStorage.setItem('niz',niz_json);
-					alert('niz resorana : '+niz_restorana);
+					//alert('niz resorana : '+niz_restorana);
 				}
 				
 				//po oceni
 				else if(ocena==1) {
-					alert(tip);
-					//alert('po imenima');
-					//izlistani=dohvati_izlistane_ocena();
-					//alert(izlistani);
-					//izlistani_s=izlistani.sort();
+					//alert(tip);
+					switch(tip){
+					
+						case 'Pancakes':izlistani_s=JSON.parse(localStorage.getItem('pi')); break;
+						case 'Fast food':izlistani_s=JSON.parse(localStorage.getItem('bi')); break;
+						case 'Healthy food':izlistani_s=JSON.parse(localStorage.getItem('zi')); break;
+						case 'Grill':izlistani_s=JSON.parse(localStorage.getItem('ri')); break;
+						case 'Cookies':izlistani_s=JSON.parse(localStorage.getItem('koi')); break;
+						case 'Chinese food':izlistani_s=JSON.parse(localStorage.getItem('kii')); break;
+					
+					}
+					
+					//alert('izlistani_s: '+izlistani_s);
+					
+					izlistani_s2=new Array();
+					
+					for(var i=0;i<izlistani_s.length;i++){
+					
+						izlistani_s2.push(JSON.parse(localStorage.getItem(izlistani_s[i]+'_eng')).naziv);
+					
+					}
+					//alert('izlistani_s2: '+izlistani_s2);
+					items=napravi_niz_eng(izlistani_s2,izlistani_s);
+					
+					for(var i=0;i<items.length;i++){
+					
+						//alert('item'+i+' : '+items[i].naziv+" sa prosecnom "+items[i].prosecna);
+					
+					}
+					
+					for(var i=0;i<items.length;i++){
+					
+						for(var j=0;j<items.length;j++){
+							
+							//alert("poredi: "+items[j].prosecna+" i "+items[i].prosecna);
+							if(items[j].prosecna<items[i].prosecna){
+							
+								var pom=items[j];
+								items[j]=items[i];
+								items[i]=pom;
+							
+							}
+					
+						}
+					
+					}
+					items_sort=items;
+					//alert('NIZ KOJI CE SE ISPISATI');
+					for(var i=0;i<items_sort.length;i++){
+					
+						//alert(items_sort[i].naziv);
+					
+					}
+					
+					var items_sort2=prevodi(items_sort);
+					
+					niz_restorana=nadji(items_sort2);
+					//alert('niz_restorana: '+niz_restorana);
+					niz_json=JSON.stringify(niz_restorana);
+					localStorage.setItem('niz',niz_json);
+					//alert('niz resorana : '+niz_restorana);
+					
 				}
-				
-				//alert('reverse');
-				//alert("sortiran: "+izlistani_s);
-				
-				
-				//var json = JSON.stringify(izlistani_s);
-				
-				//alert("za json: "+json);
-				
-				//localStorage.setItem('primeni',1);//treba resetovati nekad
-				//localStorage.setItem('niz_za_prikaz',json);
-				
-				//alert("niz za prikaz: "+localStorage.getItem('niz_za_prikaz'));
-				//window.open("filtriranje.html",'_self');
-				//alert('prikazano');
 			}
 			
 		

@@ -60,58 +60,10 @@
 			
 			
 		</script>
-			
-		<script>
-			
-			function oceni(){
-				
-				var ocena=parseInt(document.baloro_form.ocena.value);
-				alert('dao ocenu: '+ocena);
-				localStorage.setItem('ocenaBaloro',ocena);
-				racunaj();
-			
-			}
-			
-			function racunaj(){
-				
-				if(localStorage.getItem('ocenaBaloro')!=null){
-					var prosek=12+parseInt(localStorage.getItem('ocenaBaloro'));
-					var prosek=prosek/4;
-					alert('prosek: '+prosek);
-					localStorage.setItem('prosecna_Baloro',prosek);
-					
-					var star="";
-					
-					for(var i=1;i<=prosek;i++){
-						
-						star+="<img class='img img-fluid' src='star.png' >";
-						
-					}
-					star+="<font size='5'> <br> "+prosek+"</font>";
-					document.getElementById('prosecna').innerHTML=star;
-				}
-				else{
-					var prosek=parseInt(localStorage.getItem('prosecna_Baloro'));
-				
-					var star="";
-					
-					for(var i=1;i<=prosek;i++){
-						
-						star+="<img class='img img-fluid' src='star.png' >";
-						
-					}
-					star+="<font size='5'> <br> "+prosek+"</font>";
-					alert('star: '+star);
-					document.getElementById('prosecna').innerHTML=star;
-				}
-				
-			}
 		
-		
-		</script>
 		
 	</head>
-	<body onload='racunaj();'>
+	<body onload="racunaj('Baloro');">
 		<form name="baloro_form">
 			<!--Zaglavlje stranice-->
 			<div class="nav-menu" style="background-color:#252a33">
@@ -345,7 +297,7 @@
 								</div>
 								<div class='col-sm-6'>
 									<br><br>
-									<input type="button" class='btn btn-success' value='Rate' onclick='oceni()'>
+									<input type="button" class='btn btn-success' value='Rate' onclick="oceni('Baloro')">
 								
 								</div>
 							
