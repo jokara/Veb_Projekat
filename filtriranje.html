@@ -223,6 +223,7 @@
 			
 			
 			function primeni_filter(){
+				alert("primeni_filter("+localStorage.getItem("filter")+")");
 				var opstina=0;
 				var ime=0;
 				var ocena=0;
@@ -249,7 +250,7 @@
 						case 'Rostilj':izlistani_s=JSON.parse(localStorage.getItem('ri')); break;
 						case 'Kolaci':izlistani_s=JSON.parse(localStorage.getItem('koi')); break;
 						case 'Kineska hrana':izlistani_s=JSON.parse(localStorage.getItem('kii')); break;
-					
+						case 'sve':izlistani_s=JSON.parse(localStorage.getItem('svei')); break;
 					}
 					
 					//alert(izlistani_s);
@@ -271,6 +272,7 @@
 						case 'Rostilj':izlistani_s=JSON.parse(localStorage.getItem('ro')); break;
 						case 'Kolaci':izlistani_s=JSON.parse(localStorage.getItem('koo')); break;
 						case 'Kineska hrana':izlistani_s=JSON.parse(localStorage.getItem('kio')); break;
+						case 'sve':izlistani_s=JSON.parse(localStorage.getItem('sveo')); break;
 					
 					}
 					
@@ -292,6 +294,7 @@
 						case 'Rostilj':izlistani_s=JSON.parse(localStorage.getItem('ri')); break;
 						case 'Kolaci':izlistani_s=JSON.parse(localStorage.getItem('koi')); break;
 						case 'Kineska hrana':izlistani_s=JSON.parse(localStorage.getItem('kii')); break;
+						case 'sve': izlistani_s=JSON.parse(localStorage.getItem('svei')); break;
 					
 					}
 					

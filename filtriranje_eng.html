@@ -104,7 +104,7 @@
 						//alert("gotovo");
 				}
 				else{
-					//alert('u else: '+JSON.parse(localStorage.getItem('niz')));
+					alert('u else: '+JSON.parse(localStorage.getItem('niz')));
 					ispisi(JSON.parse(localStorage.getItem('niz')));
 				}
 			
@@ -261,7 +261,7 @@
 				if(document.pretraga_forma.ocena.checked) ocena=1;
 				
 				var izlistani=[];
-				//alert('opstina:'+opstina+' ime: '+ime+' ocena:'+ocena);
+				alert('opstina:'+opstina+' ime: '+ime+' ocena:'+ocena);
 				
 				var izlistani_s=[];
 				
@@ -276,13 +276,16 @@
 						case 'Grill':izlistani_s=JSON.parse(localStorage.getItem('ri')); break;
 						case 'Cookies':izlistani_s=JSON.parse(localStorage.getItem('koi')); break;
 						case 'Chinese food':izlistani_s=JSON.parse(localStorage.getItem('kii')); break;
-					
+						case 'sve':izlistani_s=JSON.parse(localStorage.getItem('svei')); break;
 					}
 					
 					//alert(izlistani_s);
 					niz_restorana=nadji(izlistani_s);
 					niz_json=JSON.stringify(niz_restorana);
 					localStorage.setItem('niz',niz_json);
+					
+					
+					
 					//alert('niz resorana : '+niz_restorana);
 					
 				}
@@ -298,7 +301,7 @@
 						case 'Grill':izlistani_s=JSON.parse(localStorage.getItem('ro')); break;
 						case 'Cookies':izlistani_s=JSON.parse(localStorage.getItem('koo')); break;
 						case 'Chinese food':izlistani_s=JSON.parse(localStorage.getItem('kio')); break;
-					
+						case 'sve':izlistani_s=JSON.parse(localStorage.getItem('sveo')); break;
 					}
 					
 					//alert(izlistani_s);
@@ -319,7 +322,7 @@
 						case 'Grill':izlistani_s=JSON.parse(localStorage.getItem('ri')); break;
 						case 'Cookies':izlistani_s=JSON.parse(localStorage.getItem('koi')); break;
 						case 'Chinese food':izlistani_s=JSON.parse(localStorage.getItem('kii')); break;
-					
+						case 'sve':izlistani_s=JSON.parse(localStorage.getItem('svei')); break;
 					}
 					
 					//alert('izlistani_s: '+izlistani_s);
