@@ -24,6 +24,14 @@
 		
 		
 		<script>
+			/*KOLEGA OVU FJU DODAJETE SVUDA GDE TREBA BREADCRUMB DA IMA RESTORANE*/
+			function filter(tip){//sortiranje po prosledjenom tipu(palacinke,brza,kolaci,...)
+				localStorage.setItem("filter",tip);
+				localStorage.setItem("flag","set");
+				window.open("filtriranje.html");
+			}
+		
+		
 			function pocetak(){
 					var prod_cena=localStorage.getItem('prviRed');
 					if (prod_cena!='false'){
