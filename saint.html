@@ -23,6 +23,13 @@
 		<script src="js/Ocene.js"></script>
 		
 		<script>
+			/*KOLEGA OVU FJU DODAJETE SVUDA GDE TREBA BREADCRUMB DA IMA RESTORANE*/
+			function filter(tip){//sortiranje po prosledjenom tipu(palacinke,brza,kolaci,...)
+				localStorage.setItem("filter",tip);
+				localStorage.setItem("flag","set");
+				window.open("filtriranje.html");
+			}
+			
 			function stavi_u_korpu(){
 				if(document.saint_forma.Capricciosa.checked){
 					localStorage.setItem(1,"Capricciosa#420");
@@ -192,7 +199,15 @@
 			  </a>
 			</div>
 			
-			
+			<!--breadcrumbs-->
+		
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+				<li class="breadcrumb-item"><a href="javascript:filter('sve');">Restorani</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Saint pizza</li>
+			  </ol>
+			</nav>
 			
 			<!--KUPOVINA PROIZVODA-->
 			
