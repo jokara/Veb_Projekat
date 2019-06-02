@@ -27,6 +27,8 @@
 			function pocetak(){
 					var prod_cena=localStorage.getItem('prviRed');
 					if (prod_cena!='false'){
+						alert("Usao");
+						alert(prod_cena);
 						document.getElementById('rest').innerHTML="<h2><font color='white'>"+localStorage.getItem("Restoran")+"</font></h2>";
 						prod_cena=prod_cena.split(",");
 						var prod=prod_cena[0];
@@ -39,7 +41,11 @@
 						
 					}
 					var prod_cena1=localStorage.getItem('drugiRed');
+					alert(localStorage.getItem('drugiRed'));
+					alert(prod_cena1);
 					if (prod_cena1!='false'){
+						alert("Usao");
+						alert(prod_cena);
 						prod_cena1=prod_cena1.split(",");
 						var prod1=prod_cena1[0];
 						var cena1=prod_cena1[1];
@@ -53,7 +59,11 @@
 					
 					
 					var prod_cena2=localStorage.getItem('treciRed');
+					alert(localStorage.getItem('treciRed'));
+					alert(prod_cena2);
 					if (prod_cena2!='false'){
+						alert("Usao");
+						alert(prod_cena);
 						prod_cena2=prod_cena2.split(",");
 						var prod2=prod_cena2[0];
 						var cena2=prod_cena2[1];
@@ -67,6 +77,8 @@
 					
 					var prod_cena3=localStorage.getItem('cetvrtiRed');
 					if (prod_cena3!='false'){
+						alert("Usao");
+						alert(prod_cena);
 						prod_cena3=prod_cena3.split(",");
 						var prod3=prod_cena3[0];
 						var cena3=prod_cena3[1];
@@ -85,7 +97,8 @@
 					
 					document.getElementById('kupac1').innerHTML=localStorage.getItem('kupac');
 					document.getElementById('adresak').innerHTML=localStorage.getItem('adresaKupca');
-					document.getElementById('telefonk').innerHTML=localStorage.getItem('telefonKupca');			
+					document.getElementById('telefonk').innerHTML=localStorage.getItem('telefonKupca');	
+					localStorage.setItem("flag_korpa",'false');
 			}
 		
 			function izvezi(){
@@ -96,6 +109,7 @@
 			
 			function finish(){
 				window.open("uspesna_kupovina_eng.html","_self");
+				
 			}
 		</script>
 		
