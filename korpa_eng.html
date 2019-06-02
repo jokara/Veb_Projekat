@@ -45,7 +45,7 @@
 				var brojac=0;
 				var rest="";
 				for(var i=1;i<65;i++){
-					if ((localStorage.getItem(i)!='false')&&(brojac==0)&&(localStorage.getItem(i)!='null')){
+					if ((localStorage.getItem(i)!='false')&&(brojac==0)&&(localStorage.getItem(i)!='null')&&(localStorage.getItem(i)!=null)){
 						var prod_cena=localStorage.getItem(i);
 						prod_cena=prod_cena.split("#");
 						localStorage.setItem("prviRed",prod_cena);
@@ -80,7 +80,7 @@
 						localStorage.setItem(i,'false');
 						brojac=brojac+1;
 					}
-					if ((localStorage.getItem(i)!='false')&&(brojac==1)&&(localStorage.getItem(i)!='null')){
+					if ((localStorage.getItem(i)!='false')&&(brojac==1)&&(localStorage.getItem(i)!='null')&&(localStorage.getItem(i)!=null)){
 						var prod_cena=localStorage.getItem(i);
 						prod_cena=prod_cena.split("#");
 						localStorage.setItem("drugiRed",prod_cena);
@@ -96,7 +96,7 @@
 						localStorage.setItem(i,'false');
 						brojac=brojac+1;
 					}
-					if ((localStorage.getItem(i)!='false')&&(brojac==2)&&(localStorage.getItem(i)!='null')){
+					if ((localStorage.getItem(i)!='false')&&(brojac==2)&&(localStorage.getItem(i)!='null')&&(localStorage.getItem(i)!=null)){
 						var prod_cena=localStorage.getItem(i);
 						prod_cena=prod_cena.split("#");
 						localStorage.setItem("treciRed",prod_cena);
@@ -112,7 +112,7 @@
 						localStorage.setItem(i,'false');
 						brojac=brojac+1;
 					}
-					if ((localStorage.getItem(i)!='false')&&(brojac==3)&&(localStorage.getItem(i)!='null')){
+					if ((localStorage.getItem(i)!='false')&&(brojac==3)&&(localStorage.getItem(i)!='null')&&(localStorage.getItem(i)!=null)){
 						var prod_cena=localStorage.getItem(i);
 						prod_cena=prod_cena.split("#");
 						localStorage.setItem("cetvrtiRed",prod_cena);
