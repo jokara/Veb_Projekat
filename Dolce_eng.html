@@ -22,6 +22,14 @@
 		<link rel="stylesheet" href="css/zvezdara.css">
 		<script src="js/Ocene.js"></script>
 		<script>
+			function filter(tip){//sortiranje po prosledjenom tipu(palacinke,brza,kolaci,...)
+				localStorage.setItem("filter",tip);
+				//alert(tip);
+				localStorage.setItem("flag","set");
+				window.open("filtriranje_eng.html");
+			}
+		
+		
 			function stavi_u_korpu(){
 				if(document.dolce_form.BigMac.checked){
 					localStorage.setItem(33,"Mafin#180");
@@ -153,7 +161,15 @@
 		  </a>
 		</div>
 		
+		<!--breadcrumbs-->
 		
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index_eng.html">Home</a></li>
+				<li class="breadcrumb-item"><a href="javascript:filter('sve');">Restaurants</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Dolce by Tintolino</li>
+			  </ol>
+			</nav>
 		
 		<!--KUPOVINA PROIZVODA-->
 		

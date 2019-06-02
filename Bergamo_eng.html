@@ -23,6 +23,13 @@
 		<script src="js/Ocene.js"></script>
 		
 		<script>
+			function filter(tip){//sortiranje po prosledjenom tipu(palacinke,brza,kolaci,...)
+				localStorage.setItem("filter",tip);
+				//alert(tip);
+				localStorage.setItem("flag","set");
+				window.open("filtriranje_eng.html");
+			}
+		
 			function stavi_u_korpu(){
 				if(document.bergamo_form.BigMac.checked){
 					localStorage.setItem(45,"Capricciosa#350");
@@ -184,7 +191,15 @@
 		  </a>
 		</div>
 		
+		<!--breadcrumbs-->
 		
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index_eng.html">Home</a></li>
+				<li class="breadcrumb-item"><a href="javascript:filter('sve');">Restorani</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Bergamo</li>
+			  </ol>
+			</nav>
 		
 		<!--KUPOVINA PROIZVODA-->
 		

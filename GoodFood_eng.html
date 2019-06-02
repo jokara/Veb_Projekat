@@ -22,6 +22,13 @@
 		<link rel="stylesheet" href="css/zvezdara.css">
 		<script src="js/Ocene.js"></script>
 		<script>
+			function filter(tip){//sortiranje po prosledjenom tipu(palacinke,brza,kolaci,...)
+				localStorage.setItem("filter",tip);
+				//alert(tip);
+				localStorage.setItem("flag","set");
+				window.open("filtriranje_eng.html");
+			}
+		
 			function stavi_u_korpu(){
 				if(document.good_forma.batak.checked){
 					localStorage.setItem(5,"Chicken drumstic#300");
@@ -184,7 +191,15 @@
 		  </a>
 		</div>
 		
+		<!--breadcrumbs-->
 		
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index_eng.html">Home</a></li>
+				<li class="breadcrumb-item"><a href="javascript:filter('sve');">Restaurants</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Good food</li>
+			  </ol>
+			</nav>
 		
 		<!--KUPOVINA PROIZVODA-->
 		
