@@ -23,6 +23,17 @@
 		<script src="js/Ocene.js"></script>
 		
 		<script>
+			/*pretvaranje html forme u string*/
+			function getParameters(form) {
+			  var parameters = "";
+			  for (var x=0, y=form.elements.length; x < y; x++) {
+			  var field = form.elements[x];
+			  if (field.name && field.type !== "submit") {
+				parameters += "&" + encodeURIComponent(field.name) + "=" + (field.type == "radio" || field.type == "checkbox" ? (field.checked == "checked") : encodeURIComponent(field.value));
+			  }
+			  return parameters;
+			}
+			
 			/*KOLEGA OVU FJU DODAJETE SVUDA GDE TREBA BREADCRUMB DA IMA RESTORANE*/
 			function filter(tip){//sortiranje po prosledjenom tipu(palacinke,brza,kolaci,...)
 				localStorage.setItem("filter",tip);
